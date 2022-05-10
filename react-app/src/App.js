@@ -10,6 +10,7 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import HomePage from './components/HomePage/HomePage';
 import ItemDetail from './components/ItemDetail/ItemDetail';
+import ItemBar from './components/ItemBar';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -29,6 +30,7 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
+      <ItemBar />
       <Switch>
         <Route path='/login' exact={true}>
           <LoginForm />
