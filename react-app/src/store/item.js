@@ -26,7 +26,7 @@ export const getOneItemThunk = (itemId) => async dispatch =>{
     const response = await fetch(`/api/items/${itemId}`)
     if(response.ok){
         const item = await response.json();
-        dispatch(getOneItem(item.item))
+        dispatch(getOneItem(item))
         return item
     }
     return response;

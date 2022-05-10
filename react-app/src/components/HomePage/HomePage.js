@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { getAllItemsThunk } from '../../store/item';
 
 function HomePage(){
@@ -21,10 +22,12 @@ function HomePage(){
             </div>
             <div>
                 {itemListing?.map(item =>(
-                    <>
-                    <p>{item.name}</p>
-                    <img src={item?.image_url}/>
-                    </>
+                    <div className='item-listed'>
+                        <NavLink exact to={`/items/${item?.id}`}>
+                            <p>{item?.name}</p>
+                            <img src={item?.image_url} alt={item?.name}/>
+                        </NavLink>
+                    </div>
                 ))}
             </div>
         </div>
