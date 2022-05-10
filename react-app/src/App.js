@@ -11,6 +11,7 @@ import { authenticate } from './store/session';
 import HomePage from './components/HomePage/HomePage';
 import ItemDetail from './components/ItemDetail/ItemDetail';
 import ItemBar from './components/ItemBar';
+import ItemListing from './components/ItemListing/ItemListing';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -49,6 +50,9 @@ function App() {
         </ProtectedRoute>
         <Route path='/items/:itemId' exact={true}>
           <ItemDetail/>
+        </Route>
+        <Route path='/sell' exact={true}>
+          <ItemListing/>
         </Route>
       </Switch>
     </BrowserRouter>
