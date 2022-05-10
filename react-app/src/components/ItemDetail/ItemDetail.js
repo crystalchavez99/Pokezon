@@ -3,26 +3,32 @@ import { useSelector, useDispatch } from 'react-redux';
 import { NavLink, useParams } from 'react-router-dom';
 import { getOneItemThunk } from '../../store/item';
 
-function ItemDetail(){
-    const {itemId} = useParams();
+function ItemDetail() {
+    const { itemId } = useParams();
     console.log(itemId)
     const dispatch = useDispatch();
     const item = useSelector(state => state?.items[itemId])
     console.log('item detail', item)
-    useEffect(()=>{
+    useEffect(() => {
         dispatch(getOneItemThunk(itemId))
-    },[dispatch])
+    }, [dispatch])
 
     return (
         <div>
             <h1>Items</h1>
-                <>
-                    <img src={item?.image_url}/>
-                    <p>{item?.name}</p>
-                <>
-                    <p>{item?.description}</p>
-                </>
-                </>
+            <>
+                <img src={item?.image_url} />
+                <p>{item?.name}</p>
+            </>
+            <>
+            <p>₽{item?.price}</p>
+            <p>Quantity: {item?.quantity}</p>
+            </>
+            <>
+                <p>{item?.description}</p>
+
+
+            </>
         </div>
     )
 }

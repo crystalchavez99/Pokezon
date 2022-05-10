@@ -1,6 +1,8 @@
 const GET_ITEMS = 'item/GET_ITEMS';
 const GET_SINGLE_ITEM = 'item/GET_SINGLE_ITEM';
 const ADD_ITEM = 'item/ADD_ITEM';
+const UPDATE_ITEM = 'item/ADD_ITEM';
+const DELETE_ITEM = 'item/DELETE_ITEM';
 
 const getItems = (items) =>({
     type: GET_ITEMS,
@@ -14,6 +16,15 @@ const getOneItem = (item) => ({
 
 const addOneItem = (item) =>({
     type: ADD_ITEM,
+    payload: item
+})
+
+const updateItem = (item) =>({
+    type: UPDATE_ITEM,
+    payload: item
+})
+const deleteItem = (item) =>({
+    type: DELETE_ITEM,
     payload: item
 })
 
