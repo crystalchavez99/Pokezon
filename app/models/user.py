@@ -14,7 +14,6 @@ class User(db.Model, UserMixin):
     hashed_password = db.Column(db.String(255), nullable=False)
     created_at = db.Column(db.DateTime(timezone=True),nullable=False)
 
-    items = db.relationship('Item', back_populates='user', cascade="all, delete")
 
     @property
     def password(self):

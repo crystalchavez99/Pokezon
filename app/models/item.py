@@ -9,12 +9,11 @@ class Item(db.Model):
     name = db.Column(db.String(40), nullable=False, unique=True)
     image_url = db.Column(db.String(), nullable=False)
     description = db.Column(db.String())
-    user_id = db.Column(db.Integer(), ForeignKey('users.id'),nullable=False)
+    user_id = db.Column(db.Integer(), nullable=False)
     price = db.Column(db.Integer(), nullable=False)
     quantity = db.Column(db.Integer(), nullable=False)
     created_at = db.Column(db.DateTime(timezone=True),nullable=False)
 
-    user = db.relationship('User',back_populates='items')
 
     def to_dict(self):
         return {
