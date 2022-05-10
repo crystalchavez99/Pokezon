@@ -39,15 +39,20 @@ export const getOneItemThunk = (itemId) => async dispatch =>{
 }
 
 export const addOneItemThunk = (item) => async dispatch =>{
+    console.log('enter thunk',item)
     const response = await fetch('/api/items/add_item',{
         method: 'POST',
-        body: item
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(item)
     })
+    console.log('response post', response)
     if (response.ok) {
         const newItem = await response.json();
         dispatch(addOneItem(newItem));
+        console.log('success response post',newItem)
       }else if (response.status < 500) {
         const data = await response.json();
+        console.log('error response post',data)
         return data
       }
       return response;
