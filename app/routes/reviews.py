@@ -10,3 +10,8 @@ review_routes = Blueprint('reviews',__name__,url_prefix="/reviews")
 def reviews():
     reviews = Review.query.all()
     return {'reviews' : [review.to_dict() for review in reviews]}
+
+@review_routes.route('/<int:id>')
+def single_review(id):
+    review = Review.query.get(id)
+    return review.to_dict()
