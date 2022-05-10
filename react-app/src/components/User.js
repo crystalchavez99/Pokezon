@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch,useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import {getAllItemsThunk} from '../store/item';
 
 function User() {
@@ -52,7 +52,7 @@ function User() {
         {ownedItems?.map(item => (
           <>
           <img src={item?.image_url}/>
-          <button>Edit</button>
+          <NavLink to={`/items/${item?.id}/edit`}>Edit</NavLink>
           <button>Delete</button>
           </>
         ))}

@@ -12,6 +12,7 @@ import HomePage from './components/HomePage/HomePage';
 import ItemDetail from './components/ItemDetail/ItemDetail';
 import ItemBar from './components/ItemBar';
 import ItemListing from './components/ItemListing/ItemListing';
+import ItemEdit from './components/ItemListing/ItemEdit';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -50,6 +51,9 @@ function App() {
         </ProtectedRoute>
         <Route path='/items/:itemId' exact={true}>
           <ItemDetail/>
+        </Route>
+        <Route path='/items/:itemId/edit' exact={true}>
+          <ItemEdit/>
         </Route>
         <Route path='/sell' exact={true}>
           <ItemListing/>

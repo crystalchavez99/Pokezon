@@ -1,44 +1,49 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { addOneItemThunk } from '../../store/item'
-import { useHistory } from "react-router-dom";
-function ItemListing() {
+import { useHistory,useParams } from "react-router-dom";
+import { getOneItemThunk,updateOneItemThunk } from '../../store/item';
+
+function ItemEdit({item}) {
+    const { itemId } = useParams();
+    item = useSelector(state => state?.items[itemId])
     const dispatch = useDispatch();
     const history = useHistory();
-    const [name, setName] = useState("")
-    const [image_url, setImage_url] = useState("")
-    const [description, setDescription] = useState("")
-    const [price, setPrice] = useState(0)
-    const [quantity, setQuantity] = useState(0);
+    const [name, setName] = useState(item?.name)
+    const [image_url, setImage_url] = useState(item?.image_url)
+    const [description, setDescription] = useState(item?.description)
+    const [price, setPrice] = useState(item?.price)
+    const [quantity, setQuantity] = useState(item?.quantity);
     const [errors, setErrors] = useState([]);
     const user_id = useSelector(state => state.session.user.id);
 
     const itemSubmit = async e => {
         e.preventDefault();
-        let newItem = {
+        let updateItem = {
+            ...item,
             name,
             image_url,
             description,
             price,
-            quantity,
-            user_id,
-            created_at: new Date()
+            quantity
         }
-        await dispatch(addOneItemThunk(newItem))
+        await dispatch(updateOneItemThunk(updateItem))
         .then((res)=>{
             if(!res?.ok){
               setErrors(res?.errors)
             }else{
               setErrors([])
-              history.push("/")
+              history.push(`/items/${item?.id}`)
             }
         })
     }
-
+    useEffect(() => {
+        dispatch(getOneItemThunk(itemId))
+    }, [dispatch,itemId])
 
     return (
         <div>
-            <h1>Create A Listing</h1>
+            <h1>Edit A Listing</h1>
             <div>
                 <form id="add-item-form" onSubmit={itemSubmit}>
                     <div>
@@ -91,11 +96,11 @@ function ItemListing() {
                         value={quantity}
                         onChange={(e) => setQuantity(e.target.value)}
                     />
-                    <button type='submit' id="submit-button">Add Item</button>
+                    <button type='submit' id="submit-button">Edit Item</button>
                 </form>
             </div>
         </div>
     )
 }
 
-export default ItemListing;
+export default ItemEdit;
