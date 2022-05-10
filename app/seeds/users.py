@@ -3,16 +3,16 @@ from app.models import db, User
 
 # Adds a demo user, you can add other users here if you want
 def seed_users():
-    demo = User(
-        username='Demo', email='demo@aa.io', password='password')
-    marnie = User(
-        username='marnie', email='marnie@aa.io', password='password')
-    bobbie = User(
-        username='bobbie', email='bobbie@aa.io', password='password')
+    Demo = User(
+        username='Demo', email='demo@aa.io', password='password',bio='Demo User for Pokezon!',created_at='2022-05-09 17:33:33')
+    Viridian = User(
+        username='Viridian', email='Viridian@aa.io', password='password',bio='Poké Mart in Viridian City',created_at='1996-02-27 00:00:00')
+    Pewter = User(
+        username='Pewter', email='Pewter@aa.io', password='password',bio='Poké Mart in Pewter City',created_at='1996-02-27 00:00:00')
 
-    db.session.add(demo)
-    db.session.add(marnie)
-    db.session.add(bobbie)
+    db.session.add(Demo)
+    db.session.add(Viridian)
+    db.session.add(Pewter)
 
     db.session.commit()
 
