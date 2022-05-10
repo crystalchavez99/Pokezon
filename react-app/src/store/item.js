@@ -69,6 +69,24 @@ export const addOneItemThunk = (item) => async dispatch =>{
       return response;
 }
 
+export const updateOneItemThunk = (item) => async dispatch =>{
+    const response = await fetch(`/api/items/${item.id}`,{
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(item)
+    })
+    if (response.ok) {
+        const updateItem = await response.json();
+        dispatch(updateItem(updateItem));
+        console.log('success response post',updateItem)
+      }else if (response.status < 500) {
+        const data = await response.json();
+        console.log('error response post',data)
+        return data
+      }
+      return response;
+}
+
 const initialState = {};
 
 const itemsReducer = (state = initialState, action) =>{
@@ -84,6 +102,9 @@ const itemsReducer = (state = initialState, action) =>{
             return newState;
         case ADD_ITEM:
             newState = {[action.payload.id]: action.payload,...state}
+            return newState;
+        case UPDATE_ITEM:
+            newState = {[action.payload.id]: action.payload}
             return newState;
         default:
             return state;

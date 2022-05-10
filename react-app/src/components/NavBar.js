@@ -1,9 +1,12 @@
-
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
 import LogoutButton from './auth/LogoutButton';
 import logo from '../images/Pokezon.png'
+
 const NavBar = () => {
+  const user = useSelector(state => state.session.user);
   return (
     <nav>
       <ul>
@@ -27,7 +30,7 @@ const NavBar = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink to='/users/<:userId>' exact={true} activeClassName='active'>
+          <NavLink to={`/users/${user?.username}`} exact={true} activeClassName='active'>
             Profile
           </NavLink>
         </li>
