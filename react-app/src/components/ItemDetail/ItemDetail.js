@@ -4,26 +4,25 @@ import { NavLink, useParams } from 'react-router-dom';
 import { getOneItemThunk } from '../../store/item';
 
 function ItemDetail(){
-    const item_id = useParams();
+    const {itemId} = useParams();
+    console.log(itemId)
     const dispatch = useDispatch();
-    const item = useSelector(state => Object.values(state?.item))
+    const item = useSelector(state => state?.items[itemId])
     console.log('item detail', item)
     useEffect(()=>{
-        dispatch(getOneItemThunk(item_id?.itemId))
+        dispatch(getOneItemThunk(itemId))
     },[dispatch])
 
     return (
         <div>
             <h1>Items</h1>
-            {item?.map(im =>(
                 <>
-                    <img src={im?.image_url}/>
-                    <p>{im?.name}</p>
+                    <img src={item?.image_url}/>
+                    <p>{item?.name}</p>
                 <>
-                    <p>{im?.description}</p>
+                    <p>{item?.description}</p>
                 </>
                 </>
-            ))}
         </div>
     )
 }

@@ -5,7 +5,7 @@ import { getAllItemsThunk } from '../../store/item';
 
 function HomePage(){
     const dispatch = useDispatch();
-    const itemListing = useSelector(state =>Object.values(state?.item))
+    const itemListing = useSelector(state =>Object.values(state?.items))
     useEffect(()=>{
         dispatch(getAllItemsThunk())
     },[dispatch])
@@ -23,7 +23,7 @@ function HomePage(){
             <div>
                 {itemListing?.map(item =>(
                     <div className='item-listed'>
-                        <NavLink exact to={`/items/${item?.id}`}>
+                        <NavLink key={item?.id} exact={true} to={`/items/${item?.id}`}>
                             <p>{item?.name}</p>
                             <img src={item?.image_url} alt={item?.name}/>
                         </NavLink>
