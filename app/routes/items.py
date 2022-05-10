@@ -7,3 +7,7 @@ item_routes = Blueprint('items',__name__, url_prefix="/items")
 def items():
     items = Item.query.all()
     return {'items': [item.to_dict() for item in items]}
+@item_routes.route('/<int:id>')
+def single_item(id):
+    item = Item.query.get(id)
+    return item.to_dict()
