@@ -1,12 +1,11 @@
 from venv import create
 from .db import db
-from sqlalchemy import ForeignKey
 
 class Item(db.Model):
     __tablename__ = 'items'
 
     id = db.Column(db.Integer(), primary_key=True)
-    name = db.Column(db.String(40), nullable=False, unique=True)
+    name = db.Column(db.String(40), nullable=False)
     image_url = db.Column(db.String(), nullable=False)
     description = db.Column(db.String())
     user_id = db.Column(db.Integer(), nullable=False)
