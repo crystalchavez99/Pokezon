@@ -33,8 +33,23 @@ def add_item():
             quantity=form["quantity"].data,
             user_id=user_id,
             created_at=datetime.datetime.now())
-        print('NEW ITEM FOR SALE',item)
         db.session.add(item)
+        db.session.commit()
+        return item.to_dict()
+    return {"errors": validation_errors_to_error_messages(form.errors)},401
+
+@item_routes.route('/<int:id>',methods=["PUT"])
+def update_item(id):
+    item = Item.query.get(id)
+    form = NewItem()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        item.name=form["name"].data
+        item.image_url=form["image_url"].data
+        item.description=form["description"].data
+        item.price=form["price"].data
+        item.quantity=form["quantity"].data
+        print("UPDATED",item.to_dict())
         db.session.commit()
         return item.to_dict()
     return {"errors": validation_errors_to_error_messages(form.errors)},401
