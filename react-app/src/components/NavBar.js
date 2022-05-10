@@ -12,7 +12,7 @@ const NavBar = () => {
       <ul>
         <li>
           <NavLink to='/' exact={true} activeClassName='active'>
-            <img src={logo}/>
+            <img src={logo} alt='logo'/>
           </NavLink>
         </li>
         <form action="/action_page.php">

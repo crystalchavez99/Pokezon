@@ -1,6 +1,5 @@
 import React, { useState ,useEffect} from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { addOneItemThunk } from '../../store/item'
 import { useHistory,useParams } from "react-router-dom";
 import { getOneItemThunk,updateOneItemThunk } from '../../store/item';
 
@@ -15,7 +14,6 @@ function ItemEdit({item}) {
     const [price, setPrice] = useState(item?.price)
     const [quantity, setQuantity] = useState(item?.quantity);
     const [errors, setErrors] = useState([]);
-    const user_id = useSelector(state => state.session.user.id);
 
     const itemSubmit = async e => {
         e.preventDefault();

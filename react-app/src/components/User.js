@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch,useSelector } from 'react-redux';
-import { NavLink, useParams } from 'react-router-dom';
-import {getAllItemsThunk} from '../store/item';
+import { NavLink, useHistory, useParams } from 'react-router-dom';
+import {getAllItemsThunk,deleteOneItemThunk} from '../store/item';
 
 function User() {
   const [user, setUser] = useState({});
   const { userId } = useParams();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const history = useHistory()
   const itemListing = useSelector(state =>Object.values(state?.items))
   useEffect(() => {
     dispatch(getAllItemsThunk())
@@ -26,10 +27,7 @@ function User() {
   const ownedItems = itemListing?.filter(item =>{
     console.log('item',item?.user_id)
     console.log('user',user)
-    if(item?.user_id === user?.id){
-      console.log('FOUND',item)
-      return item;
-    }
+    return item?.user_id === user?.id;
   })
 
   return (
@@ -51,9 +49,11 @@ function User() {
         <h2>Items for Sale</h2>
         {ownedItems?.map(item => (
           <>
-          <img src={item?.image_url}/>
+          <img src={item?.image_url} alt={item?.name}/>
           <NavLink to={`/items/${item?.id}/edit`}>Edit</NavLink>
-          <button>Delete</button>
+          <button onClick={() => {
+            dispatch(deleteOneItemThunk(item))
+          }}>Delete</button>
           </>
         ))}
       </div>

@@ -84,6 +84,19 @@ export const updateOneItemThunk = (item) => async dispatch =>{
       return response;
 }
 
+export const deleteOneItemThunk = (item) => async dispatch =>{
+    const response = await fetch(`/api/items/${item.id}`,{
+        method:'DELETE',
+    })
+
+    if(response.ok){
+        const deletedItem = await response.json();
+        dispatch(deleteItem(deletedItem))
+        return deletedItem
+    }
+    return response
+}
+
 const initialState = {};
 
 const itemsReducer = (state = initialState, action) =>{
@@ -102,6 +115,10 @@ const itemsReducer = (state = initialState, action) =>{
             return newState;
         case UPDATE_ITEM:
             newState = {[action.payload.id]: action.payload}
+            return newState;
+        case DELETE_ITEM:
+            newState = {...state}
+            delete newState[action.payload.id]
             return newState;
         default:
             return state;
