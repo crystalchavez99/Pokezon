@@ -18,3 +18,9 @@ def single_review(id):
     return review.to_dict()
 
 
+@review_routes.route('/<int:id>',methods=["DELETE"])
+def remove_review(id):
+    review = Review.query.get(id)
+    db.session.delete(review)
+    db.session.commit()
+    return review.to_dict()
