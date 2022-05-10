@@ -2,16 +2,20 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
-
+import logo from '../images/Pokezon.png'
 const NavBar = () => {
   return (
     <nav>
       <ul>
         <li>
           <NavLink to='/' exact={true} activeClassName='active'>
-            Home
+            <img src={logo}/>
           </NavLink>
         </li>
+        <form action="/action_page.php">
+          <input type="text" placeholder="Search.." name="search"/>
+          <button type="submit">Submit</button>
+        </form>
         <li>
           <NavLink to='/login' exact={true} activeClassName='active'>
             Login
@@ -23,8 +27,13 @@ const NavBar = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink to='/users' exact={true} activeClassName='active'>
-            Users
+          <NavLink to='/users/<:userId>' exact={true} activeClassName='active'>
+            Profile
+          </NavLink>
+        </li>
+        <li>
+        <NavLink to='/cart' exact={true} activeClassName='active'>
+            Cart
           </NavLink>
         </li>
         <li>
