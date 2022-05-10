@@ -30,7 +30,7 @@ const NavBar = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink to={`/users/${user?.username}`} exact={true} activeClassName='active'>
+          <NavLink to={`/users/${user?.id}`} exact={true} activeClassName='active'>
             Profile
           </NavLink>
         </li>
