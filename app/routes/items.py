@@ -2,11 +2,12 @@ import datetime
 from flask import Blueprint, request
 from flask_login import current_user
 from app.forms.new_item_form import NewItem
-from app.models import Item,db,Review
+from app.models.db import db
+from app.models import Item,Review
 from app.api.auth_routes import validation_errors_to_error_messages
 from app.forms.new_review_form import NewReview
 
-item_routes = Blueprint('items', __name__, url_prefix="/items")
+item_routes = Blueprint('items', __name__)
 
 
 @item_routes.route('/')
@@ -21,22 +22,28 @@ def single_item(id):
     return item.to_dict()
 
 
-@item_routes.route('/add_item', methods=["POST"])
+@item_routes.route('/add_item', methods=["GET","POST"])
 def add_item():
+    print('isnide post route')
+    user_id = current_user.id
     form = NewItem()
     form['csrf_token'].data = request.cookies['csrf_token']
-    user_id = current_user.id
+
+    print('inside form post')
     if form.validate_on_submit():
-        item = Item(name=form["name"].data,
-            image_url=form["image_url"].data,
-            description=form["description"].data,
-            price=form["price"].data,
-            quantity=form["quantity"].data,
+        item = Item(name=form.data["name"],
+            image_url=form.data["image_url"],
+            description=form.data["description"],
+            price=form.data["price"],
+            quantity=form.data["quantity"],
             user_id=user_id,
-            created_at=datetime.datetime.now())
+            created_at=datetime.datetime.now()
+        )
+        print('add this item',item.to_dict())
         db.session.add(item)
         db.session.commit()
         return item.to_dict()
+
     return {"errors": validation_errors_to_error_messages(form.errors)},401
 
 @item_routes.route('/<int:id>',methods=["PUT"])
