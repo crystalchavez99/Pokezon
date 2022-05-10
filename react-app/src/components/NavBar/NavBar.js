@@ -2,13 +2,13 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-import LogoutButton from './auth/LogoutButton';
-import logo from '../images/Pokezon.png'
-
+import LogoutButton from '../auth/LogoutButton';
+import logo from '../../images/Pokezon.png'
+import './NavBar.css';
 const NavBar = () => {
   const user = useSelector(state => state.session.user);
   return (
-    <nav>
+    <nav id="bot-nav">
       <ul>
         <li>
           <NavLink to='/' exact={true} activeClassName='active'>
