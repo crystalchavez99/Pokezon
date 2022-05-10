@@ -53,3 +53,11 @@ def update_item(id):
         db.session.commit()
         return item.to_dict()
     return {"errors": validation_errors_to_error_messages(form.errors)},401
+
+
+@item_routes.route('/<int:id>',methods=["DELETE"])
+def remove_item(id):
+    item = Item.query.get(id)
+    db.session.delete(item)
+    db.session.commit()
+    return item.to_dict()
