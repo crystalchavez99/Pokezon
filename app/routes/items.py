@@ -20,7 +20,7 @@ def single_item(id):
     return item.to_dict()
 
 
-@item_routes.route('/<int:id>', methods=["POST"])
+@item_routes.route('/add_item', methods=["POST"])
 def add_item():
     form = NewItem()
     form['csrf_token'].data = request.cookies['csrf_token']
