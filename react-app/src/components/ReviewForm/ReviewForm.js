@@ -17,11 +17,12 @@ function ReviewForm({ item }) {
             item_id: item?.id,
             created_at: new Date()
         }
-        await dispatch(addOneReviewThunk(newReview))
+        await dispatch(addOneReviewThunk(item?.id,newReview))
             .then((res) => {
                 if (!res?.ok) {
                     setErrors(res?.errors)
                 } else {
+                    setContent("")
                     setErrors([])
                 }
             })
@@ -43,6 +44,7 @@ function ReviewForm({ item }) {
                         value={content}
                         onChange={(e) => setContent(e.target.value)}
                     />
+                <button type='submit' id="submit-button">Add Review</button>
             </form>
         </>
     )
