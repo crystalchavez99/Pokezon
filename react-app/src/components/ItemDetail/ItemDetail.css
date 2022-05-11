@@ -1,0 +1,15 @@
+.item-display-flex{
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    float: none;
+}
+.item-display-flex img{
+    width: 400px;
+    height: 400px;
+}
+
+.item-image{
+    width: 50%;
+    display: block;
+}
