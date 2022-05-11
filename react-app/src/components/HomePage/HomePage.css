@@ -10,6 +10,9 @@
 .listing{
     max-width: 1140px;
     margin: 0 115px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 .item-listed{
     box-sizing: border-box;
@@ -29,8 +32,8 @@
 }
 
 .item-listed img{
-    width: 400px;
-    height: 400px;
+    max-width: 400px;
+    max-height: 400px;
 }
 
 .item-show{
