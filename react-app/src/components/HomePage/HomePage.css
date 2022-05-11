@@ -7,10 +7,12 @@
     font-family: "Open Sans", sans-serif;
     color: rgb(77, 77, 77);
 }
-
+.listing{
+    max-width: 1140px;
+    margin: 0 115px;
+}
 .item-listed{
     box-sizing: border-box;
-    border: 1px solid black;
     font-family: "Open Sans", sans-serif;
     display: flex;
     justify-content: center;
@@ -29,4 +31,19 @@
 .item-listed img{
     width: 350px;
     height: 475px;
+}
+
+.item-show{
+    box-sizing: border-box;
+    border: 1px solid black;
+    text-align: center;
+    margin: 5px 15px;
+    padding: 5px 15px;
+}
+.item-show:hover{
+    box-sizing: border-box;
+    border: 1px solid black;
+    text-align: center;
+    color: white;
+    background-color: black;
 }

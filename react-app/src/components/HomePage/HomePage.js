@@ -18,12 +18,15 @@ function HomePage(){
                     <h1>All your item needs fulfilled</h1>
                 </div>
             </div>
-            <div>
+            <div className='listing'>
                 {itemListing?.map(item =>(
                     <div className='item-listed'>
                         <NavLink key={item?.id} exact={true} to={`/items/${item?.id}`}>
                             <img src={item?.image_url} alt={item?.name}/>
                             <p>{item?.name}</p>
+                            <NavLink key={item?.id} exact={true} to={`/items/${item?.id}`}  className="item-show">
+                                Shop Now
+                            </NavLink>
                         </NavLink>
                     </div>
                 ))}
