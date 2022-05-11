@@ -23,6 +23,7 @@ function ReviewForm({ item, setModal }) {
                 if (!res?.ok) {
                     setErrors(res?.errors)
                 } else {
+                    setContent("")
                     setErrors([])
                 }
             })
