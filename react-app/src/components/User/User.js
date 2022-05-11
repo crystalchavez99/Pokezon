@@ -26,23 +26,24 @@ function User() {
     return null;
   }
   const ownedItems = itemListing?.filter(item =>{
-    console.log('item',item?.user_id)
-    console.log('user',user)
     return item?.user_id === user?.id;
   })
 
   return (
     <div id="user-page">
-      <div >
+      <div className='owner'>
         <ul>
-          <li>
-            <strong>User Id</strong> {userId}
-          </li>
           <li>
             <strong>Username</strong> {user.username}
           </li>
           <li>
             <strong>Email</strong> {user.email}
+          </li>
+          <li>
+            <strong>Bio</strong> {user.bio}
+          </li>
+          <li>
+          <NavLink to={`/sell`}>Create Listing</NavLink>
           </li>
         </ul>
       </div>

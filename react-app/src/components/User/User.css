@@ -1,4 +1,5 @@
-#user-page ul{
+#user-page, #user-page ul{
+    font-family: "Open Sans", sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -8,7 +9,11 @@
     color: rgb(77, 77, 77);
 
 }
-
+.owner{
+    display: flex;
+    justify-content: flex-start;
+    list-style: none;
+}
 #user-page img{
         width: 350px;
         height: 475px;
@@ -21,7 +26,7 @@
     width: min-content;
     border-radius: 1em;
     border-radius: 1rem;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .edit-delete{

@@ -12,7 +12,7 @@ const NavBar = () => {
       <ul>
         <li>
           <NavLink to='/' exact={true} activeClassName='active'>
-            Home
+          <i class="fa-solid fa-house">Home</i>
           </NavLink>
         </li>
         <form action="/action_page.php">
