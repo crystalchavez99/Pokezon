@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch,useSelector } from 'react-redux';
 import { NavLink, useHistory, useParams } from 'react-router-dom';
-import {getAllItemsThunk,deleteOneItemThunk} from '../store/item';
+import {getAllItemsThunk,deleteOneItemThunk} from '../../store/item';
+import './User.css';
 
 function User() {
   const [user, setUser] = useState({});
@@ -31,7 +32,7 @@ function User() {
   })
 
   return (
-    <div>
+    <div id="user-page">
       <div>
         <ul>
           <li>
