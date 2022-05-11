@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { addOneReviewThunk } from '../../store/review';
 
-function ReviewForm({ item }) {
+function ReviewForm({ item, setModal }) {
     const dispatch = useDispatch();
     const [content, setContent] = useState("");
     const user_id = useSelector(state => state.session.user.id);
     const [errors, setErrors] = useState([]);
+
 
 
     const reviewSubmit = async e => {
@@ -22,7 +23,6 @@ function ReviewForm({ item }) {
                 if (!res?.ok) {
                     setErrors(res?.errors)
                 } else {
-                    setContent("")
                     setErrors([])
                 }
             })

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { updateOneReviewThunk,getOneReviewThunk } from '../../store/review';
 
-function ReviewEdit({ review }) {
+function ReviewEdit({review, setModal}) {
     const dispatch = useDispatch();
     const [content, setContent] = useState(review?.content);
     const user_id = useSelector(state => state.session.user.id);
@@ -16,13 +16,14 @@ function ReviewEdit({ review }) {
             content,
             updated_at: new Date()
         }
-        await dispatch(updateOneReviewThunk(updatedReview))
+        dispatch(updateOneReviewThunk(updatedReview))
             .then((res) => {
                 if (!res?.ok) {
                     setErrors(res?.errors)
                 } else {
                     setContent("")
                     setErrors([])
+                    setModal(false)
                 }
             })
     }

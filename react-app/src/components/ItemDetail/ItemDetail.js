@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getOneItemThunk } from '../../store/item';
-import { getAllReviewsThunk } from '../../store/review';
+import { getAllReviewsThunk,deleteOneReviewThunk } from '../../store/review';
 import ReviewEdit from '../ReviewForm/ReviewEdit';
 import ReviewForm from '../ReviewForm/ReviewForm';
+import { Modal } from '../../context/Modal';
 import './ItemDetail.css';
 function ItemDetail() {
     const { itemId } = useParams();
@@ -12,6 +13,7 @@ function ItemDetail() {
     const [quantity,setQuantity] = useState(1)
     const item = useSelector(state => state?.items[itemId])
     const reviews = useSelector(state => Object.values(state?.reviews))
+    const [modal,setModal] = useState(false)
 
     const itemReviews = reviews?.filter(review =>{
         return review?.item_id === item?.id
@@ -63,7 +65,12 @@ function ItemDetail() {
                 {itemReviews?.map(review => (
                     <>
                     <p>{review?.content}</p>
-                    <ReviewEdit review={review}/>
+                    <button onClick={() => setModal(true)}>Edit</button>
+                    {modal &&
+                    (<Modal onClose={() => setModal(false)}>
+                        <ReviewEdit review={review} setModal={setModal}/>
+                    </Modal>)}
+                    <button onClick={() => dispatch(deleteOneReviewThunk(review))}>Delete</button>
                     </>
                 ))}
             </div>
