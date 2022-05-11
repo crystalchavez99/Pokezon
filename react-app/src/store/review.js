@@ -34,7 +34,7 @@ export const getAllReviewsThunk = () => async dispatch =>{
     if(response.ok){
         const reviews = await response.json()
         dispatch(getReviews(reviews.reviews))
-        return items
+        return reviews
     }
     return response;
 }
