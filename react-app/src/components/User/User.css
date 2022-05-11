@@ -1,3 +1,25 @@
 #user-page ul{
-    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-self: center;
+    font-family: "Open Sans", sans-serif;
+    color: rgb(77, 77, 77);
+
+}
+
+#user-page img{
+        width: 350px;
+        height: 475px;
+}
+
+.item-sale{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid grey;
+    width: min-content;
+    border-radius: 1em;
+    text-align: center;
 }

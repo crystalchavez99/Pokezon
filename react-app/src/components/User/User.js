@@ -33,7 +33,7 @@ function User() {
 
   return (
     <div id="user-page">
-      <div>
+      <div >
         <ul>
           <li>
             <strong>User Id</strong> {userId}
@@ -46,16 +46,16 @@ function User() {
           </li>
         </ul>
       </div>
-      <div>
+      <div id="owner-items">
         <h2>Items for Sale</h2>
         {ownedItems?.map(item => (
-          <>
+          <div className='item-sale'>
           <img src={item?.image_url} alt={item?.name}/>
           <NavLink to={`/items/${item?.id}/edit`}>Edit</NavLink>
           <button onClick={() => {
             dispatch(deleteOneItemThunk(item))
           }}>Delete</button>
-          </>
+          </div>
         ))}
       </div>
     </div>
