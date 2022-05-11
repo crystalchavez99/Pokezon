@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { getAllItemsThunk } from '../../store/item';
+import './HomePage.css';
 
 function HomePage(){
     const dispatch = useDispatch();
@@ -11,8 +12,8 @@ function HomePage(){
     },[dispatch])
 
     return (
-        <div>
-            <div>
+        <div id="Home-Page">
+            <div className='header'>
                 <div>
                     <h1>Pokezon</h1>
                 </div>
