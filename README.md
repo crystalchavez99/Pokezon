@@ -3,6 +3,9 @@
 Pokezon is a digital store application that sells supplies necessary for Pokémon training and lifestyle. We aim to help merchants sell standard adventure supplies
 and special items that are often unique to Pokemon trainers out there.
 
+## Live Link
+https://aa-pokezon.herokuapp.com/
+
 ## Getting started
 1. Clone this repository (only this branch)
 
