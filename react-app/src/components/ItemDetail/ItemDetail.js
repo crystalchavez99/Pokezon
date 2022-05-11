@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getOneItemThunk } from '../../store/item';
 import { getAllReviewsThunk } from '../../store/review';
+import ReviewEdit from '../ReviewForm/ReviewEdit';
 import ReviewForm from '../ReviewForm/ReviewForm';
 import './ItemDetail.css';
 function ItemDetail() {
@@ -60,7 +61,10 @@ function ItemDetail() {
                 <h4>Customer Reviews</h4>
                 <ReviewForm item={item}/>
                 {itemReviews?.map(review => (
+                    <>
                     <p>{review?.content}</p>
+                    <ReviewEdit review={review}/>
+                    </>
                 ))}
             </div>
         </div>

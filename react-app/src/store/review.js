@@ -39,6 +39,16 @@ export const getAllReviewsThunk = () => async dispatch =>{
     return response;
 }
 
+export const getOneReviewThunk = (review) => async dispatch =>{
+    const response = await fetch(`/api/reviews/${review.id}`)
+    if(response.ok){
+        const review = await response.json();
+        dispatch(getOneReview(review))
+        return review
+    }
+    return response;
+}
+
 export const addOneReviewThunk = (item_id,review) => async dispatch =>{
     const response = await fetch(`/api/items/${item_id}/add_review`,{
         method: 'POST',
@@ -83,6 +93,10 @@ const reviewsReducer = (state = initialState, action) =>{
             newState = {...state}
             action.payload.forEach(review => newState[review.id] = review)
             return {...newState,...state}
+        case GET_SINGLE_REVIEW:
+            newState = {...state}
+            newState[action.payload.id] = action.payload;
+            return newState;
         case ADD_REVIEW:
             newState = {[action.payload.id]: action.payload,...state}
             return newState;

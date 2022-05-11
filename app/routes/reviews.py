@@ -12,10 +12,16 @@ def reviews():
     reviews = Review.query.all()
     return {'reviews' : [review.to_dict() for review in reviews]}
 
-@review_routes.route('/<int:id>',methods=["GET","POST"])
+@review_routes.route('/<int:id>',methods=["GET","PUT"])
 def single_review(id):
     review = Review.query.get(id)
-    return review.to_dict()
+    form = NewReview()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        review.content=form["content"].data
+        db.session.commit()
+        return review.to_dict()
+    return {"errors": validation_errors_to_error_messages(form.errors)},401
 
 
 @review_routes.route('/<int:id>',methods=["DELETE"])
