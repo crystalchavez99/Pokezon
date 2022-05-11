@@ -48,13 +48,31 @@ export const addOneReviewThunk = (item_id,review) => async dispatch =>{
     if (response.ok) {
         const newReview = await response.json();
         dispatch(addOneReview(newReview));
-        console.log('success response post',newReview)
       }else if (response.status < 500) {
         const data = await response.json();
         return data
       }
       return response;
 }
+
+export const updateOneReviewThunk = (review) => async dispatch =>{
+    const response = await fetch(`/api/reviews/${review.id}`,{
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(review)
+    })
+    if (response.ok) {
+        const updatedReview = await response.json();
+        await dispatch(updateReview(updatedReview));
+        console.log('success response post',updatedReview)
+      }else if (response.status < 500) {
+        const data = await response.json();
+        console.log('error response post',data)
+        return data
+      }
+      return response;
+}
+
 
 const initialState = {};
 
@@ -67,6 +85,9 @@ const reviewsReducer = (state = initialState, action) =>{
             return {...newState,...state}
         case ADD_REVIEW:
             newState = {[action.payload.id]: action.payload,...state}
+            return newState;
+        case UPDATE_REVIEW:
+            newState = {[action.payload.id]: action.payload}
             return newState;
         default:
             return state;
