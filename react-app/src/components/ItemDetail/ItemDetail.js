@@ -13,7 +13,7 @@ function ItemDetail() {
 
     return (
         <div id='item-detail-page'>
-            <div>
+            <div id="location">
                 <p>Home / Balls / {item?.name}</p>
             </div>
             <div className='item-display-flex'>
@@ -22,14 +22,14 @@ function ItemDetail() {
                 </div>
                 <div className='item-info'>
                     <p>{item?.name}</p>
-                    <p>₽{item?.price}</p>
+                    <span>₽{item?.price}</span>
                     <p>Quantity: {item?.quantity}</p>
                     <div>
                         <button><i class="fa-solid fa-plus"></i></button>
                         <input type="number" min={1} max={item?.quantity}/>
                         <button><i class="fa-solid fa-minus"></i></button>
                     </div>
-                    <button>Add To Cart</button>
+                    <button type="button" id='cart'>Add To Cart</button>
                 </div>
             </div>
 
