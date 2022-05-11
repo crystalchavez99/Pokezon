@@ -8,10 +8,14 @@ class Item(db.Model):
     name = db.Column(db.String(40), nullable=False)
     image_url = db.Column(db.String(), nullable=False)
     description = db.Column(db.String())
-    user_id = db.Column(db.Integer(), nullable=False)
+    user_id = db.Column(db.Integer(), db.ForeignKey('users.id'),nullable=False, )
     price = db.Column(db.Integer(), nullable=False)
     quantity = db.Column(db.Integer(), nullable=False)
     created_at = db.Column(db.DateTime(timezone=True),nullable=False)
+
+    user = db.relationship('User',back_populates='items',foreign_keys=[user_id])
+    reviews = db.relationship('Review',back_populates='item',cascade="all,delete",primaryjoin="Item.id==Review.item_id")
+
 
 
     def to_dict(self):
