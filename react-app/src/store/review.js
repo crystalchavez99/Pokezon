@@ -27,3 +27,30 @@ const deleteReview = (review) =>({
     type: DELETE_REVIEW,
     payload: review
 })
+
+
+export const getAllReviewsThunk = () => async dispatch =>{
+    const response = await fetch('/api/reviews/')
+    if(response.ok){
+        const reviews = await response.json()
+        dispatch(getReviews(reviews.reviews))
+        return items
+    }
+    return response;
+}
+
+const initialState = {};
+
+const reviewsReducer = (state = initialState, action) =>{
+    let newState;
+    switch(action.type){
+        case GET_REVIEWS:
+            newState = {...state}
+            action.payload.forEach(review => newState[review.id] = review)
+            return {...newState,...state}
+        default:
+            return state;
+    }
+}
+
+export default reviewsReducer;
