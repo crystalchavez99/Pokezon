@@ -34,6 +34,9 @@ function App() {
       <NavBar />
       <ItemBar />
       <Switch>
+      <Route path='/' exact={true} >
+          <HomePage/>
+        </Route>
         <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
@@ -45,9 +48,6 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
-        </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
-          <HomePage/>
         </ProtectedRoute>
         <Route path='/items/:itemId' exact={true}>
           <ItemDetail/>

@@ -15,18 +15,15 @@ function HomePage(){
         <div id="Home-Page">
             <div className='header'>
                 <div>
-                    <h1>Pokezon</h1>
-                </div>
-                <div>
-                    {/*Nav Bar would go here */}
+                    <h1>All your item needs fulfilled</h1>
                 </div>
             </div>
             <div>
                 {itemListing?.map(item =>(
                     <div className='item-listed'>
                         <NavLink key={item?.id} exact={true} to={`/items/${item?.id}`}>
-                            <p>{item?.name}</p>
                             <img src={item?.image_url} alt={item?.name}/>
+                            <p>{item?.name}</p>
                         </NavLink>
                     </div>
                 ))}

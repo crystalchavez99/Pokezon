@@ -1,1 +1,32 @@
+#Home-Page{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-self: center;
+    font-family: "Open Sans", sans-serif;
+    color: rgb(77, 77, 77);
+}
 
+.item-listed{
+    box-sizing: border-box;
+    border: 1px solid black;
+    font-family: "Open Sans", sans-serif;
+    display: flex;
+    justify-content: center;
+    width: min-content;
+}
+
+.item-listed a{
+    text-decoration: none;
+    font-weight: 700;
+    color: rgb(77, 77, 77);
+    font-size: 16px;
+    text-align: center;
+    line-height: 22px;
+}
+
+.item-listed img{
+    width: 350px;
+    height: 475px;
+}
