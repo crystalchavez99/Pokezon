@@ -40,8 +40,7 @@ const NavBar = () => {
           </NavLink>
         </li>
         <li id="logout-ui">
-        <i class="fa-regular fa-circle-xmark"><LogoutButton /></i>
-
+          <LogoutButton/>
         </li>
       </ul>
     </nav>
