@@ -1,8 +1,15 @@
+#item-detail-page{
+    max-width: 1140px;
+    margin: 0 115px;
+}
+
 .item-display-flex{
     box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
     float: none;
+    align-items: center;
+    justify-content: center;
 }
 .item-display-flex img{
     width: 400px;
@@ -10,6 +17,16 @@
 }
 
 .item-image{
-    width: 50%;
+    width: 500px;
+    flex: auto 0 0 ;
     display: block;
+}
+
+.item-info{
+    flex: auto 0 0 ;
+    padding: 0 10px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: rgb(77, 77, 77);
 }

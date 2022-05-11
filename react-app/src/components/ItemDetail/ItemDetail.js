@@ -20,10 +20,15 @@ function ItemDetail() {
                 <div className='item-image'>
                     <img src={item?.image_url} alt={item?.name} />
                 </div>
-                <div>
+                <div className='item-info'>
                     <p>{item?.name}</p>
                     <p>₽{item?.price}</p>
                     <p>Quantity: {item?.quantity}</p>
+                    <div>
+                        <button><i class="fa-solid fa-plus"></i></button>
+                        <input type="number" min={1} max={item?.quantity}/>
+                        <button><i class="fa-solid fa-minus"></i></button>
+                    </div>
                     <button>Add To Cart</button>
                 </div>
             </div>
