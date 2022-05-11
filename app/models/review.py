@@ -6,11 +6,13 @@ class Review(db.Model):
 
     id = db.Column(db.Integer(), primary_key=True)
     content = db.Column(db.String(), nullable=False)
-    user_id = db.Column(db.Integer(), nullable=False)
-    item_id = db.Column(db.Integer(), nullable=False)
+    user_id = db.Column(db.Integer(), db.ForeignKey('users.id'),nullable=False)
+    item_id = db.Column(db.Integer(), db.ForeignKey('items.id'),nullable=False)
     created_at = db.Column(db.DateTime(timezone=True),nullable=False)
     updated_at = db.Column(db.DateTime(timezone=True))
 
+    user = db.relationship('User',back_populates='reviews',foreign_keys=[user_id])
+    item = db.relationship('Item',back_populates='reviews',foreign_keys=[item_id])
 
     def to_dict(self):
         return {
