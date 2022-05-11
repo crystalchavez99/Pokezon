@@ -6,7 +6,7 @@ import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
-import User from './components/User';
+import User from './components/User/User';
 import { authenticate } from './store/session';
 import HomePage from './components/HomePage/HomePage';
 import ItemDetail from './components/ItemDetail/ItemDetail';
@@ -34,6 +34,9 @@ function App() {
       <NavBar />
       <ItemBar />
       <Switch>
+      <Route path='/' exact={true} >
+          <HomePage/>
+        </Route>
         <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
@@ -45,9 +48,6 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
-        </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
-          <HomePage/>
         </ProtectedRoute>
         <Route path='/items/:itemId' exact={true}>
           <ItemDetail/>

@@ -1,1 +1,49 @@
+#Home-Page{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-self: center;
+    font-family: "Open Sans", sans-serif;
+    color: rgb(77, 77, 77);
+}
+.listing{
+    max-width: 1140px;
+    margin: 0 115px;
+}
+.item-listed{
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+    display: flex;
+    justify-content: center;
+    width: min-content;
+}
 
+.item-listed a{
+    text-decoration: none;
+    font-weight: 700;
+    color: rgb(77, 77, 77);
+    font-size: 16px;
+    text-align: center;
+    line-height: 22px;
+}
+
+.item-listed img{
+    width: 400px;
+    height: 400px;
+}
+
+.item-show{
+    box-sizing: border-box;
+    border: 1px solid black;
+    text-align: center;
+    margin: 5px 15px;
+    padding: 5px 15px;
+}
+.item-show:hover{
+    box-sizing: border-box;
+    border: 1px solid black;
+    text-align: center;
+    color: white;
+    background-color: black;
+}

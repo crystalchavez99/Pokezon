@@ -10,11 +10,11 @@ const NavBar = () => {
   return (
     <nav id="top-nav">
       <ul>
-        {/* <li>
+        <li>
           <NavLink to='/' exact={true} activeClassName='active'>
-            <img src={logo} alt='logo' />
+          <i class="fa-solid fa-house">Home</i>
           </NavLink>
-        </li> */}
+        </li>
         <form action="/action_page.php">
           <input type="text" placeholder="Search.." name="search" />
           <button type="submit">Submit</button>

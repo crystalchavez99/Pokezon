@@ -1,0 +1,57 @@
+#user-page, #user-page ul{
+    font-family: "Open Sans", sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-self: center;
+    font-family: "Open Sans", sans-serif;
+    color: rgb(77, 77, 77);
+
+}
+.owner{
+    display: flex;
+    justify-content: flex-start;
+    list-style: none;
+}
+#user-page img{
+        width: 350px;
+        height: 475px;
+}
+
+.item-sale{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: min-content;
+    border-radius: 1em;
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.edit-delete{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#owner-items button, #owner-items a{
+    text-decoration: none;
+    box-sizing: border-box;
+    border: 1px solid black;
+    text-align: center;
+    margin: 5px 15px;
+    padding: 5px 15px;
+    width: 70px;
+    font-size: 12px;
+    background-color: lightgrey;
+    color: black;
+    font-family: "Open Sans", sans-serif;
+}
+#owner-items button:hover,#owner-items a:hover{
+    box-sizing: border-box;
+    border: 1px solid black;
+    text-align: center;
+    color: white;
+    background-color: black;
+
+}
