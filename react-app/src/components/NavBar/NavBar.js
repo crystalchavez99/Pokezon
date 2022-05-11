@@ -19,29 +19,30 @@ const NavBar = () => {
           <input type="text" placeholder="Search.." name="search" />
           <button type="submit">Submit</button>
         </form>
-        <li id="login-ui">
-            <NavLink to='/login' exact={true} activeClassName='active'>
-            <i class="fa-solid fa-right-to-bracket">Login</i>
-            </NavLink>
-        </li>
-        <li id="signup-ui">
-          <NavLink to='/sign-up' exact={true} activeClassName='active'>
-          <i class="fa-solid fa-user-plus">Sign Up</i>
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to={`/users/${user?.id}`} exact={true} activeClassName='active'>
-          <i class="fa-solid fa-user">Profile</i>
-          </NavLink>
-        </li>
+        {!user &&
+          <>
+            <li id="login-ui">
+              <NavLink to='/login' exact={true} activeClassName='active'>
+                <i class="fa-solid fa-right-to-bracket">Login</i>
+              </NavLink>
+            </li><li id="signup-ui">
+              <NavLink to='/sign-up' exact={true} activeClassName='active'>
+                <i class="fa-solid fa-user-plus">Sign Up</i>
+              </NavLink>
+            </li>
+          </>}
         <li>
           <NavLink to='/cart' exact={true} activeClassName='active'>
-          <i class="fa-solid fa-cart-shopping">Cart</i>
+            <i class="fa-solid fa-cart-shopping">Cart</i>
           </NavLink>
         </li>
-        <li id="logout-ui">
-          <LogoutButton/>
-        </li>
+        {user && <><li>
+          <NavLink to={`/users/${user?.id}`} exact={true} activeClassName='active'>
+            <i class="fa-solid fa-user">Profile</i>
+          </NavLink>
+        </li><li id="logout-ui">
+            <LogoutButton />
+          </li></>}
       </ul>
     </nav>
   );
