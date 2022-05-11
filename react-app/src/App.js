@@ -10,7 +10,7 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import HomePage from './components/HomePage/HomePage';
 import ItemDetail from './components/ItemDetail/ItemDetail';
-import ItemBar from './components/ItemBar';
+import ItemBar from './components/ItemBar/ItemBar';
 import ItemListing from './components/ItemListing/ItemListing';
 import ItemEdit from './components/ItemListing/ItemEdit';
 

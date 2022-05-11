@@ -8,7 +8,7 @@ import './NavBar.css';
 const NavBar = () => {
   const user = useSelector(state => state.session.user);
   return (
-    <nav id="bot-nav">
+    <nav id="top-nav">
       <ul>
         {/* <li>
           <NavLink to='/' exact={true} activeClassName='active'>
@@ -39,8 +39,9 @@ const NavBar = () => {
           <i class="fa-solid fa-cart-shopping">Cart</i>
           </NavLink>
         </li>
-        <li>
-          <LogoutButton />
+        <li id="logout-ui">
+        <i class="fa-regular fa-circle-xmark"><LogoutButton /></i>
+
         </li>
       </ul>
     </nav>

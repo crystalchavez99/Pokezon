@@ -1,9 +1,10 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import './ItemBar.css';
 
 const ItemBar = () => {
   return (
-    <nav>
+    <nav id="bot-nav">
       <ul>
         <li>
           <NavLink to='/balls' exact={true} activeClassName='active'>
@@ -12,7 +13,7 @@ const ItemBar = () => {
         </li>
         <li>
           <NavLink to='/berries' exact={true} activeClassName='active'>
-            Berries
+          <i class="fa-solid fa-strawberry">Berries</i>
           </NavLink>
         </li>
         <li>

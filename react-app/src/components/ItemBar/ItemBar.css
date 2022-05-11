@@ -1,10 +1,10 @@
-#top-nav{
+#bot-nav{
     width: 100%;
     height: 250px;
     font-family: "Open Sans", sans-serif;
     margin: 0;
 }
-#top-nav > ul{
+#bot-nav > ul{
     border-bottom: 1px solid gray;
     box-sizing:border-box;
     width: 100%;
@@ -15,7 +15,7 @@
     align-items: center;
     list-style: none;
 }
-#top-nav a{
+#bot-nav a{
     color: rgb(118, 118, 118);
     text-decoration: none;
     font-size: 14px;
@@ -23,10 +23,10 @@
     line-height: 40px;
     text-align: center;
 }
-#top-nav a:hover{
+#bot-nav a:hover{
     color: rgb(6, 86, 164);
 }
-/* #top-nav img{
+/* #bot-nav img{
     width: 100px;
     height: 100px;
     text-align: center;
@@ -34,18 +34,10 @@
     padding: 0;
 } */
 
-#top-nav i{
+#bot-nav i{
     display: flex;
     text-align: center;
     flex-direction: column;
     padding: 0;
     margin: 0;
-}
-
-#top-nav #logout-ui button{
-    border: none;
-}
-#top-nav #logout-ui{
-    border: none;
-    color: rgb(6, 86, 164);
 }
