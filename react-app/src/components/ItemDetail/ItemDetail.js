@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getOneItemThunk } from '../../store/item';
 import { getAllReviewsThunk } from '../../store/review';
+import ReviewForm from '../ReviewForm/ReviewForm';
 import './ItemDetail.css';
 function ItemDetail() {
     const { itemId } = useParams();
@@ -56,6 +57,8 @@ function ItemDetail() {
                 <p>{item?.description}</p>
             </div>
             <div className='item-reviews'>
+                <h4>Customer Reviews</h4>
+                <ReviewForm item={item}/>
                 {itemReviews?.map(review => (
                     <p>{review?.content}</p>
                 ))}
