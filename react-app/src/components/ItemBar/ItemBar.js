@@ -8,22 +8,23 @@ const ItemBar = () => {
       <ul>
         <li>
           <NavLink to='/balls' exact={true} activeClassName='active'>
-            Balls
+          <i class="fa-solid fa-circle">Balls</i>
           </NavLink>
         </li>
         <li>
           <NavLink to='/berries' exact={true} activeClassName='active'>
-          <i class="fa-solid fa-strawberry">Berries</i>
+          <i class="fa-solid fa-seedling">Berries</i>
           </NavLink>
         </li>
         <li>
           <NavLink to='/moves' exact={true} activeClassName='active'>
-            TMs & HMs
+          <i class="fa-solid fa-compact-disc">TMs & HMs</i>
+
           </NavLink>
         </li>
         <li>
           <NavLink to='/medicine' exact={true} activeClassName='active'>
-            Medicine
+          <i class="fa-solid fa-capsules">Medicine</i>
           </NavLink>
         </li>
       </ul>
