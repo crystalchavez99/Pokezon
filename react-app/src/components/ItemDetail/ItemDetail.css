@@ -5,7 +5,7 @@
 }
 
 #location{
-    
+
 }
 .item-display-flex{
     box-sizing: border-box;
@@ -52,4 +52,20 @@
     line-height: 25px;
     font-weight: 700;
     padding: 10px;
+}
+
+#add-to-cart button{
+    border: 1px solid black;
+    box-sizing: border-box;
+    padding: 15px 30px;
+    background-color: white;
+    margin: 0 5px;
+}
+input[type=number]{
+    border: 1px solid black;
+    box-sizing: border-box;
+    background-color: white;
+    width: 60px;
+    appearance: textfield;
+    margin: 0;
 }

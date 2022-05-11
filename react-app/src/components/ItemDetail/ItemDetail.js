@@ -24,9 +24,9 @@ function ItemDetail() {
                     <p>{item?.name}</p>
                     <span>₽{item?.price}</span>
                     <p>Quantity: {item?.quantity}</p>
-                    <div>
+                    <div id="add-to-cart">
                         <button><i class="fa-solid fa-plus"></i></button>
-                        <input type="number" min={1} max={item?.quantity}/>
+                        <input type="number" step={1}  min={1} max={item?.quantity}/>
                         <button><i class="fa-solid fa-minus"></i></button>
                     </div>
                     <button type="button" id='cart'>Add To Cart</button>
