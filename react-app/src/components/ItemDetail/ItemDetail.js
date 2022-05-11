@@ -33,9 +33,9 @@ function ItemDetail() {
                 </div>
             </div>
 
-            <>
+            <div className='item-description'>
                 <p>{item?.description}</p>
-            </>
+            </div>
         </div>
     )
 }

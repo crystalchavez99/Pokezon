@@ -5,7 +5,7 @@
 }
 
 #location{
-
+    font-weight: 700;
 }
 .item-display-flex{
     box-sizing: border-box;
@@ -61,11 +61,19 @@
     background-color: white;
     margin: 0 5px;
 }
-input[type=number]{
+#add-to-cart input[type=number]{
     border: 1px solid black;
     box-sizing: border-box;
     background-color: white;
     width: 60px;
     appearance: textfield;
-    margin: 0;
+    height: 45px;
+    text-align: center;
+
+}
+.item-description{
+    border: 1px solid black;
+    margin: 0 50px;
+    display: flex;
+    justify-content: center;
 }
