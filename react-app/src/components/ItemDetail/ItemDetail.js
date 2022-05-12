@@ -68,12 +68,14 @@ function ItemDetail() {
 
             <div className='item-desc-review'>
                 <TabsUnstyled defaultValue={0}>
-                    <TabsListUnstyled>
-                        <TabUnstyled>Description</TabUnstyled>
-                        <TabUnstyled>Reviews</TabUnstyled>
+                    <TabsListUnstyled id="tabs-box">
+                        <TabUnstyled className='tab'>Description</TabUnstyled>
+                        <TabUnstyled className='tab'>Reviews</TabUnstyled>
                     </TabsListUnstyled>
                     <TabPanelUnstyled value={0}>
-                        <p>{item?.description}</p>
+                        < div className="item-description">
+                            <p>{item?.description}</p>
+                        </div>
                     </TabPanelUnstyled>
                     <TabPanelUnstyled value={1}>
                         <div className='item-reviews'>
