@@ -9,10 +9,28 @@ def seed_users():
         username='Viridian', email='Viridian@aa.io', password='password',bio='Poké Mart in Viridian City',created_at='1996-02-27 00:00:00')
     pewter = User(
         username='Pewter', email='Pewter@aa.io', password='password',bio='Poké Mart in Pewter City',created_at='1996-02-27 00:00:00')
+    cerulean = User(
+        username='Cerulean', email='Cerulean@aa.io', password='password',bio='Poké Mart in Cerulean City',created_at='1996-02-27 00:00:00')
+    vermilion = User(
+        username='Vermilion', email='Vermilion@aa.io', password='password',bio='Poké Mart in Pewter City',created_at='1996-02-27 00:00:00')
+    lavender = User(
+        username='Lavender', email='Lavender@aa.io', password='password',bio='Poké Mart in Lavender Town',created_at='1996-02-27 00:00:00')
+    saffron = User(
+        username='Saffron', email='Saffron@aa.io', password='password',bio='Poké Mart in Saffron City',created_at='1996-02-27 00:00:00')
+    fuchsia = User(
+        username='Fuchsia', email='Fuchsia@aa.io', password='password',bio='Poké Mart in Fuchsia City',created_at='1996-02-27 00:00:00')
+    cinnabar = User(
+        username='Cinnabar', email='Cinnabar@aa.io', password='password',bio='Poké Mart in Cinnabar Island',created_at='1996-02-27 00:00:00')
 
     db.session.add(demo)
     db.session.add(viridian)
     db.session.add(pewter)
+    db.session.add(cerulean)
+    db.session.add(vermilion)
+    db.session.add(lavender)
+    db.session.add(saffron)
+    db.session.add(fuchsia)
+    db.session.add(cinnabar)
 
     db.session.commit()
 
