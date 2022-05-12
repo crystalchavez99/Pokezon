@@ -1,12 +1,17 @@
-import React, { useState } from 'react';
+import React, { useEffect,useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { updateOneReviewThunk } from '../../store/review';
+import { updateOneReviewThunk,getOneReviewThunk } from '../../store/review';
 
 function ReviewEdit({review, setModal}) {
     const dispatch = useDispatch();
     const [content, setContent] = useState(review?.content);
     const [errors, setErrors] = useState([]);
 
+
+
+    useEffect(()=>{
+        dispatch(getOneReviewThunk(review))
+    },[dispatch,review])
 
     const reviewSubmit = async e => {
         e.preventDefault();
