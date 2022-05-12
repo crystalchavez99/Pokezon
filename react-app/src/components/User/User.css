@@ -1,22 +1,33 @@
-#user-page, #user-page ul{
-    font-family: "Open Sans", sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+#user-page{
     text-align: center;
-    align-self: center;
     font-family: "Open Sans", sans-serif;
     color: rgb(77, 77, 77);
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    float: none;
+    align-items: center;
+    justify-content: center;
 
 }
 .owner{
     display: flex;
     justify-content: flex-start;
     list-style: none;
+    margin: 0 auto;
+}
+#owner-items{
+    display: flex;
+    justify-content: flex-start;
+    list-style: none;
+    margin: 0 auto;
 }
 #user-page img{
         width: 350px;
         height: 475px;
+}
+.owner ul{
+    border: 1px solid grey;
 }
 
 .item-sale{
