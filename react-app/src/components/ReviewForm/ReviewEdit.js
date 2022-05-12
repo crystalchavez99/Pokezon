@@ -1,13 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect,useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { updateOneReviewThunk,getOneReviewThunk } from '../../store/review';
 
 function ReviewEdit({review, setModal}) {
     const dispatch = useDispatch();
     const [content, setContent] = useState(review?.content);
-    const user_id = useSelector(state => state.session.user.id);
     const [errors, setErrors] = useState([]);
 
+
+
+    useEffect(()=>{
+        dispatch(getOneReviewThunk(review))
+    },[dispatch,review])
 
     const reviewSubmit = async e => {
         e.preventDefault();
@@ -29,8 +33,6 @@ function ReviewEdit({review, setModal}) {
     }
 
     return (
-        <>
-            <h1>Edit a Review</h1>
             <form id="edit-review-form" onSubmit={reviewSubmit}>
                 <div>
                     {errors?.length > 0 && errors?.map((error, ind) => (
@@ -46,7 +48,6 @@ function ReviewEdit({review, setModal}) {
                     />
                 <button type='submit' id="submit-button">Edit Review</button>
             </form>
-        </>
     )
 }
 export default ReviewEdit;
