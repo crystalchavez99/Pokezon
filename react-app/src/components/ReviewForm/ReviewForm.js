@@ -31,7 +31,7 @@ function ReviewForm({ item, setModal }) {
 
     return (
         <>
-            <h1>Create a Review</h1>
+            <h3>Create a Review</h3>
             <form id="add-review-form" onSubmit={reviewSubmit}>
                 <div>
                     {errors?.length > 0 && errors?.map((error, ind) => (
