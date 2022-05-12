@@ -9,27 +9,25 @@ from app.forms.new_review_form import NewReview
 
 item_routes = Blueprint('items', __name__)
 
-
+# get all items
 @item_routes.route('/')
 def items():
     items = Item.query.all()
     return {'items': [item.to_dict() for item in items]}
 
-
+# get one item
 @item_routes.route('/<int:id>')
 def single_item(id):
     item = Item.query.get(id)
     return item.to_dict()
 
-
+# post an item
 @item_routes.route('/add_item', methods=["GET","POST"])
 def add_item():
-    print('isnide post route')
     user_id = current_user.id
     form = NewItem()
     form['csrf_token'].data = request.cookies['csrf_token']
 
-    print('inside form post')
     if form.validate_on_submit():
         item = Item(name=form.data["name"],
             image_url=form.data["image_url"],
@@ -39,7 +37,6 @@ def add_item():
             user_id=user_id,
             created_at=datetime.datetime.now()
         )
-        print('add this item',item.to_dict())
         db.session.add(item)
         db.session.commit()
         return item.to_dict()

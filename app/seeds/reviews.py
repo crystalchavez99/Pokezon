@@ -3,10 +3,20 @@ from app.models import db, Review
 
 # Adds a demo review, you can add other reviews here if you want
 def seed_reviews():
-    demo = Review(
+    ballreview1 = Review(
         content='recommended for new trainers', user_id=1,item_id=1,created_at='2022-05-09 17:33:33')
+    ballreview2 = Review(
+        content='most common item in marts', user_id=3,item_id=1,created_at='2022-05-09 17:33:33')
+    potionreview1 = Review(
+        content='saved my pokemon!', user_id=4,item_id=2,created_at='2022-05-09 17:33:33')
+    potionreview2 = Review(
+        content='not enough healing power', user_id=5,item_id=2,created_at='2022-05-09 17:33:33')
 
-    db.session.add(demo)
+
+    db.session.add(ballreview1)
+    db.session.add(ballreview2)
+    db.session.add(potionreview1)
+    db.session.add(potionreview2)
 
 
     db.session.commit()
