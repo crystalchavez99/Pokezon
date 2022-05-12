@@ -11,6 +11,7 @@ import TabsUnstyled from '@mui/base/TabsUnstyled';
 import TabsListUnstyled from '@mui/base/TabsListUnstyled';
 import TabPanelUnstyled from '@mui/base/TabPanelUnstyled';
 import TabUnstyled from '@mui/base/TabUnstyled';
+import { getAllUser } from '../../store/user';
 function ItemDetail() {
     const { itemId } = useParams();
     const dispatch = useDispatch();
@@ -18,6 +19,7 @@ function ItemDetail() {
     const item = useSelector(state => state?.items[itemId])
     const reviews = useSelector(state => Object.values(state?.reviews))
     const user = useSelector(state => state?.session?.user);
+    const listedUsers = useSelector(state => Object.values(state?.users))
 
     const [display, setDisplay] = useState(false)
 
@@ -29,6 +31,7 @@ function ItemDetail() {
     useEffect(() => {
         dispatch(getOneItemThunk(itemId))
         dispatch(getAllReviewsThunk())
+        dispatch(getAllUser())
     }, [dispatch, itemId])
 
 
@@ -84,6 +87,11 @@ function ItemDetail() {
                             {itemReviews?.map(review => (
                                 <>
                                     <p>{review?.content}</p>
+                                    {listedUsers?.map(list =>{
+                                        if(list?.id === review?.user_id){
+                                            return(<p>{list?.username}</p>)
+                                        }
+                                    })}
                                     {user?.id === review?.user_id && (<><button onClick={() => setModal(true)}>Edit</button>
                                         {modal &&
                                             (<Modal onClose={() => setModal(false)}>
