@@ -1,6 +1,8 @@
 from venv import create
 from .db import db
 
+
+# Create model of Item
 class Item(db.Model):
     __tablename__ = 'items'
 

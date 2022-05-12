@@ -15,8 +15,8 @@ const NavBar = () => {
           </NavLink>
         </li>
         <form action="/action_page.php">
-          <input type="text" placeholder="Search.." name="search" />
-          <button type="submit">Submit</button>
+          <input type="text" placeholder="Search.." name="search" id="search"/>
+          <button type="submit" id="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
         {!user &&
           <>
