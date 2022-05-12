@@ -7,6 +7,10 @@ import ReviewEdit from '../ReviewForm/ReviewEdit';
 import ReviewForm from '../ReviewForm/ReviewForm';
 import { Modal } from '../../context/Modal';
 import './ItemDetail.css';
+import TabsUnstyled from '@mui/base/TabsUnstyled';
+import TabsListUnstyled from '@mui/base/TabsListUnstyled';
+import TabPanelUnstyled from '@mui/base/TabPanelUnstyled';
+import TabUnstyled from '@mui/base/TabUnstyled';
 function ItemDetail() {
     const { itemId } = useParams();
     const dispatch = useDispatch();
@@ -14,6 +18,8 @@ function ItemDetail() {
     const item = useSelector(state => state?.items[itemId])
     const reviews = useSelector(state => Object.values(state?.reviews))
     const user = useSelector(state => state?.session?.user);
+
+    const [display, setDisplay] = useState(false)
 
     const [modal, setModal] = useState(false)
 
@@ -57,42 +63,37 @@ function ItemDetail() {
                     <button type="button" id='cart'>Add To Cart</button>
                 </div>
             </div>
+
+
+
             <div className='item-desc-review'>
-                <div>
-                    <button type="button" role='tab' tabIndex={-1} aria-controls="tab-description">
-                        Description
-                    </button>
-                    <button type="button" role='tab' tabIndex={0} aria-controls="tab-review">
-                        Reviews
-                    </button>
-                </div>
-                <div role="tabpanel" id="tab-description">
-                    <div className='item-description'>
+                <TabsUnstyled defaultValue={0}>
+                    <TabsListUnstyled>
+                        <TabUnstyled>Description</TabUnstyled>
+                        <TabUnstyled>Reviews</TabUnstyled>
+                    </TabsListUnstyled>
+                    <TabPanelUnstyled value={0}>
                         <p>{item?.description}</p>
-                    </div>
-                </div>
-                <div role="tabpanel" id="tab-review" hidden>
-                    <div className='item-reviews'>
-                        <h4>Customer Reviews</h4>
-                        {user && <ReviewForm item={item} />}
-                        {itemReviews?.map(review => (
-                            <>
-                                <p>{review?.content}</p>
-                                {user?.id === review?.user_id && (<><button onClick={() => setModal(true)}>Edit</button>
-                                    {modal &&
-                                        (<Modal onClose={() => setModal(false)}>
-                                            <ReviewEdit setModal={setModal} review={review} />
-                                        </Modal>)}
-                                    <button onClick={() => dispatch(deleteOneReviewThunk(review))}>Delete</button></>)}
-
-                            </>
-                        ))}
-                    </div>
-                </div>
+                    </TabPanelUnstyled>
+                    <TabPanelUnstyled value={1}>
+                        <div className='item-reviews'>
+                            <h4>Customer Reviews</h4>
+                            {user && <ReviewForm item={item} />}
+                            {itemReviews?.map(review => (
+                                <>
+                                    <p>{review?.content}</p>
+                                    {user?.id === review?.user_id && (<><button onClick={() => setModal(true)}>Edit</button>
+                                        {modal &&
+                                            (<Modal onClose={() => setModal(false)}>
+                                                <ReviewEdit setModal={setModal} review={review} />
+                                            </Modal>)}
+                                        <button onClick={() => dispatch(deleteOneReviewThunk(review))}>Delete</button></>)}
+                                </>
+                            ))}
+                        </div>
+                    </TabPanelUnstyled>
+                </TabsUnstyled>
             </div>
-
-
-
         </div>
     )
 }
