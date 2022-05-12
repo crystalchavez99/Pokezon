@@ -1,7 +1,7 @@
 const GET_REVIEWS = 'review/GET_REVIEWS';
 const GET_SINGLE_REVIEW = 'review/GET_SINGLE_REVIEW';
 const ADD_REVIEW = 'review/ADD_REVIEW';
-const UPDATE_REVIEW = 'review/ADD_REVIEW';
+const UPDATE_REVIEW = 'review/UPDATE_REVIEW';
 const DELETE_REVIEW = 'review/DELETE_REVIEW';
 
 const getReviews = (reviews) =>({
@@ -50,6 +50,7 @@ export const getOneReviewThunk = (review) => async dispatch =>{
 }
 
 export const addOneReviewThunk = (item_id,review) => async dispatch =>{
+    console.log('ADD REVIEW')
     const response = await fetch(`/api/items/${item_id}/add_review`,{
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -66,6 +67,7 @@ export const addOneReviewThunk = (item_id,review) => async dispatch =>{
 }
 
 export const updateOneReviewThunk = (review) => async dispatch =>{
+    console.log('UPDATE REVIEW')
     const response = await fetch(`/api/reviews/${review.id}`,{
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
@@ -73,7 +75,7 @@ export const updateOneReviewThunk = (review) => async dispatch =>{
     })
     if (response.ok) {
         const updatedReview = await response.json();
-        dispatch(updateReview(updatedReview));
+       await dispatch(updateReview(updatedReview));
         console.log('success response post',updatedReview)
       }else if (response.status < 500) {
         const data = await response.json();
@@ -103,17 +105,18 @@ const reviewsReducer = (state = initialState, action) =>{
         case GET_REVIEWS:
             newState = {...state}
             action.payload.forEach(review => newState[review.id] = review)
-            return {...newState,...state}
-        case GET_SINGLE_REVIEW:
-            newState = {...state}
-            newState[action.payload.id] = action.payload;
             return newState;
+        // case GET_SINGLE_REVIEW:
+        //     newState = {...state}
+        //     newState[action.payload.id] = action.payload;
+        //     return newState;
         case ADD_REVIEW:
             newState = {[action.payload.id]: action.payload,...state}
+            console.log('ADDED REVIEW',newState)
             return newState;
         case UPDATE_REVIEW:
-            newState = { ...state };
             newState = {[action.payload.id]: action.payload}
+            console.log('UPDATED REVIEW',newState)
             return newState;
         case DELETE_REVIEW:
             newState = {...state}

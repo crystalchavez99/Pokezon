@@ -68,7 +68,7 @@ function ItemDetail() {
                     <button onClick={() => setModal(true)}>Edit</button>
                     {modal &&
                     (<Modal onClose={() => setModal(false)}>
-                        <ReviewEdit review={review} setModal={setModal}/>
+                        <ReviewEdit setModal={setModal} review={review} />
                     </Modal>)}
                     <button onClick={() => dispatch(deleteOneReviewThunk(review))}>Delete</button>
                     </>

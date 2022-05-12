@@ -12,7 +12,7 @@ def reviews():
     reviews = Review.query.all()
     return {'reviews' : [review.to_dict() for review in reviews]}
 
-@review_routes.route('/<int:id>',methods=["GET","PUT"])
+@review_routes.route('/<int:id>',methods=["PUT"])
 def single_review(id):
     review = Review.query.get(id)
     form = NewReview()
