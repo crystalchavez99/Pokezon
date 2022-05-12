@@ -13,6 +13,8 @@ function ItemDetail() {
     const [quantity,setQuantity] = useState(1)
     const item = useSelector(state => state?.items[itemId])
     const reviews = useSelector(state => Object.values(state?.reviews))
+    const user_id = useSelector(state => state?.session?.user?.id);
+
     const [modal,setModal] = useState(false)
 
     const itemReviews = reviews?.filter(review =>{
@@ -61,16 +63,17 @@ function ItemDetail() {
             </div>
             <div className='item-reviews'>
                 <h4>Customer Reviews</h4>
-                <ReviewForm item={item}/>
+                {user_id && <ReviewForm item={item}/>}
                 {itemReviews?.map(review => (
                     <>
                     <p>{review?.content}</p>
-                    <button onClick={() => setModal(true)}>Edit</button>
+                    {user_id === review?.user_id && (<><button onClick={() => setModal(true)}>Edit</button>
                     {modal &&
                     (<Modal onClose={() => setModal(false)}>
                         <ReviewEdit setModal={setModal} review={review} />
                     </Modal>)}
-                    <button onClick={() => dispatch(deleteOneReviewThunk(review))}>Delete</button>
+                    <button onClick={() => dispatch(deleteOneReviewThunk(review))}>Delete</button></>)}
+
                     </>
                 ))}
             </div>

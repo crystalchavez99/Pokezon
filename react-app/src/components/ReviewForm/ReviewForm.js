@@ -5,7 +5,7 @@ import { addOneReviewThunk } from '../../store/review';
 function ReviewForm({ item, setModal }) {
     const dispatch = useDispatch();
     const [content, setContent] = useState("");
-    const user_id = useSelector(state => state.session.user.id);
+    const user_id = useSelector(state => state?.session?.user?.id);
     const [errors, setErrors] = useState([]);
 
 
