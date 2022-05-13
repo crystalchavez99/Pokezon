@@ -23,7 +23,7 @@
     flex-wrap: wrap;
     flex-direction: column;
 }
-#add-item-form button{
+#add-item-form button, #add-item-form a{
     text-decoration: none;
     box-sizing: border-box;
     border: 1px solid black;
@@ -36,7 +36,7 @@
     color: black;
     font-family: "Open Sans", sans-serif;
 }
-#add-item-form button:hover{
+#add-item-form button:hover, #add-item-form a:hover{
     box-sizing: border-box;
     text-decoration: none;
     border: 1px solid black;

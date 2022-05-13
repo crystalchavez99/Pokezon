@@ -40,7 +40,6 @@ export const getAllReviewsThunk = () => async dispatch =>{
 }
 
 export const getOneReviewThunk = (review) => async dispatch =>{
-    console.log('grabbing review')
     const response = await fetch(`/api/reviews/${review.id}`)
     if(response.ok){
         const review = await response.json();
@@ -51,7 +50,6 @@ export const getOneReviewThunk = (review) => async dispatch =>{
 }
 
 export const addOneReviewThunk = (item_id,review) => async dispatch =>{
-    console.log('ADD REVIEW')
     const response = await fetch(`/api/items/${item_id}/add_review`,{
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -68,7 +66,6 @@ export const addOneReviewThunk = (item_id,review) => async dispatch =>{
 }
 
 export const updateOneReviewThunk = (review) => async dispatch =>{
-    console.log('UPDATE REVIEW')
     const response = await fetch(`/api/reviews/${review.id}`,{
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
