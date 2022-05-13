@@ -3,6 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 75vh;
 }
 #display-auth-form{
     display: flex;
@@ -19,6 +20,10 @@
     align-items: center;
     border-radius: 1rem;
     padding: 10px 20px;
+}
+form input,form label{
+    padding: 5px;
+    margin: 5px;
 }
 #errors{
     color: red;

@@ -18,7 +18,7 @@ function ItemDetail() {
     const [quantity, setQuantity] = useState(1)
     const item = useSelector(state => state?.items[itemId])
     const reviews = useSelector(state => Object.values(state?.reviews))
-    const user = useSelector(state => state?.session?.user);
+    const currentUser = useSelector(state => state?.session?.user);
     const listedUsers = useSelector(state => Object.values(state?.users))
 
 
@@ -87,7 +87,7 @@ function ItemDetail() {
                     <TabPanelUnstyled value={1}>
                         <div className='item-reviews'>
                             <h4>Customer Reviews</h4>
-                            {user && <ReviewForm item={item} />}
+                            {currentUser && <ReviewForm item={item} />}
                             {itemReviews?.map(review => (
                                 <>
                                     <p>{review?.content}</p>
@@ -96,7 +96,7 @@ function ItemDetail() {
                                             return(<p>{list?.username}</p>)
                                         }
                                     })}
-                                    {user?.id === review?.user_id && (<><button onClick={() => setModal(true)}>Edit</button>
+                                    {currentUser?.id === review?.user_id && (<><button onClick={() => setModal(true)}>Edit</button>
                                         {modal &&
                                             (<Modal onClose={() => setModal(false)}>
                                                 <ReviewEdit setModal={setModal} review={review} />
