@@ -10,16 +10,21 @@ const SignUpForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
+  const [bio, setBio] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, email, password));
+      const data = await dispatch(signUp(username, email, password,bio));
       if (data) {
         setErrors(data)
       }
+    }else{
+      setErrors(["Password: Passwords do not match!"])
+      setPassword("")
+      setRepeatPassword("")
     }
   };
 
@@ -37,6 +42,9 @@ const SignUpForm = () => {
 
   const updateRepeatPassword = (e) => {
     setRepeatPassword(e.target.value);
+  };
+  const updateBio = (e) => {
+    setBio(e.target.value);
   };
 
   if (user) {
@@ -71,6 +79,15 @@ const SignUpForm = () => {
             ></input>
           </div>
           <div>
+            <label>Bio</label>
+            <textarea
+              type='text'
+              name='bio'
+              onChange={updateBio}
+              value={bio}
+            ></textarea>
+          </div>
+          <div>
             <label>Password</label>
             <input
               type='password'
@@ -86,10 +103,9 @@ const SignUpForm = () => {
               name='repeat_password'
               onChange={updateRepeatPassword}
               value={repeatPassword}
-              required={true}
             ></input>
           </div>
-          <button type='submit'>Sign Up</button>
+          <button className="btn-login" type='submit'>Sign Up</button>
         </form>
       </div>
     </div>

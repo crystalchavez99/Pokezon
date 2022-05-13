@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { addOneItemThunk } from '../../store/item'
-import { useHistory } from "react-router-dom";
+import { useHistory,NavLink } from "react-router-dom";
 import './ItemForm.css';
 function ItemListing() {
     const dispatch = useDispatch();
@@ -35,7 +35,6 @@ function ItemListing() {
             }
         })
     }
-
     if(!user_id){
         history.push("/login")
     }
@@ -46,7 +45,7 @@ function ItemListing() {
             <div id="display-form">
                 <form id="add-item-form" onSubmit={itemSubmit}>
                 <h1>Create Listing</h1>
-                    <div>
+                    <div id="errors">
                         {errors?.length > 0 && errors?.map((error, ind) => (
                             <div key={ind}>{error}</div>
                         ))}
@@ -97,6 +96,7 @@ function ItemListing() {
                         onChange={(e) => setQuantity(e.target.value)}
                     />
                     <button type='submit' id="submit-button">Add Item</button>
+                    <NavLink to={`/`}>Cancel</NavLink>
                 </form>
 
             </div>

@@ -1,0 +1,19 @@
+#dead-end{
+    font-family: "Open Sans", sans-serif;
+    display: flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 75vh;
+
+}
+
+#dead-end i{
+    text-align: center;
+    font-size: 40px;
+    color:#e92929;
+}
+#dead-end a{
+    color: rgb(0, 84, 166);
+}

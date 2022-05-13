@@ -52,18 +52,20 @@ function User() {
       <div id="owner-items">
         {ownedItems?.map(item => (
           <div className='item-sale'>
-            <NavLink></NavLink>
-            <img src={item?.image_url} alt={item?.name} />
+            <NavLink to={`/items/${item?.id}`}>
+              <img src={item?.image_url} alt={item?.name} />
+            </NavLink>
             <div className='edit-delete'>
               {sessionUser?.id === user?.id &&
-               <>
-                <NavLink to={`/items/${item?.id}/edit`}>Edit</NavLink>
-              <button onClick={() => {
-                dispatch(deleteOneItemThunk(item))
-              }}>Delete</button>
-              </>}
+                <>
+                  <NavLink to={`/items/${item?.id}/edit`}>Edit</NavLink>
+                  <button onClick={() => {
+                    dispatch(deleteOneItemThunk(item))
+                  }}>Delete</button>
+                </>}
 
             </div>
+
           </div>
         ))}
       </div>

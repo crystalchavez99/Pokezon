@@ -67,6 +67,7 @@ def sign_up():
         user = User(
             username=form.data['username'],
             email=form.data['email'],
+            bio=form.data['bio'],
             password=form.data['password'],
             created_at=datetime.datetime.now()
         )

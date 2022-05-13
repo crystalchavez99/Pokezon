@@ -1,6 +1,7 @@
 import React, { useEffect,useState } from 'react';
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { updateOneReviewThunk,getOneReviewThunk } from '../../store/review';
+import './ReviewForm.css';
 
 function ReviewEdit({review, setModal}) {
     const dispatch = useDispatch();
@@ -34,7 +35,7 @@ function ReviewEdit({review, setModal}) {
 
     return (
             <form id="edit-review-form" onSubmit={reviewSubmit}>
-                <div>
+                <div id="edit-errors">
                     {errors?.length > 0 && errors?.map((error, ind) => (
                         <div key={ind}>{error}</div>
                     ))}

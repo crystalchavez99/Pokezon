@@ -58,7 +58,6 @@ export const addOneItemThunk = (item) => async dispatch =>{
     if (response.ok) {
         const newItem = await response.json();
         dispatch(addOneItem(newItem));
-        console.log('success response post',newItem)
       }else if (response.status < 500) {
         const data = await response.json();
         return data
@@ -75,10 +74,8 @@ export const updateOneItemThunk = (item) => async dispatch =>{
     if (response.ok) {
         const updatedItem = await response.json();
         await dispatch(updateItem(updatedItem));
-        console.log('success response post',updatedItem)
       }else if (response.status < 500) {
         const data = await response.json();
-        console.log('error response post',data)
         return data
       }
       return response;

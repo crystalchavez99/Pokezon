@@ -26,7 +26,7 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('username', sa.String(length=40), nullable=False),
     sa.Column('email', sa.String(length=255), nullable=False),
-    sa.Column('bio', sa.String()),
+    sa.Column('bio', sa.String(length=255)),
     sa.Column('hashed_password', sa.String(length=255), nullable=False),
     sa.Column('created_at', sa.TIMESTAMP(timezone=True), nullable=False),
     # Initialize primary key and unique constraints
@@ -39,7 +39,7 @@ def upgrade():
     # Columns: id, name, image_url, description, user_id, price, quantity, created_at
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(length=40), nullable=False),
-    sa.Column('image_url', sa.String(), nullable=False),
+    sa.Column('image_url', sa.String(length=255), nullable=False),
     sa.Column('description', sa.String()),
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('price', sa.Integer(), nullable=False),
@@ -54,7 +54,7 @@ def upgrade():
     op.create_table('reviews',
     # Columns: id, content, user_id, item_id, created_at,updated_at
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('content', sa.String(), nullable=False),
+    sa.Column('content', sa.String(length=500), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('item_id', sa.Integer(), nullable=False),
     sa.Column('created_at', sa.TIMESTAMP(timezone=True), nullable=False),
