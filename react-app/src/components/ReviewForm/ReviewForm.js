@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { addOneReviewThunk } from '../../store/review';
+import './ReviewForm.css';
 
 function ReviewForm({ item, setModal }) {
     const dispatch = useDispatch();
@@ -30,7 +31,7 @@ function ReviewForm({ item, setModal }) {
     }
 
     return (
-        <>
+        <div id="review-display">
             <h3>Create a Review</h3>
             <form id="add-review-form" onSubmit={reviewSubmit}>
                 <div>
@@ -47,7 +48,7 @@ function ReviewForm({ item, setModal }) {
                     />
                 <button type='submit' id="submit-button">Add Review</button>
             </form>
-        </>
+        </div>
     )
 }
 export default ReviewForm;

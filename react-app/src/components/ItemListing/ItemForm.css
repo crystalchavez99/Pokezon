@@ -1,0 +1,17 @@
+#item-new-form-page{
+    font-family: "Open Sans", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#display-form > form{
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    padding: 10px 20px;
+}

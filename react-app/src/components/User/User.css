@@ -1,4 +1,4 @@
-#user-page, #user-page ul{
+#user-page{
     font-family: "Open Sans", sans-serif;
     display: flex;
     flex-direction: column;
@@ -11,9 +11,40 @@
 }
 .owner{
     display: flex;
-    justify-content: flex-start;
-    list-style: none;
+    justify-content: center;
+    text-align: center;
+    border: 1px dashed grey;
+    border-radius: 1rem;
 }
+.owner li{
+    list-style-type: none;
+}
+.owner a{
+    box-sizing: border-box;
+    border: 1px solid black;
+    margin: 5px 15px;
+    padding: 5px 15px;
+    background-color:rgb(211, 211, 211);
+    color: black;
+    display: inline-block;
+    max-width: 375px;
+    text-align: center;
+    line-height: 25px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.owner a:hover{
+    background-color: black;
+    color: white;
+}
+
+#owner-items{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 #user-page img{
         width: 350px;
         height: 475px;
@@ -27,6 +58,7 @@
     border-radius: 1em;
     border-radius: 1rem;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin: 0 auto;
 }
 
 .edit-delete{

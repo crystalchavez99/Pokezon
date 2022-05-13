@@ -47,7 +47,6 @@ function User() {
         </ul>
       </div>
       <div id="owner-items">
-        <h2>Items for Sale</h2>
         {ownedItems?.map(item => (
           <div className='item-sale'>
           <img src={item?.image_url} alt={item?.name}/>

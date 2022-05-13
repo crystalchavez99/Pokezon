@@ -2,7 +2,8 @@ import React, { useState ,useEffect} from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory,useParams } from "react-router-dom";
 import { getOneItemThunk,updateOneItemThunk } from '../../store/item';
-
+import ItemDetail from '../ItemDetail/ItemDetail';
+import './ItemForm.css';
 function ItemEdit({item}) {
     const { itemId } = useParams();
     item = useSelector(state => state?.items[itemId])
@@ -40,10 +41,11 @@ function ItemEdit({item}) {
     }, [dispatch,itemId])
 
     return (
-        <div>
-            <h1>Edit A Listing</h1>
-            <div>
+        <div id="item-new-form-page">
+
+            <div id="display-form">
                 <form id="add-item-form" onSubmit={itemSubmit}>
+                <h1>Edit A Listing</h1>
                     <div>
                         {errors?.length > 0 && errors?.map((error, ind) => (
                             <div key={ind}>{error}</div>

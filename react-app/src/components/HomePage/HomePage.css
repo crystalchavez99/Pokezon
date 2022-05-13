@@ -1,18 +1,17 @@
 #Home-Page{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    align-self: center;
     font-family: "Open Sans", sans-serif;
     color: rgb(77, 77, 77);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 .listing{
-    max-width: 1140px;
-    margin: 0 115px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
 }
 .item-listed{
     box-sizing: border-box;

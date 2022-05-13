@@ -13,6 +13,7 @@ import ItemDetail from './components/ItemDetail/ItemDetail';
 import ItemBar from './components/ItemBar/ItemBar';
 import ItemListing from './components/ItemListing/ItemListing';
 import ItemEdit from './components/ItemListing/ItemEdit';
+import './App.css';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
