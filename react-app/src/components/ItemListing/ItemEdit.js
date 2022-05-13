@@ -2,6 +2,7 @@ import React, { useState ,useEffect} from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory,useParams } from "react-router-dom";
 import { getOneItemThunk,updateOneItemThunk } from '../../store/item';
+import ItemDetail from '../ItemDetail/ItemDetail';
 
 function ItemEdit({item}) {
     const { itemId } = useParams();
