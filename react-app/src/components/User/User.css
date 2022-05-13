@@ -12,8 +12,31 @@
 .owner{
     display: flex;
     justify-content: center;
-    list-style: none;
     text-align: center;
+    border: 1px dashed grey;
+    border-radius: 1rem;
+}
+.owner li{
+    list-style-type: none;
+}
+.owner a{
+    box-sizing: border-box;
+    border: 1px solid black;
+    margin: 5px 15px;
+    padding: 5px 15px;
+    background-color:rgb(211, 211, 211);
+    color: black;
+    display: inline-block;
+    max-width: 375px;
+    text-align: center;
+    line-height: 25px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.owner a:hover{
+    background-color: black;
+    color: white;
 }
 
 #owner-items{
