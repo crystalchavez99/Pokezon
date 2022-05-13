@@ -46,7 +46,7 @@ function ItemListing() {
             <div id="display-form">
                 <form id="add-item-form" onSubmit={itemSubmit}>
                 <h1>Create Listing</h1>
-                    <div>
+                    <div id="errors">
                         {errors?.length > 0 && errors?.map((error, ind) => (
                             <div key={ind}>{error}</div>
                         ))}

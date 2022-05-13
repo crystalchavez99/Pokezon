@@ -15,3 +15,32 @@
     border-radius: 1rem;
     padding: 10px 20px;
 }
+#errors{
+    color:red;
+    font-weight: 700;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+#add-item-form button{
+    text-decoration: none;
+    box-sizing: border-box;
+    border: 1px solid black;
+    text-align: center;
+    margin: 5px 15px;
+    padding: 5px 15px;
+    width: 70px;
+    font-size: 12px;
+    background-color: lightgrey;
+    color: black;
+    font-family: "Open Sans", sans-serif;
+}
+#add-item-form button:hover{
+    box-sizing: border-box;
+    text-decoration: none;
+    border: 1px solid black;
+    text-align: center;
+    color: white;
+    background-color: black;
+}
