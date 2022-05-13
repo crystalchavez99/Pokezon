@@ -54,7 +54,7 @@ def upgrade():
     op.create_table('reviews',
     # Columns: id, content, user_id, item_id, created_at,updated_at
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('content', sa.String(), nullable=False),
+    sa.Column('content', sa.String(length=500), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('item_id', sa.Integer(), nullable=False),
     sa.Column('created_at', sa.TIMESTAMP(timezone=True), nullable=False),

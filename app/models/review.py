@@ -5,7 +5,7 @@ class Review(db.Model):
     __tablename__ = 'reviews'
 
     id = db.Column(db.Integer(), primary_key=True)
-    content = db.Column(db.String(), nullable=False)
+    content = db.Column(db.String(500), nullable=False)
     user_id = db.Column(db.Integer(), db.ForeignKey('users.id'),nullable=False)
     item_id = db.Column(db.Integer(), db.ForeignKey('items.id'),nullable=False)
     created_at = db.Column(db.DateTime(timezone=True),nullable=False)
