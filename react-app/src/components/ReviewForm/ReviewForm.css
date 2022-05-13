@@ -1,4 +1,14 @@
 #review-display{
     background-color: rgb(118, 118, 118);
     opacity: .7;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 1rem;
+}
+#edit-review-form{
+    display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Open Sans", sans-serif;
+
 }

@@ -1,6 +1,7 @@
 import React, { useEffect,useState } from 'react';
 import { useDispatch } from "react-redux";
 import { updateOneReviewThunk,getOneReviewThunk } from '../../store/review';
+import './ReviewForm.css';
 
 function ReviewEdit({review, setModal}) {
     const dispatch = useDispatch();
