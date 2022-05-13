@@ -98,3 +98,18 @@
     color: rgb(6, 86, 164);
     transition: height .12s ease-in-out;
 }
+
+.review-comment{
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+    padding: 5px;
+}
+
+.review-comment span{
+    font-weight: 700;
+}
+
+#info-review{
+    display: flex;
+    justify-content: space-between;
+}

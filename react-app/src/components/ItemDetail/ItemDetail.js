@@ -86,16 +86,21 @@ function ItemDetail() {
                     </TabPanelUnstyled>
                     <TabPanelUnstyled value={1}>
                         <div className='item-reviews'>
-                            <h4>Customer Reviews</h4>
+                            <h5>Customer Reviews</h5>
                             {currentUser && <ReviewForm item={item} />}
                             {itemReviews?.map(review => (
                                 <>
+                                    <div className='review-comment'>
+                                    <div id="info-review">
                                     <p>{review?.content}</p>
+                                    <p>{review?.created_at}</p>
+                                    </div>
                                     {listedUsers?.map(list =>{
                                         if(list?.id === review?.user_id){
-                                            return(<p>{list?.username}</p>)
+                                            return(<span>{list?.username}</span>)
                                         }
                                     })}
+                                    </div>
                                     {currentUser?.id === review?.user_id && (<><button onClick={() => setModal(true)}>Edit</button>
                                         {modal &&
                                             (<Modal onClose={() => setModal(false)}>
