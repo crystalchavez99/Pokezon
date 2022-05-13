@@ -1,6 +1,6 @@
 import React, { useState ,useEffect} from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory,useParams } from "react-router-dom";
+import { useHistory,useParams ,NavLink} from "react-router-dom";
 import { getOneItemThunk,updateOneItemThunk } from '../../store/item';
 import './ItemForm.css';
 function ItemEdit({item}) {
@@ -96,6 +96,7 @@ function ItemEdit({item}) {
                         onChange={(e) => setQuantity(e.target.value)}
                     />
                     <button type='submit' id="submit-button">Edit Item</button>
+                    <NavLink to={`/`}>Cancel</NavLink>
                 </form>
             </div>
         </div>
