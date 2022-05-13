@@ -52,7 +52,6 @@ function User() {
       <div id="owner-items">
         {ownedItems?.map(item => (
           <div className='item-sale'>
-            <NavLink to={`/items/${item?.id}`}>
               <img src={item?.image_url} alt={item?.name} />
               <div className='edit-delete'>
                 {sessionUser?.id === user?.id &&
@@ -64,7 +63,6 @@ function User() {
                   </>}
 
               </div>
-            </NavLink>
           </div>
         ))}
       </div>

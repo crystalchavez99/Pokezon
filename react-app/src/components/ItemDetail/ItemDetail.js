@@ -77,11 +77,11 @@ function ItemDetail() {
                     <TabPanelUnstyled value={0}>
                         < div className="item-description">
                             <p>{item?.description}</p>
-                            {listedUsers?.map(list =>{
-                                        if(list?.id === item?.user_id){
-                                            return(<p>Sold By: {list?.username}</p>)
-                                        }
-                                    })}
+                            {listedUsers?.map(list => {
+                                if (list?.id === item?.user_id) {
+                                    return (<p>Sold By: {list?.username}</p>)
+                                }
+                            })}
                         </div>
                     </TabPanelUnstyled>
                     <TabPanelUnstyled value={1}>
@@ -89,25 +89,27 @@ function ItemDetail() {
                             <h5>Customer Reviews</h5>
                             {currentUser && <ReviewForm item={item} />}
                             {itemReviews?.map(review => (
-                                <>
+                                <div>
                                     <div className='review-comment'>
-                                    <div id="info-review">
-                                    <p>{review?.content}</p>
-                                    <p>{review?.created_at}</p>
-                                    </div>
-                                    {listedUsers?.map(list =>{
-                                        if(list?.id === review?.user_id){
-                                            return(<span>{list?.username}</span>)
-                                        }
-                                    })}
-                                    </div>
-                                    {currentUser?.id === review?.user_id && (<><button onClick={() => setModal(true)}>Edit</button>
+                                        <div id="info-review">
+                                            <p>{review?.content}</p>
+                                            <p>{review?.created_at}</p>
+                                        </div>
+                                        {listedUsers?.map(list => {
+                                            if (list?.id === review?.user_id) {
+                                                return (<span>{list?.username}</span>)
+                                            }
+                                        })}
+
+                                    {currentUser?.id === review?.user_id && (<div className='edit-delete'>
+                                        <button onClick={() => setModal(true)}>Edit</button>
                                         {modal &&
                                             (<Modal onClose={() => setModal(false)}>
                                                 <ReviewEdit setModal={setModal} review={review} />
                                             </Modal>)}
-                                        <button onClick={() => dispatch(deleteOneReviewThunk(review))}>Delete</button></>)}
-                                </>
+                                        <button onClick={() => dispatch(deleteOneReviewThunk(review))}>Delete</button></div>)}
+                                    </div>
+                                </div>
                             ))}
                         </div>
                     </TabPanelUnstyled>

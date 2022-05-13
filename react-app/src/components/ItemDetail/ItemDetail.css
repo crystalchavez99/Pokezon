@@ -113,3 +113,25 @@
     display: flex;
     justify-content: space-between;
 }
+.edit-delete button, .edit-delete a{
+    text-decoration: none;
+    box-sizing: border-box;
+    border: 1px solid black;
+    text-align: center;
+    margin: 5px 15px;
+    padding: 5px 15px;
+    width: 70px;
+    font-size: 12px;
+    background-color: lightgrey;
+    color: black;
+    font-family: "Open Sans", sans-serif;
+}
+.edit-delete button:hover,.edit-delete a:hover{
+    box-sizing: border-box;
+    text-decoration: none;
+    border: 1px solid black;
+    text-align: center;
+    color: white;
+    background-color: black;
+
+}

@@ -105,7 +105,7 @@ const reviewsReducer = (state = initialState, action) =>{
         case GET_REVIEWS:
             newState = {...state}
             action.payload.forEach(review => newState[review.id] = review)
-            return newState;
+            return {...newState,...state}
         case GET_SINGLE_REVIEW:
             newState = {...state}
             newState[action.payload.id] = action.payload;
