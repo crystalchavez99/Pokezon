@@ -30,7 +30,7 @@ function ReviewForm({ item, setModal }) {
     }
 
     return (
-        <>
+        <div>
             <h3>Create a Review</h3>
             <form id="add-review-form" onSubmit={reviewSubmit}>
                 <div>
@@ -47,7 +47,7 @@ function ReviewForm({ item, setModal }) {
                     />
                 <button type='submit' id="submit-button">Add Review</button>
             </form>
-        </>
+        </div>
     )
 }
 export default ReviewForm;
