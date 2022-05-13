@@ -5,7 +5,7 @@
     align-items: center;
 }
 
-#add-item-form{
+#display-form > form{
     display: flex;
     flex-direction: column;
     width: max-content;
