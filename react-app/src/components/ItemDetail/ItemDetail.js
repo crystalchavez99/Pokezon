@@ -21,7 +21,6 @@ function ItemDetail() {
     const user = useSelector(state => state?.session?.user);
     const listedUsers = useSelector(state => Object.values(state?.users))
 
-    const [display, setDisplay] = useState(false)
 
     const [modal, setModal] = useState(false)
 

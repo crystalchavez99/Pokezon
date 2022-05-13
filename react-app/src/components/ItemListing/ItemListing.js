@@ -12,7 +12,7 @@ function ItemListing() {
     const [price, setPrice] = useState(0)
     const [quantity, setQuantity] = useState(0);
     const [errors, setErrors] = useState([]);
-    const user_id = useSelector(state => state.session.user.id);
+    const user_id = useSelector(state => state?.session?.user?.id);
 
     const itemSubmit = async e => {
         e.preventDefault();
@@ -34,6 +34,10 @@ function ItemListing() {
               history.push("/")
             }
         })
+    }
+
+    if(!user_id){
+        history.push("/login")
     }
 
 

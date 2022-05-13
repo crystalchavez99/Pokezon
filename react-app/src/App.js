@@ -13,6 +13,7 @@ import ItemDetail from './components/ItemDetail/ItemDetail';
 import ItemBar from './components/ItemBar/ItemBar';
 import ItemListing from './components/ItemListing/ItemListing';
 import ItemEdit from './components/ItemListing/ItemEdit';
+import DeadEnd from './components/404Page/DeadEnd';
 import './App.css';
 
 function App() {
@@ -58,6 +59,9 @@ function App() {
         </Route>
         <Route path='/sell' exact={true}>
           <ItemListing/>
+        </Route>
+        <Route >
+          <DeadEnd/>
         </Route>
       </Switch>
     </BrowserRouter>

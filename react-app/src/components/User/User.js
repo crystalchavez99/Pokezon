@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch,useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useParams } from 'react-router-dom';
-import {getAllItemsThunk,deleteOneItemThunk} from '../../store/item';
+import { getAllItemsThunk, deleteOneItemThunk } from '../../store/item';
+import { getAllUser } from '../../store/user';
 import './User.css';
 
 function User() {
   const [user, setUser] = useState({});
   const { userId } = useParams();
   const dispatch = useDispatch();
-  const itemListing = useSelector(state =>Object.values(state?.items))
+  const itemListing = useSelector(state => Object.values(state?.items))
+  const sessionUser = useSelector(state => state?.session?.user);
   useEffect(() => {
     dispatch(getAllItemsThunk())
+    dispatch(getAllUser())
     if (!userId) {
       return;
     }
@@ -19,12 +22,12 @@ function User() {
       const user = await response.json();
       setUser(user);
     })();
-  }, [dispatch,userId]);
+  }, [dispatch, userId]);
 
   if (!user) {
     return null;
   }
-  const ownedItems = itemListing?.filter(item =>{
+  const ownedItems = itemListing?.filter(item => {
     return item?.user_id === user?.id;
   })
 
@@ -41,21 +44,24 @@ function User() {
           <li>
             <strong>Bio</strong> {user.bio}
           </li>
-          <li>
-          <NavLink to={`/sell`}>Create Listing</NavLink>
+          <li>{sessionUser?.id === user?.id &&
+            <NavLink to={`/sell`}>Create Listing</NavLink>}
           </li>
         </ul>
       </div>
       <div id="owner-items">
         {ownedItems?.map(item => (
           <div className='item-sale'>
-          <img src={item?.image_url} alt={item?.name}/>
-          <div className='edit-delete'>
-          <NavLink to={`/items/${item?.id}/edit`}>Edit</NavLink>
-          <button  onClick={() => {
-            dispatch(deleteOneItemThunk(item))
-          }}>Delete</button>
-          </div>
+            <img src={item?.image_url} alt={item?.name} />
+            <div className='edit-delete'>
+              {sessionUser?.id === user?.id && <>
+                <NavLink to={`/items/${item?.id}/edit`}>Edit</NavLink>
+              <button onClick={() => {
+                dispatch(deleteOneItemThunk(item))
+              }}>Delete</button>
+              </>}
+
+            </div>
           </div>
         ))}
       </div>
