@@ -4,8 +4,10 @@ import { useHistory,useParams ,NavLink} from "react-router-dom";
 import { getOneItemThunk,updateOneItemThunk } from '../../store/item';
 import './ItemForm.css';
 function ItemEdit({item}) {
+    console.log(item)
     const { itemId } = useParams();
     item = useSelector(state => state?.items[itemId])
+    const sessionUser = useSelector(state => state?.session?.user);
     const dispatch = useDispatch();
     const history = useHistory();
     const [name, setName] = useState(item?.name)
@@ -14,6 +16,8 @@ function ItemEdit({item}) {
     const [price, setPrice] = useState(item?.price)
     const [quantity, setQuantity] = useState(item?.quantity);
     const [errors, setErrors] = useState([]);
+
+
 
     const itemSubmit = async e => {
         e.preventDefault();
@@ -39,6 +43,10 @@ function ItemEdit({item}) {
         dispatch(getOneItemThunk(itemId))
     }, [dispatch,itemId])
 
+    if(sessionUser?.id !== item?.user_id){
+        history.push(`/items/${itemId}`)
+    }
+    
     return (
         <div id="item-new-form-page">
 
