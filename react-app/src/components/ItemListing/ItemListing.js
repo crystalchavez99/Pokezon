@@ -71,7 +71,7 @@ function ItemListing() {
                     <label>
                         Description:
                     </label>
-                    <input
+                    <textarea
                         id="add-item-description"
                         type="text"
                         value={description}

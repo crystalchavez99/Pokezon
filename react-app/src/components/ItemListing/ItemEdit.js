@@ -4,7 +4,6 @@ import { useHistory,useParams ,NavLink} from "react-router-dom";
 import { getOneItemThunk,updateOneItemThunk } from '../../store/item';
 import './ItemForm.css';
 function ItemEdit({item}) {
-    console.log(item)
     const { itemId } = useParams();
     item = useSelector(state => state?.items[itemId])
     const sessionUser = useSelector(state => state?.session?.user);
@@ -79,7 +78,7 @@ function ItemEdit({item}) {
                     <label>
                         Description:
                     </label>
-                    <input
+                    <textarea
                         id="add-item-description"
                         type="text"
                         value={description}
