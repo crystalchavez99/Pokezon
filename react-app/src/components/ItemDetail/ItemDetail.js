@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import { getOneItemThunk } from '../../store/item';
 import { getAllReviewsThunk, deleteOneReviewThunk } from '../../store/review';
 import ReviewEdit from '../ReviewForm/ReviewEdit';
@@ -79,7 +79,16 @@ function ItemDetail() {
                             <p>{item?.description}</p>
                             {listedUsers?.map(list => {
                                 if (list?.id === item?.user_id) {
-                                    return (<p>Sold By: {list?.username}</p>)
+                                    return (
+                                        <>
+
+                                            <span>Sold By: 
+                                                <NavLink to={`/users/${item?.user_id}`}>
+                                                    {list?.username}
+                                                </NavLink>
+                                            </span>
+                                        </>
+                                    )
                                 }
                             })}
                         </div>
@@ -101,13 +110,13 @@ function ItemDetail() {
                                             }
                                         })}
 
-                                    {currentUser?.id === review?.user_id && (<div className='edit-delete'>
-                                        <button onClick={() => setModal(true)}>Edit</button>
-                                        {modal &&
-                                            (<Modal onClose={() => setModal(false)}>
-                                                <ReviewEdit setModal={setModal} review={review} />
-                                            </Modal>)}
-                                        <button onClick={() => dispatch(deleteOneReviewThunk(review))}>Delete</button></div>)}
+                                        {currentUser?.id === review?.user_id && (<div className='edit-delete'>
+                                            <button onClick={() => setModal(true)}>Edit</button>
+                                            {modal &&
+                                                (<Modal onClose={() => setModal(false)}>
+                                                    <ReviewEdit setModal={setModal} review={review} />
+                                                </Modal>)}
+                                            <button onClick={() => dispatch(deleteOneReviewThunk(review))}>Delete</button></div>)}
                                     </div>
                                 </div>
                             ))}

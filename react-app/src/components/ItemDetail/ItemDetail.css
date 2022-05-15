@@ -135,3 +135,12 @@
     background-color: black;
 
 }
+
+.item-description a{
+    text-decoration: none;
+    color:rgb(77, 77, 77);
+    font-weight: 600;
+}
+.item-description a:hover{
+    color:rgb(0, 84, 166);
+}
