@@ -41,7 +41,7 @@ function ReviewEdit({review, setModal}) {
                     ))}
                 </div>
                 <label>Content: </label>
-                <input
+                <textarea
                         id="add-item-name"
                         type="text"
                         value={content}
