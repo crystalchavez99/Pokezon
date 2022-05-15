@@ -46,7 +46,7 @@ function ItemEdit({item}) {
     if(sessionUser?.id !== item?.user_id){
         history.push(`/items/${itemId}`)
     }
-    
+
     return (
         <div id="item-new-form-page">
 
