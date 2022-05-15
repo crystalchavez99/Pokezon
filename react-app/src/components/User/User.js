@@ -44,9 +44,14 @@ function User() {
           <li>
             <strong>Bio</strong> {user.bio}
           </li>
-          <li>{sessionUser?.id === user?.id &&
-            <NavLink to={`/sell`}>Create Listing</NavLink>}
-          </li>
+          <div>
+            <li>{sessionUser?.id === user?.id &&
+              <NavLink to={`/sell`}>Create Listing</NavLink>}
+            </li>
+            <li>{sessionUser?.id === user?.id &&
+              <NavLink to={`/users/${user?.id}/edit`}>Edit Profile</NavLink>}
+            </li>
+          </div>
         </ul>
       </div>
       <div id="owner-items">
