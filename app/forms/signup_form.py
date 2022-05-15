@@ -27,3 +27,8 @@ class SignUpForm(FlaskForm):
         'bio', validators=[Length(max=255)])
     email = StringField('email', validators=[DataRequired(), user_exists,Email("This field requires a valid email address")],)
     password = StringField('password', validators=[DataRequired()])
+class EditSignUpForm(FlaskForm):
+    username = StringField(
+        'username', validators=[DataRequired(), username_exists])
+    bio = TextAreaField(
+        'bio', validators=[Length(max=255)])

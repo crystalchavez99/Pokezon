@@ -1,52 +1,51 @@
-import React, { useState,useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux'
-import { Redirect,useParams } from 'react-router-dom';
-import { signUp } from '../../store/session';
-import './User.css';
+import {React} from 'react'
+import { useState,useEffect } from 'react';
+import { useParams,useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { getOneUser, updateUserThunk } from '../../store/user';
+function EditProfile (){
+    const { userId } = useParams();
+    const dispatch = useDispatch();
+    const history = useHistory()
+    const user = useSelector(state => state?.users[userId])
+    const [errors, setErrors] = useState([]);
+    const [username, setUsername] = useState(user?.username);
+    const [bio, setBio] = useState(user?.bio);
 
-const EditProfile = () => {
-  const { userId } = useParams();
-  const [user, setUser] = useState({});
-  const [errors, setErrors] = useState([]);
-  const [username, setUsername] = useState(user?.username);
-  const [email, setEmail] = useState(user?.email);
-  const [bio, setBio] = useState(user?.bio);
+    useEffect(()=>{
+        dispatch(getOneUser(userId))
+    },[dispatch])
+    const updateUsername = (e) => {
+        setUsername(e.target.value);
+      };
 
-  const dispatch = useDispatch();
+      const updateBio = (e) => {
+        setBio(e.target.value);
+      };
 
-  useEffect(() => {
-    if (!userId) {
-      return;
+
+    const editUser = async e =>{
+        e.preventDefault();
+        let updatedUser = {
+            ...user,
+            username,
+            bio
+        }
+        await dispatch(updateUserThunk(updatedUser))
+        .then((res)=>{
+            if(!res?.ok){
+              setErrors(res?.errors)
+            }else{
+              setErrors([])
+              history.push(`/users/${user?.id}`)
+            }
+        })
     }
-    (async () => {
-      const response = await fetch(`/api/users/${userId}`);
-      const user = await response.json();
-      setUser(user);
-    })();
-  }, [userId]);
 
-
-
-  const updateUsername = (e) => {
-    setUsername(e.target.value);
-  };
-
-  const updateEmail = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const updateBio = (e) => {
-    setBio(e.target.value);
-  };
-
-  if (!user) {
-    return <Redirect to='/' />;
-  }
-
-  return (
-    <div id="auth-form-page">
+    return(
+        <div id="auth-form-page">
       <div id="display-auth-form">
-        <form>
+        <form onSubmit={editUser}>
           <div id="errors">
             {errors.map((error, ind) => (
               <div key={ind}>{error}</div>
@@ -62,15 +61,6 @@ const EditProfile = () => {
             ></input>
           </div>
           <div>
-            <label>Email</label>
-            <input
-              type='text'
-              name='email'
-              onChange={updateEmail}
-              value={email}
-            ></input>
-          </div>
-          <div>
             <label>Bio</label>
             <textarea
               type='text'
@@ -79,11 +69,11 @@ const EditProfile = () => {
               value={bio}
             ></textarea>
           </div>
-          <button className="btn-login" type='submit'>Sign Up</button>
+          <button className="btn-login" type='submit'>Edit Profile</button>
         </form>
       </div>
     </div>
-  );
-};
+    )
+}
 
 export default EditProfile;

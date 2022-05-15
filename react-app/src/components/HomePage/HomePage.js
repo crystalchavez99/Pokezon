@@ -12,10 +12,8 @@ function HomePage(){
     },[dispatch])
 
     return (
-        <div id="Home-Page">
-            <div className='header'>
-                    <h1>All your item needs fulfilled</h1>
-            </div>
+        <div id="Home-Page" key={'home-page'}>
+            <h1>All your item needs fulfilled</h1>
             <div className='listing'>
                 {itemListing?.map(item =>(
                     <div className='item-listed'>
