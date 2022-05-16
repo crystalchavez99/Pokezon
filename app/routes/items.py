@@ -30,7 +30,7 @@ def add_item():
 
     if form.validate_on_submit():
         item = Item(name=form.data["name"],
-            image_url=form.data["image_url"],
+            image_url=form.data["image"],
             description=form.data["description"],
             price=form.data["price"],
             quantity=form.data["quantity"],
@@ -50,7 +50,7 @@ def update_item(id):
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         item.name=form["name"].data
-        item.image_url=form["image_url"].data
+        item.image_url=form["image"].data
         item.description=form["description"].data
         item.price=form["price"].data
         item.quantity=form["quantity"].data

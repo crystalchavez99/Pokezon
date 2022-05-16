@@ -23,7 +23,7 @@ function ItemEdit({item}) {
         let updateItem = {
             ...item,
             name,
-            image_url,
+            image : image_url,
             description,
             price,
             quantity

@@ -18,7 +18,7 @@ function ItemListing() {
         e.preventDefault();
         let newItem = {
             name,
-            image_url,
+            image : image_url,
             description,
             price,
             quantity,
