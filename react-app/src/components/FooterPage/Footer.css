@@ -3,11 +3,14 @@
 }
 footer{
     background-color: rgb(94, 114, 125);
-    margin-top: 25px;
-    padding: 10px ;
     color: white;
     display: flex;
     justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
 }
 #tech-used ul ,#reference ul{
     display: flex;
