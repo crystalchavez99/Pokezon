@@ -35,23 +35,18 @@ export const getOneUser = (userId) => async dispatch => {
 }
 
 export const updateUserThunk = (user) => async dispatch => {
-  console.log('ENTER THUNK')
   const response = await fetch(`/api/users/${user.id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(user)
   })
-  console.log(`PRINT UPDATE`,response)
   if (response.ok) {
     const updatedUser = await response.json();
     await dispatch(updateUser(updatedUser));
-    console.log('updated!',updateUser)
   } else if (response.status < 500) {
     const data = await response.json();
-    console.log('error', data)
     return data
   }
-  console.log(response,'overall response')
   return response;
 }
 const initialState = {};

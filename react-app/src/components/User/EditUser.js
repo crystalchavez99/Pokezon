@@ -35,7 +35,6 @@ function EditProfile (){
         }
         dispatch(updateUserThunk(updatedUser))
         .then((res)=>{
-          console.log(res.errors)
             if(!res?.ok){
               setErrors(res?.errors)
             }else{

@@ -27,11 +27,8 @@ def update_user(id):
     bioform['csrf_token'].data = request.cookies['csrf_token']
     if(user.username == usernameform["username"].data):
         if(bioform.validate_on_submit()):
-            print("BIOFORM ====================================>",bioform["bio"].data)
             user.bio=bioform["bio"].data
-            print("BIOFORM UPDATE ====================================>",bioform["bio"].data)
             db.session.commit()
-            print('===========>',user.to_dict())
             return user.to_dict()
         user.username=usernameform["username"].data
         db.session.commit()
@@ -39,7 +36,6 @@ def update_user(id):
     elif (usernameform.validate_on_submit()):
         user.username=usernameform["username"].data
         db.session.commit()
-        print('===========>',user.to_dict())
         return user.to_dict()
     elif usernameform.errors:
         return {"errors": validation_errors_to_error_messages(usernameform.errors)},401
