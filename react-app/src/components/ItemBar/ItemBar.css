@@ -6,7 +6,6 @@
     padding: 0;
 }
 #bot-nav > ul{
-    border-bottom: 1px solid gray;
     box-sizing:border-box;
     width: 100%;
     display: flex;

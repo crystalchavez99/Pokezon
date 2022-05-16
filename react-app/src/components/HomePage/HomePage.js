@@ -13,6 +13,9 @@ function HomePage(){
 
     return (
         <div id="Home-Page">
+            <div  id="banner">
+                <p>Get Free Shipping on orders over $20!</p>
+            </div>
             <div className='header'>
                     <h1>All your item needs fulfilled</h1>
             </div>
