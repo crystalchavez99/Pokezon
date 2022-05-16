@@ -1,4 +1,5 @@
 # Pokezon
+![](https://vscode-remote%2Bwsl-002bubuntu.vscode-resource.vscode-cdn.net/home/crystal/appacademyFolder/appacademy/mod7/Pokezon/python-project-starter/react-app/src/images/logo.png?version%3D1652718831672)
 
 Pokezon is a digital store application that sells supplies necessary for Pokémon training and lifestyle. We aim to help merchants sell standard adventure supplies
 and special items that are often unique to Pokemon trainers out there.
