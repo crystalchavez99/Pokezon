@@ -49,7 +49,7 @@ function User() {
               <NavLink to={`/sell`}>Create Listing</NavLink>}
             </li>
             <li>{sessionUser?.id === user?.id &&
-              <NavLink to={`/users/${user?.id}/edit`}>Edit Username</NavLink>}
+              <NavLink to={`/users/${user?.id}/edit`}>Edit Profile</NavLink>}
             </li>
           </div>
         </ul>

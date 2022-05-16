@@ -10,13 +10,17 @@ function EditProfile (){
     const user = useSelector(state => state?.users[userId])
     const [errors, setErrors] = useState([]);
     const [username, setUsername] = useState(user?.username);
+    const [bio, setBio] = useState(user?.bio);
 
     useEffect(()=>{
         dispatch(getOneUser(userId))
     },[dispatch])
     const updateUsername = (e) => {
         setUsername(e.target.value);
-      };
+    };
+    const updateBio = (e) => {
+        setBio(e.target.value);
+    };
 
 
 
