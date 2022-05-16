@@ -14,10 +14,10 @@ const NavBar = () => {
           <i className="fa-solid fa-house">Home</i>
           </NavLink>
         </li>
-        <form action="/action_page.php">
+        {/* <form action="/action_page.php">
           <input type="text" placeholder="Search.." name="search" id="search"/>
           <button type="submit" id="submit"><i className="fa-solid fa-magnifying-glass"></i></button>
-        </form>
+        </form> */}
         {!user &&
           <>
             <li id="login-ui">
