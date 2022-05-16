@@ -14,7 +14,7 @@ import ItemBar from './components/ItemBar/ItemBar';
 import ItemListing from './components/ItemListing/ItemListing';
 import ItemEdit from './components/ItemListing/ItemEdit';
 import DeadEnd from './components/404Page/DeadEnd';
-import './App.css';
+//import './App.css';
 import Footer from './components/FooterPage/Footer';
 
 function App() {
@@ -62,7 +62,7 @@ function App() {
           <DeadEnd/>
         </Route>
       </Switch>
-      {/* <Footer/> */}
+      <Footer/>
     </BrowserRouter>
   );
 }
