@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-
+import logo from '../../images/logo.png'
 import LogoutButton from '../auth/LogoutButton';
 import './NavBar.css';
 const NavBar = () => {
@@ -9,6 +9,9 @@ const NavBar = () => {
   return (
     <nav id="top-nav">
       <ul>
+        <li>
+          <img src={logo} />
+        </li>
         <li>
           <NavLink to='/' exact={true} activeClassName='active'>
           <i className="fa-solid fa-house">Home</i>
