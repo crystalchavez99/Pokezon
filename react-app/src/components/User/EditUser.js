@@ -10,7 +10,6 @@ function EditProfile (){
     const user = useSelector(state => state?.users[userId])
     const [errors, setErrors] = useState([]);
     const [username, setUsername] = useState(user?.username);
-    const [bio, setBio] = useState(user?.bio);
 
     useEffect(()=>{
         dispatch(getOneUser(userId))
@@ -19,9 +18,6 @@ function EditProfile (){
         setUsername(e.target.value);
       };
 
-      const updateBio = (e) => {
-        setBio(e.target.value);
-      };
 
 
     const editUser = async e =>{
@@ -29,10 +25,10 @@ function EditProfile (){
         let updatedUser = {
             ...user,
             username,
-            bio
         }
-        await dispatch(updateUserThunk(updatedUser))
+        dispatch(updateUserThunk(updatedUser))
         .then((res)=>{
+          console.log(res.errors)
             if(!res?.ok){
               setErrors(res?.errors)
             }else{
@@ -47,7 +43,7 @@ function EditProfile (){
       <div id="display-auth-form">
         <form onSubmit={editUser}>
           <div id="errors">
-            {errors.map((error, ind) => (
+            {errors?.map((error, ind) => (
               <div key={ind}>{error}</div>
             ))}
           </div>
@@ -59,15 +55,6 @@ function EditProfile (){
               onChange={updateUsername}
               value={username}
             ></input>
-          </div>
-          <div>
-            <label>Bio</label>
-            <textarea
-              type='text'
-              name='bio'
-              onChange={updateBio}
-              value={bio}
-            ></textarea>
           </div>
           <button className="btn-login" type='submit'>Edit Profile</button>
         </form>

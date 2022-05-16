@@ -1,7 +1,7 @@
 from flask import Blueprint,request
 from app.models import User
 from app.models.db import db
-from app.forms.signup_form import EditSignUpForm, SignUpForm
+from app.forms.signup_form import EditBio, EditUsername, SignUpForm
 from app.api.auth_routes import validation_errors_to_error_messages
 
 user_routes = Blueprint('users', __name__)
@@ -21,11 +21,12 @@ def user(id):
 @user_routes.route('/<int:id>',methods=["PUT"])
 def update_user(id):
     user = User.query.get(id)
-    form = EditSignUpForm()
-    form['csrf_token'].data = request.cookies['csrf_token']
-    if form.validate_on_submit():
-        user.username=form["username"].data
-        user.bio=form["bio"].data
+    usernameform = EditUsername()
+    bioform = EditBio()
+    usernameform['csrf_token'].data = request.cookies['csrf_token']
+    if( usernameform.validate_on_submit()):
+        user.username=usernameform["username"].data
         db.session.commit()
         return user.to_dict()
-    return {"errors": validation_errors_to_error_messages(form.errors)},401
+    else:
+        return {"errors": validation_errors_to_error_messages(usernameform.errors)},401

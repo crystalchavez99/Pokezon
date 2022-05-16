@@ -22,9 +22,6 @@ def username_exists_update(form, field):
     # Checking if username is already in use
     username = field.data
     user = User.query.filter(User.username == username).first()
-    print('user========================',user.to_dict())
-    print('username========================',username)
-    print('form========================',form)
     if user:
         raise ValidationError('Username is already in use.')
 
@@ -36,8 +33,9 @@ class SignUpForm(FlaskForm):
         'bio', validators=[Length(max=255)])
     email = StringField('email', validators=[DataRequired(), user_exists,Email("This field requires a valid email address")],)
     password = StringField('password', validators=[DataRequired()])
-class EditSignUpForm(FlaskForm):
+class EditUsername(FlaskForm):
     username = StringField(
         'username', validators=[DataRequired(), username_exists_update])
+class EditBio(FlaskForm):
     bio = TextAreaField(
         'bio', validators=[Length(max=255)])
