@@ -20,7 +20,7 @@
     align-items: center;
     list-style: none;
 }
-#top-nav a{
+#top-nav a, #basic-button button{
     color: rgb(118, 118, 118);
     text-decoration: none;
     font-size: 14px;
@@ -29,6 +29,10 @@
     text-align: center;
     transition: height;
 
+}
+a{
+    text-decoration: none;
+    color: rgb(118, 118, 118);
 }
 #top-nav a:hover{
     color: rgb(6, 86, 164);
