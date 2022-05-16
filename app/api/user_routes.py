@@ -24,15 +24,24 @@ def update_user(id):
     usernameform = EditUsername()
     bioform = EditBio()
     usernameform['csrf_token'].data = request.cookies['csrf_token']
-    if(usernameform.validate_on_submit()):
+    bioform['csrf_token'].data = request.cookies['csrf_token']
+    if(user.username == usernameform["username"].data):
+        if(bioform.validate_on_submit()):
+            print("BIOFORM ====================================>",bioform["bio"].data)
+            user.bio=bioform["bio"].data
+            print("BIOFORM UPDATE ====================================>",bioform["bio"].data)
+            db.session.commit()
+            print('===========>',user.to_dict())
+            return user.to_dict()
         user.username=usernameform["username"].data
         db.session.commit()
         return user.to_dict()
+    elif (usernameform.validate_on_submit()):
+        user.username=usernameform["username"].data
+        db.session.commit()
+        print('===========>',user.to_dict())
+        return user.to_dict()
     elif usernameform.errors:
         return {"errors": validation_errors_to_error_messages(usernameform.errors)},401
-    if(bioform.validate_on_submit()):
-        user.username=bioform["username"].data
-        db.session.commit()
-        return user.to_dict()
     elif bioform.errors:
         return {"errors": validation_errors_to_error_messages(bioform.errors)},401

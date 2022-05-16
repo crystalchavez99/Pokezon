@@ -15,9 +15,11 @@ function EditProfile (){
     useEffect(()=>{
         dispatch(getOneUser(userId))
     },[dispatch])
+
     const updateUsername = (e) => {
         setUsername(e.target.value);
     };
+
     const updateBio = (e) => {
         setBio(e.target.value);
     };
@@ -29,6 +31,7 @@ function EditProfile (){
         let updatedUser = {
             ...user,
             username,
+            bio
         }
         dispatch(updateUserThunk(updatedUser))
         .then((res)=>{
@@ -58,6 +61,15 @@ function EditProfile (){
               name='username'
               onChange={updateUsername}
               value={username}
+            ></input>
+          </div>
+          <div>
+            <label>Bio</label>
+            <input
+              type='text'
+              name='bio'
+              onChange={updateBio}
+              value={bio}
             ></input>
           </div>
           <button className="btn-login" type='submit'>Edit Profile</button>
