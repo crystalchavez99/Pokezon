@@ -1,11 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import logo from '../../images/logo.png'
 import LogoutButton from '../auth/LogoutButton';
+import { Button, Menu, MenuItem } from '@mui/material';
 import './NavBar.css';
 const NavBar = () => {
   const user = useSelector(state => state.session.user);
+  const [anchor, setAnchor] = useState(null)
+  const open = Boolean(anchor)
+
+
+  const handleOpen = e => {
+    setAnchor(e.currentTarget)
+  }
+  const handleClose = e => {
+    setAnchor(null)
+  }
   return (
     <nav id="top-nav">
       <ul>
@@ -14,7 +25,7 @@ const NavBar = () => {
         </li>
         <li>
           <NavLink to='/' exact={true} activeClassName='active'>
-          <i className="fa-solid fa-house">Home</i>
+            <i className="fa-solid fa-house">Home</i>
           </NavLink>
         </li>
         {/* <form action="/action_page.php">
@@ -39,12 +50,39 @@ const NavBar = () => {
           </NavLink>
         </li>
         {user && <><li>
-          <NavLink to={`/users/${user?.id}`} exact={true} activeClassName='active'>
-            <i className="fa-solid fa-user">Profile</i>
-          </NavLink>
-        </li><li id="logout-ui">
-            <LogoutButton />
-          </li></>}
+          <Button
+            id="basic-button"
+            aria-controls={open ? 'basic-menu' : undefined}
+            aria-haspopup="true"
+            aria-expanded={open ? 'true' : undefined}
+            onClick={handleOpen}>
+            <i className="fa-solid fa-user">
+                Profile
+            </i>
+            {/* <NavLink to={`/users/${user?.id}`} exact={true} activeClassName='active'>
+
+          </NavLink> */}
+          </Button>
+          <Menu
+            id="basic-menu"
+            anchorEl={anchor}
+            open={open}
+            onClose={handleClose}
+            MenuListProps={{
+              'aria-labelledby': 'basic-button',
+            }}>
+            <MenuItem onClick={handleClose}>
+              <NavLink to={`/users/${user?.id}`} exact={true} activeClassName='active'>
+                <i className="fa-solid fa-user">
+                  My Profile
+                </i>
+              </NavLink>
+
+            </MenuItem>
+            <MenuItem onClick={handleClose}><LogoutButton /></MenuItem>
+          </Menu>
+        </li>
+        </>}
       </ul>
     </nav>
   );
