@@ -20,6 +20,7 @@
     justify-content: center;
     width: min-content;
     align-items: center;
+    margin: 10px;
 }
 
 .item-listed a{
