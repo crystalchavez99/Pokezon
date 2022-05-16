@@ -54,7 +54,6 @@ def update_item(id):
         item.description=form["description"].data
         item.price=form["price"].data
         item.quantity=form["quantity"].data
-        print("UPDATED",item.to_dict())
         db.session.commit()
         return item.to_dict()
     return {"errors": validation_errors_to_error_messages(form.errors)},401

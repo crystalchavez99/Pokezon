@@ -13,6 +13,8 @@ import ItemBar from './components/ItemBar/ItemBar';
 import ItemListing from './components/ItemListing/ItemListing';
 import ItemEdit from './components/ItemListing/ItemEdit';
 import DeadEnd from './components/404Page/DeadEnd';
+import './App.css';
+import EditProfile from './components/User/EditUser';
 //import './App.css';
 // import Footer from './components/FooterPage/Footer';
 
@@ -48,6 +50,9 @@ function App() {
         <Route path='/users/:userId' exact={true} >
           <User />
         </Route>
+        <ProtectedRoute path='/users/:userId/edit' exact={true}>
+          <EditProfile />
+        </ProtectedRoute>
         <Route path='/items/:itemId' exact={true}>
           <ItemDetail/>
         </Route>
