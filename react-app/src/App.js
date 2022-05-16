@@ -5,7 +5,6 @@ import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './components/UsersList';
 import User from './components/User/User';
 import { authenticate } from './store/session';
 import HomePage from './components/HomePage/HomePage';
@@ -15,7 +14,7 @@ import ItemListing from './components/ItemListing/ItemListing';
 import ItemEdit from './components/ItemListing/ItemEdit';
 import DeadEnd from './components/404Page/DeadEnd';
 //import './App.css';
-import Footer from './components/FooterPage/Footer';
+// import Footer from './components/FooterPage/Footer';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -62,7 +61,7 @@ function App() {
           <DeadEnd/>
         </Route>
       </Switch>
-      <Footer/>
+      {/* <Footer/> */}
     </BrowserRouter>
   );
 }
