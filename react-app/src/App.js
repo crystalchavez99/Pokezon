@@ -16,7 +16,7 @@ import DeadEnd from './components/404Page/DeadEnd';
 import './App.css';
 import EditProfile from './components/User/EditUser';
 //import './App.css';
-// import Footer from './components/FooterPage/Footer';
+import Footer from './components/FooterPage/Footer';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -65,7 +65,7 @@ function App() {
           <DeadEnd/>
         </Route>
       </Switch>
-      {/* <Footer/> */}
+      <Footer/>
     </BrowserRouter>
   );
 }

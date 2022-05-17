@@ -13,12 +13,14 @@ def seed_items():
         name='Paralyze Heal', image_url='https://res.cloudinary.com/dreambssd/image/upload/v1652383291/paralyze-heal_1_hd5sp0.png', description="It can be used to cure a Pokémon from paralysis.",user_id=2,price=200,quantity=10,created_at='1996-02-27 00:00:00')
     burnheal = Item(
         name='Burn Heal', image_url='https://res.cloudinary.com/dreambssd/image/upload/v1652383874/burn-heal_1_q72izd.png', description="It cures a Pokémon from a burn.",user_id=2,price=250,quantity=10,created_at='1996-02-27 00:00:00')
-
+    escaperope = Item(
+        name="Escape Rope", image_url="https://res.cloudinary.com/dreambssd/image/upload/v1652815750/escape-rope_1_yvuydl.png", description=" It is used to escape a cave or dungeon.", user_id=3,price=550,quantity=5,created_at='1996-02-27 00:00:00')
     db.session.add(pokeball)
     db.session.add(potion)
     db.session.add(antidote)
     db.session.add(paralyzeheal)
     db.session.add(burnheal)
+    db.session.add(escaperope)
 
 
     db.session.commit()

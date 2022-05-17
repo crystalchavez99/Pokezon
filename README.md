@@ -1,14 +1,31 @@
-# Pokezon
-![](https://vscode-remote%2Bwsl-002bubuntu.vscode-resource.vscode-cdn.net/home/crystal/appacademyFolder/appacademy/mod7/Pokezon/python-project-starter/react-app/src/images/logo.png?version%3D1652718831672)
+<div align='center'>
+<img src="https://vscode-remote%2Bwsl-002bubuntu.vscode-resource.vscode-cdn.net/home/crystal/appacademyFolder/appacademy/mod7/Pokezon/python-project-starter/react-app/src/images/logo.png?version%3D1652718831672" alt="Logo" width="80" hight="80">
 
+<h1 text-align="center">Pokezon</h1>
+
+<p align="center">
+Pokemon Mart E-Commerce Site
+</p>
+
+<a href="https://github.com/crystalchavez99/Pokezon"><strong>Explore The Docs</strong></a>
+
+</div>
+<br>
+
+<h2 text-align="center">Live Link</h2>
+https://aa-pokezon.herokuapp.com/
+
+<br>
+
+## About The Project
 Pokezon is a digital store application that sells supplies necessary for Pokémon training and lifestyle. We aim to help merchants sell standard adventure supplies
 and special items that are often unique to Pokemon trainers out there.
 
-## Live Link
-https://aa-pokezon.herokuapp.com/
+<img src="https://res.cloudinary.com/dreambssd/image/upload/v1652818916/Capture_c3n1fp.png">
 
-## Technologies
+<br>
 
+## Built With
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original-wordmark.svg" width=50px height=50px/>
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original-wordmark.svg" width=50px height=50px/>
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width=50px height=50px/>
@@ -20,6 +37,11 @@ https://aa-pokezon.herokuapp.com/
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlalchemy/sqlalchemy-original-wordmark.svg" width=50px height=50px/>
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/heroku/heroku-plain-wordmark.svg" width=50px height=50px/>
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original-wordmark.svg" width=50px height=50px/>
+
+<br>
+
+## Features
+
 
 ## Getting started
 1. Clone this repository (only this branch)
@@ -146,3 +168,9 @@ each of the following variables:
 | `heroku login -i`      | Authenticate your heroku-cli using the command line. Drop the -i to authenticate via the browser |
 | `heroku authorizations:create` | Once authenticated, use this to generate an Oauth token |
 | `heroku run -a <app name>` | Run a command from within the deployed container on Heroku |
+
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://www.linkedin.com/in/cchavez99/
+
+### Reach Me
+[![LinkedIn][linkedin-shield]][linkedin-url]
