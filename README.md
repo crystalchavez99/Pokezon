@@ -1,5 +1,5 @@
 <div align='center'>
-<img src="https://vscode-remote%2Bwsl-002bubuntu.vscode-resource.vscode-cdn.net/home/crystal/appacademyFolder/appacademy/mod7/Pokezon/python-project-starter/react-app/src/images/logo.png?version%3D1652718831672" alt="Logo" width="80" hight="80">
+<img src="https://res.cloudinary.com/dreambssd/image/upload/v1652822582/ac83eae79d7a4aa8ba236ce2800a6050_wnnnhs.png" alt="Logo" width="80" hight="80">
 
 <h1 text-align="center">Pokezon</h1>
 
