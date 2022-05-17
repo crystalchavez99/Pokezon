@@ -36,7 +36,6 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
-      <ItemBar />
       <Switch>
       <Route path='/' exact={true} >
           <HomePage/>
