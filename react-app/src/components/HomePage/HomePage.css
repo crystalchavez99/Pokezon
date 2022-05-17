@@ -50,3 +50,14 @@
     color: white;
     background-color: black;
 }
+
+#banner{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(0, 84, 166);
+    color:white;
+    padding: 5px;
+    margin: 0 auto;
+    height: 30px;align-items: center;
+}
