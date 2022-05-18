@@ -9,6 +9,7 @@
     width: auto;
     height: auto;
     margin-bottom: 20px;
+    padding-bottom: 30%;
 }
 .listing{
     display: flex;
@@ -25,6 +26,7 @@
     justify-content: center;
     width: min-content;
     align-items: center;
+    margin: 20px;
 }
 
 .item-listed a{

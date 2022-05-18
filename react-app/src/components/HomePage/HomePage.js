@@ -3,12 +3,16 @@ import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { getAllItemsThunk } from '../../store/item';
 import './HomePage.css';
+import { allCarts, cartDetails } from "../../store/cart";
 
 function HomePage(){
     const dispatch = useDispatch();
+    const currentUser = useSelector(state => state?.session?.user);
     const itemListing = useSelector(state =>Object.values(state?.items))
+    const cart = useSelector(state => Object.values(state?.cart))
     useEffect(()=>{
         dispatch(getAllItemsThunk())
+        dispatch(cartDetails(currentUser?.id))
     },[dispatch])
 
     return (
@@ -36,7 +40,7 @@ function HomePage(){
                     </div>
                 ))}
             </div>
-           
+
         </div>
     )
 }

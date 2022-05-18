@@ -9,14 +9,13 @@ import User from './components/User/User';
 import { authenticate } from './store/session';
 import HomePage from './components/HomePage/HomePage';
 import ItemDetail from './components/ItemDetail/ItemDetail';
-import ItemBar from './components/ItemBar/ItemBar';
 import ItemListing from './components/ItemListing/ItemListing';
 import ItemEdit from './components/ItemListing/ItemEdit';
 import DeadEnd from './components/404Page/DeadEnd';
+import Footer from './components/FooterPage/Footer'
 //import './App.css';
 import EditProfile from './components/User/EditUser';
 //import './App.css';
-import Footer from './components/FooterPage/Footer';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -61,11 +60,14 @@ function App() {
         <ProtectedRoute path='/sell' exact={true}>
           <ItemListing/>
         </ProtectedRoute>
+        <ProtectedRoute path='/cart' exact={true}>
+          <CartPage/>
+        </ProtectedRoute>
         <Route >
           <DeadEnd/>
         </Route>
       </Switch>
-      {/* <Footer/> */}
+      <Footer/>
     </BrowserRouter>
   );
 }
