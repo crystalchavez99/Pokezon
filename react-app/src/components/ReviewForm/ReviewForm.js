@@ -45,6 +45,7 @@ function ReviewForm({ item, setModal }) {
                         type="text"
                         value={content}
                         onChange={(e) => setContent(e.target.value)}
+                        placeholder={'500 Characters Max'}
                     />
                 <button type='submit' id="submit-button">Add Review</button>
             </form>
