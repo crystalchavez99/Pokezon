@@ -13,6 +13,9 @@ function HomePage(){
 
     return (
         <div id="Home-Page" key={'home-page'}>
+            <div id="banner">
+                <strong>Free Shipping For Orders Over ₽200.</strong>
+            </div>
             <h1>All your item needs fulfilled</h1>
             <div className='listing'>
                 {itemListing?.map(item =>(

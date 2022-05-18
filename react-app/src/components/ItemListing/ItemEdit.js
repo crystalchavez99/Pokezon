@@ -10,7 +10,7 @@ function ItemEdit({item}) {
     const dispatch = useDispatch();
     const history = useHistory();
     const [name, setName] = useState(item?.name)
-    const [image_url, setImage_url] = useState(item?.image_url)
+    const [image, setImage] = useState(item?.image_url)
     const [description, setDescription] = useState(item?.description)
     const [price, setPrice] = useState(item?.price)
     const [quantity, setQuantity] = useState(item?.quantity);
@@ -23,7 +23,7 @@ function ItemEdit({item}) {
         let updateItem = {
             ...item,
             name,
-            image : image_url,
+            image,
             description,
             price,
             quantity
@@ -46,6 +46,11 @@ function ItemEdit({item}) {
         history.push(`/items/${itemId}`)
     }
 
+    const updateImage = (e) => {
+        const file = e.target.files[0];
+        setImage(file);
+    }
+
     return (
         <div id="item-new-form-page">
 
@@ -66,14 +71,13 @@ function ItemEdit({item}) {
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                     />
-                    <label>
+                     <label>
                         Image Upload:
                     </label>
                     <input
-                        id="add-item-image"
-                        type="url"
-                        value={image_url}
-                        onChange={(e) => setImage_url(e.target.value)}
+                        id="url-input"
+                        type="file"
+                        onChange={updateImage}
                     />
                     <label>
                         Description:

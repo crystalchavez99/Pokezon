@@ -50,11 +50,22 @@ export const getOneItemThunk = (itemId) => async dispatch =>{
 }
 
 export const addOneItemThunk = (item) => async dispatch =>{
+    const {name,image,description,price,quantity,user_id,created_at} = item;
+    const formData = new FormData()
+    formData.append("name",name)
+    formData.append("description",description)
+    formData.append("price",price)
+    formData.append("quantity",quantity)
+    formData.append("user_id",user_id)
+    formData.append("created_at",created_at)
+
+    if (image) formData.append("image", image);
+
     const response = await fetch('/api/items/add_item',{
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(item)
+        body: formData
     })
+    console.log(response)
     if (response.ok) {
         const newItem = await response.json();
         dispatch(addOneItem(newItem));
