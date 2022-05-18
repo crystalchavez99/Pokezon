@@ -6,6 +6,7 @@ import './HomePage.css';
 
 function HomePage(){
     const dispatch = useDispatch();
+    const currentUser = useSelector(state => state?.session?.user);
     const itemListing = useSelector(state =>Object.values(state?.items))
     useEffect(()=>{
         dispatch(getAllItemsThunk())
@@ -36,7 +37,7 @@ function HomePage(){
                     </div>
                 ))}
             </div>
-           
+
         </div>
     )
 }

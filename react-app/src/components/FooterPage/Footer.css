@@ -5,8 +5,10 @@ footer{
     justify-content: space-between;
     width: 100%;
     bottom: 0;
-    /* Height of the footer*/
-    height: auto;
+    left: 0;
+    clear:both;
+    position: fixed;
+    z-index: 100;
 }
 #tech-used ul ,#reference ul{
     display: flex;

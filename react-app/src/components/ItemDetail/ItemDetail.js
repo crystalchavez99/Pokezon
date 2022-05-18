@@ -56,7 +56,7 @@ function ItemDetail() {
                 <div className='item-info'>
                     <p>{item?.name}</p>
                     <span className="item-span">₽{item?.price}</span>
-                    <p>Quantity: {item?.quantity}</p>
+                    {/* <p>Quantity: {item?.quantity}</p> */}
                     <div id="add-to-cart">
                         <button onClick={increment}><i className="fa-solid fa-plus"></i></button>
                         <input value={quantity} type="number" step={1} min={1} max={item?.quantity} onChange={e => setQuantity(e.target.value)} />

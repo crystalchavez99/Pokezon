@@ -64,7 +64,7 @@ def upgrade():
     sa.ForeignKeyConstraint(['user_id'], ['users.id']),
     sa.ForeignKeyConstraint(['item_id'], ['items.id'])
     )
-    # ### end Alembic commands ###qqqqqqqqq
+
 
 
 def downgrade():
