@@ -105,8 +105,12 @@
     padding: 5px;
 }
 
-.review-comment span{
+.review-comment .item-span{
+
     font-weight: 700;
+}
+.item-span{
+    color:rgb(6, 86, 164);;
 }
 
 #info-review{

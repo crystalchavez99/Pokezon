@@ -55,7 +55,7 @@ function ItemDetail() {
                 </div>
                 <div className='item-info'>
                     <p>{item?.name}</p>
-                    <span>₽{item?.price}</span>
+                    <span className="item-span">₽{item?.price}</span>
                     <p>Quantity: {item?.quantity}</p>
                     <div id="add-to-cart">
                         <button onClick={increment}><i className="fa-solid fa-plus"></i></button>
@@ -82,7 +82,7 @@ function ItemDetail() {
                                     return (
                                         <>
 
-                                            <span>Sold By: 
+                                            <span className="item-span">Sold By:
                                                 <NavLink to={`/users/${item?.user_id}`}>
                                                     {list?.username}
                                                 </NavLink>
@@ -106,7 +106,7 @@ function ItemDetail() {
                                         </div>
                                         {listedUsers?.map(list => {
                                             if (list?.id === review?.user_id) {
-                                                return (<span>{list?.username}</span>)
+                                                return (<span className="item-span">{list?.username}</span>)
                                             }
                                         })}
 

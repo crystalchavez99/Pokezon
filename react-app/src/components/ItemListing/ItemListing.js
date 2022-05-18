@@ -54,7 +54,7 @@ function ItemListing() {
                         ))}
                     </div>
                     <label>
-                        Name:
+                        Name: <span>*</span>
                     </label>
                     <input
                         id="add-item-name"
@@ -63,7 +63,7 @@ function ItemListing() {
                         onChange={(e) => setName(e.target.value)}
                     />
                     <label>
-                        Image Upload:
+                        Image Upload: <span>*</span>
                     </label>
                     <input
                         id="url-input"
@@ -71,7 +71,7 @@ function ItemListing() {
                         onChange={updateImage}
                     />
                     <label>
-                        Description:
+                        Description: <span>*</span>
                     </label>
                     <textarea
                         id="add-item-description"
@@ -80,7 +80,7 @@ function ItemListing() {
                         onChange={(e) => setDescription(e.target.value)}
                     />
                     <label>
-                        Price:
+                        Price: <span>*</span>
                     </label>
                     <input
                         id="add-item-description"
@@ -89,7 +89,7 @@ function ItemListing() {
                         onChange={(e) => setPrice(e.target.value)}
                     />
                     <label>
-                        Quantity:
+                        Quantity: <span>*</span>
                     </label>
                     <input
                         id="add-item-description"

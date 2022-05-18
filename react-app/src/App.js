@@ -65,7 +65,7 @@ function App() {
           <DeadEnd/>
         </Route>
       </Switch>
-      <Footer/>
+      {/* <Footer/> */}
     </BrowserRouter>
   );
 }
