@@ -1,0 +1,19 @@
+#cart-wip{
+    font-family: "Open Sans", sans-serif;
+    display: flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 75vh;
+
+}
+
+#cart-wip i{
+    text-align: center;
+    font-size: 40px;
+    color:#e92929;
+}
+#cart-wip a{
+    color: rgb(0, 84, 166);
+}

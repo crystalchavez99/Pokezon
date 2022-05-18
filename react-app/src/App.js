@@ -16,7 +16,7 @@ import Footer from './components/FooterPage/Footer'
 //import './App.css';
 import EditProfile from './components/User/EditUser';
 //import './App.css';
-
+import Cart from './components/Cart/Cart';
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
@@ -61,7 +61,7 @@ function App() {
           <ItemListing/>
         </ProtectedRoute>
         <ProtectedRoute path='/cart' exact={true}>
-          <CartPage/>
+          <Cart/>
         </ProtectedRoute>
         <Route >
           <DeadEnd/>
