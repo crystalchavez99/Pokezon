@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
 import './Auth.css';
-
+import logo from '../../images/logo.png'
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
@@ -38,6 +38,7 @@ const LoginForm = () => {
 
   return (
     <div id="auth-form-page">
+        <img src={logo}/>
       <div id="display-auth-form">
         <form onSubmit={onLogin}>
           <div id="errors">

@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import './Auth.css';
+import logo from '../../images/logo.png'
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -53,6 +54,7 @@ const SignUpForm = () => {
 
   return (
     <div id="auth-form-page">
+      <img src={logo}/>
       <div id="display-auth-form">
         <form onSubmit={onSignUp}>
           <div id="errors">

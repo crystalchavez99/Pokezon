@@ -1,6 +1,7 @@
 #auth-form-page{
     font-family: "Open Sans", sans-serif;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 75vh;
