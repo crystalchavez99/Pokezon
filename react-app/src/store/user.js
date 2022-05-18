@@ -42,7 +42,7 @@ export const updateUserThunk = (user) => async dispatch => {
   })
   if (response.ok) {
     const updatedUser = await response.json();
-    await dispatch(updateUser(updatedUser));
+    dispatch(updateUser(updatedUser));
   } else if (response.status < 500) {
     const data = await response.json();
     return data

@@ -35,6 +35,7 @@ def update_user(id):
         return user.to_dict()
     elif (usernameform.validate_on_submit()):
         user.username=usernameform["username"].data
+        user.bio=bioform["bio"].data
         db.session.commit()
         return user.to_dict()
     elif usernameform.errors:
