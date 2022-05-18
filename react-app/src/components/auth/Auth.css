@@ -11,6 +11,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: white;
+
 }
 #display-auth-form > form{
     display: flex;
@@ -22,9 +24,10 @@
     border-radius: 1rem;
     padding: 10px 20px;
 }
-form input,form label{
+form input,form label,form textarea{
     padding: 5px;
     margin: 5px;
+    border-radius: 1rem;
 }
 #errors{
     color: red;
