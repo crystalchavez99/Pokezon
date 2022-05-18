@@ -17,6 +17,7 @@ class Item(db.Model):
 
     user = db.relationship('User',back_populates='items',foreign_keys=[user_id])
     reviews = db.relationship('Review',back_populates='item',cascade="all,delete",primaryjoin="Item.id==Review.item_id")
+    carts = db.relationship('Cart',back_populates='items',primaryjoin="Item.id==Cart.item_id")
 
 
 
