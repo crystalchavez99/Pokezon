@@ -13,6 +13,8 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    border-left: 1px solid grey;
+    border-right: 1px solid grey;
 }
 .item-listed{
     box-sizing: border-box;
