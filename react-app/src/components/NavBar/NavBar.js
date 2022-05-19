@@ -44,11 +44,11 @@ const NavBar = () => {
               </NavLink>
             </li>
           </>}
-        <li>
+        {/* <li>
           <NavLink to='/cart' exact={true} activeClassName='active'>
             <i className="fa-solid fa-cart-shopping">Cart</i>
           </NavLink>
-        </li>
+        </li> */}
         {user && <><li>
           <Button
             id="basic-button"
