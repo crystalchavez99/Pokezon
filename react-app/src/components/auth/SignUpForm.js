@@ -70,6 +70,10 @@ const SignUpForm = () => {
               onChange={updateUsername}
               value={username}
             ></input>
+            <ul className='signup-ol'>
+              <li>Minimum Characters: 8</li>
+              <li>Maximum Characters: 25</li>
+            </ul>
           </div>
           <div>
             <label>Email <span>*</span></label>
@@ -97,6 +101,10 @@ const SignUpForm = () => {
               onChange={updatePassword}
               value={password}
             ></input>
+            <ul className='signup-ol'>
+              <li>Minimum Characters: 8</li>
+              <li>Maximum Characters: 25</li>
+            </ul>
           </div>
           <div>
             <label>Repeat Password <span>*</span></label>
