@@ -62,6 +62,10 @@ function ItemListing() {
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                     />
+                    <ul className='signup-ol'>
+                        <li>Minimum Characters: 4</li>
+                        <li>Maximum Characters: 25</li>
+                    </ul>
                     <label>
                         Image Upload: <span>*</span>
                     </label>
@@ -79,6 +83,10 @@ function ItemListing() {
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
                     />
+                    <ul className='signup-ol'>
+                        <li>Minimum Characters: 10</li>
+                        <li>Maximum Characters: 500</li>
+                    </ul>
                     <label>
                         Price: <span>*</span>
                     </label>
@@ -87,7 +95,11 @@ function ItemListing() {
                         type="number"
                         value={price}
                         onChange={(e) => setPrice(e.target.value)}
+
                     />
+                    <ul className='signup-ol'>
+                        <li>Can Not Be Negative</li>
+                    </ul>
                     <label>
                         Quantity: <span>*</span>
                     </label>
@@ -97,6 +109,9 @@ function ItemListing() {
                         value={quantity}
                         onChange={(e) => setQuantity(e.target.value)}
                     />
+                    <ul className='signup-ol'>
+                        <li>Can Not Be Negative</li>
+                    </ul>
                     <button type='submit' id="submit-button">Add Item</button>
                     <NavLink to={`/`}>Cancel</NavLink>
                 </form>
