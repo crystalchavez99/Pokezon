@@ -63,7 +63,7 @@ function ItemEdit({item}) {
                         ))}
                     </div>
                     <label>
-                        Name:
+                        Name: <span>*</span>
                     </label>
                     <input
                         id="add-item-name"
@@ -71,8 +71,12 @@ function ItemEdit({item}) {
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                     />
-                     <label>
-                        Image Upload:
+                    <ul className='signup-ol'>
+                        <li>Minimum Characters: 4</li>
+                        <li>Maximum Characters: 25</li>
+                    </ul>
+                    <label>
+                        Image Upload: <span>*</span>
                     </label>
                     <input
                         id="url-input"
@@ -80,7 +84,7 @@ function ItemEdit({item}) {
                         onChange={updateImage}
                     />
                     <label>
-                        Description:
+                        Description: <span>*</span>
                     </label>
                     <textarea
                         id="add-item-description"
@@ -88,17 +92,25 @@ function ItemEdit({item}) {
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
                     />
+                    <ul className='signup-ol'>
+                        <li>Minimum Characters: 10</li>
+                        <li>Maximum Characters: 500</li>
+                    </ul>
                     <label>
-                        Price:
+                        Price: <span>*</span>
                     </label>
                     <input
                         id="add-item-description"
                         type="number"
                         value={price}
                         onChange={(e) => setPrice(e.target.value)}
+
                     />
+                    <ul className='signup-ol'>
+                        <li>Can Not Be Negative</li>
+                    </ul>
                     <label>
-                        Quantity:
+                        Quantity: <span>*</span>
                     </label>
                     <input
                         id="add-item-description"
@@ -106,6 +118,9 @@ function ItemEdit({item}) {
                         value={quantity}
                         onChange={(e) => setQuantity(e.target.value)}
                     />
+                    <ul className='signup-ol'>
+                        <li>Can Not Be Negative</li>
+                    </ul>
                     <button type='submit' id="submit-button">Edit Item</button>
                     <NavLink to={`/`}>Cancel</NavLink>
                 </form>
