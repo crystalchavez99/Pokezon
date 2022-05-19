@@ -64,12 +64,12 @@ function EditProfile (){
           </div>
           <div>
             <label>Bio</label>
-            <input
+            <textarea
               type='text'
               name='bio'
               onChange={updateBio}
               value={bio}
-            ></input>
+            ></textarea>
           </div>
           <button className="btn-login" type='submit'>Edit Profile</button>
         </form>
