@@ -65,7 +65,6 @@ export const addOneItemThunk = (item) => async dispatch =>{
         method: 'POST',
         body: formData
     })
-    console.log(response)
     if (response.ok) {
         const newItem = await response.json();
         dispatch(addOneItem(newItem));

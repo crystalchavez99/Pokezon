@@ -17,16 +17,16 @@ const SignUpForm = () => {
 
   const onSignUp = async (e) => {
     e.preventDefault();
-    if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, email, password,bio));
+    //if (password === repeatPassword) {
+      const data = await dispatch(signUp(username, email, password,repeatPassword,bio));
       if (data) {
         setErrors(data)
       }
-    }else{
-      setErrors(["Password: Passwords do not match!"])
-      setPassword("")
-      setRepeatPassword("")
-    }
+    // }else{
+    //   setErrors(["Password: Passwords do not match!"])
+    //   setPassword("")
+    //   setRepeatPassword("")
+    // }
   };
 
   const updateUsername = (e) => {
