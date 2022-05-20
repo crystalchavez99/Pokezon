@@ -5,7 +5,6 @@
     justify-content: center;
     align-items: center;
     height: 75vh;
-    margin-top: 25px;
 }
 #display-auth-form{
     display: flex;
@@ -13,13 +12,17 @@
     justify-content: center;
     align-items: center;
     background-color: white;
+    border-radius: 1rem;
+    margin-top: 5%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
 
 }
 #display-auth-form > form{
     display: flex;
     flex-direction: column;
     width: max-content;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
     justify-content: center;
     align-items: center;
     border-radius: 1rem;
@@ -68,4 +71,19 @@ span{
     justify-content: center;
     align-items: center;
     list-style: none;
+}
+
+.pokemon{
+    animation: bounce 0.5s;
+            animation-direction: alternate;
+            animation-timing-function: cubic-bezier(.5, 0.05, 1, .5);
+            animation-iteration-count: infinite;
+}
+@keyframes bounce {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+    to {
+        transform: translate3d(0, 15px, 0);
+    }
 }

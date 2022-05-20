@@ -54,9 +54,9 @@ const SignUpForm = () => {
 
   return (
     <div id="auth-form-page">
-      <img src={logo}/>
       <div id="display-auth-form">
         <form onSubmit={onSignUp}>
+        <img src={logo}/>
           <div id="errors">
             {errors.map((error, ind) => (
               <div key={ind}>{error}</div>

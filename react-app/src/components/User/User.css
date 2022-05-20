@@ -47,8 +47,8 @@
 }
 
 #user-page img{
-        width: 350px;
-        height: 475px;
+    max-width: 250px;
+    max-height: 250px;
 }
 
 .item-sale{
@@ -57,7 +57,8 @@
     flex-wrap: wrap;
     justify-content: center;
     text-decoration: none;
-    width: min-content;
+    max-width: 350px;
+    max-height: 350px;
     border-radius: 1em;
     border-radius: 1rem;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;

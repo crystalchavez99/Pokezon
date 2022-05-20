@@ -17,22 +17,23 @@ function HomePage(){
             <div id="promo">
                 <strong>Free Shipping For Orders Over ₽200.</strong>
             </div>
-            <img src={banner} id="promo-time"/>
+            {/* <img src={banner} id="promo-time"/> */}
             <h1>All your item needs fulfilled</h1>
             <div className='listing'>
                 {itemListing?.map(item =>(
                     <div className='item-listed'>
                         <NavLink key={item?.id} exact={true} to={`/items/${item?.id}`}>
                             <img src={item?.image_url} alt={item?.name}/>
+                            <div id="item-shop">
                             <p>{item?.name}</p>
                             <NavLink key={item?.id} exact={true} to={`/items/${item?.id}`}  className="item-show">
                                 Shop Now
                             </NavLink>
+                            </div>
                         </NavLink>
                     </div>
                 ))}
             </div>
-
         </div>
     )
 }

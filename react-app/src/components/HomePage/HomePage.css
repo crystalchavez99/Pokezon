@@ -15,8 +15,6 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    border-left: 1px solid grey;
-    border-right: 1px solid grey;
 }
 .item-listed{
     box-sizing: border-box;
@@ -24,15 +22,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 350px;
-    max-height: 350px;
+    min-width: 250px;
+    min-height: 350px;
     margin:20px;
+    padding: 0;
+    border: 1px solid grey;
+    border-radius: 5px;
 }
 /* .MuiCardActions-root{
     display: flex;
     justify-content: center;
 } */
 .item-listed a{
+    box-sizing: content-box;;
     text-decoration: none;
     font-weight: 700;
     color: rgb(77, 77, 77);
@@ -42,9 +44,16 @@
 }
 
 .item-listed img{
+    box-sizing: content-box;;
     max-width: 250px;
     max-height: 250px;
+    padding: 0;
+    margin: 0;
 
+}
+#item-shop{
+    display: flex;
+    flex-direction: column;
 }
 
 .item-show{
@@ -75,7 +84,7 @@
 }
 #promo-time{
     display: flex;
-    height: 300px;
+    height: 250px;
     width: 100%;
     justify-content: center;
 }

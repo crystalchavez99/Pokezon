@@ -15,10 +15,11 @@
     float: none;
     align-items: center;
     justify-content: center;
+    margin-bottom: 5%;
 }
 .item-display-flex img{
-    width: 400px;
-    height: 400px;
+    width: 300px;
+    height: 300px;
 }
 
 .item-image{
