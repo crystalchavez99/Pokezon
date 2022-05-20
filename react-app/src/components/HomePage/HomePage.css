@@ -38,7 +38,7 @@
     font-size: 16px;
     text-align: center;
     line-height: 22px;
-    
+
 }
 
 .item-listed img{
@@ -73,6 +73,12 @@
     padding: 5px;
     height: 30px;
     align-items: center;
+}
+#promo-time{
+    display: flex;
+    height: 400px;
+    width: 100%;
+    justify-content: center;
 }
  #banner{
     display: flex;
