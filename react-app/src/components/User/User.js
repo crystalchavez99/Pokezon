@@ -4,6 +4,7 @@ import { NavLink, useParams } from 'react-router-dom';
 import { getAllItemsThunk, deleteOneItemThunk } from '../../store/item';
 import { getAllUser } from '../../store/user';
 import './User.css';
+import { Card, CardContent, CardActions } from '@mui/material';
 
 function User() {
   const [user, setUser] = useState({});
@@ -57,19 +58,23 @@ function User() {
       <div id="owner-items">
         {ownedItems?.map(item => (
           <div className='item-sale'>
-            <NavLink to={`/items/${item?.id}`}>
-              <img src={item?.image_url} alt={item?.name} />
-            </NavLink>
-            <div className='edit-delete'>
-              {sessionUser?.id === user?.id &&
-                <>
-                  <NavLink to={`/items/${item?.id}/edit`}>Edit</NavLink>
-                  <button onClick={() => {
-                    dispatch(deleteOneItemThunk(item))
-                  }}>Delete</button>
-                </>}
-
-            </div>
+            <Card>
+              <CardContent>
+                <NavLink to={`/items/${item?.id}`}>
+                  <img src={item?.image_url} alt={item?.name} />
+                </NavLink>
+                <div className='edit-delete'>
+                  {sessionUser?.id === user?.id &&
+                    <CardActions>
+                      <NavLink to={`/items/${item?.id}/edit`}>Edit</NavLink>
+                      <button onClick={() => {
+                        dispatch(deleteOneItemThunk(item))
+                      }}>Delete</button>
+                    </CardActions>
+                    }
+                </div>
+              </CardContent>
+            </Card>
 
           </div>
         ))}
