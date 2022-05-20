@@ -98,11 +98,12 @@ function ItemDetail() {
                             <h5>Customer Reviews</h5>
                             {currentUser && <ReviewForm item={item} />}
                             {itemReviews?.map(review => (
+
                                 <div>
                                     <div className='review-comment'>
                                         <div id="info-review">
                                             <p>{review?.content}</p>
-                                            <p>{review?.created_at}</p>
+                                            <p>{new Date(review?.created_at).toDateString()}</p>
                                         </div>
                                         {listedUsers?.map(list => {
                                             if (list?.id === review?.user_id) {

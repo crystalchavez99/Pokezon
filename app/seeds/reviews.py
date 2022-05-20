@@ -4,25 +4,25 @@ from app.models import db, Review
 # Adds a demo review, you can add other reviews here if you want
 def seed_reviews():
     ballreview1 = Review(
-        content='recommended for new trainers', user_id=1,item_id=1,created_at='2022-05-09 17:33:33')
+        content='recommended for new trainers', user_id=1,item_id=1,created_at='2022-05-09')
     ballreview2 = Review(
-        content='most common item in marts', user_id=3,item_id=1,created_at='2022-05-09 17:33:33')
+        content='most common item in marts', user_id=3,item_id=1,created_at='2022-05-09')
     potionreview1 = Review(
-        content='saved my pokemon!', user_id=4,item_id=2,created_at='2022-05-09 17:33:33')
+        content='saved my pokemon!', user_id=4,item_id=2,created_at='2022-05-09')
     potionreview2 = Review(
-        content='not enough healing power', user_id=5,item_id=2,created_at='2022-05-09 17:33:33')
+        content='not enough healing power', user_id=5,item_id=2,created_at='2022-05-09')
     antidotereview1 = Review(
-        content='my pokemon lived to see another day :D', user_id=6,item_id=3,created_at='2022-05-09 17:33:33')
+        content='my pokemon lived to see another day :D', user_id=6,item_id=3,created_at='2022-05-09')
     antidotereview2 = Review(
-        content='would recommend during the journey to pewter city', user_id=7,item_id=3,created_at='2022-05-09 17:33:33')
+        content='would recommend during the journey to pewter city', user_id=7,item_id=3,created_at='2022-05-09')
     paralyzehealreview1 = Review(
-        content='best medicine to heal paralyze', user_id=8,item_id=4,created_at='2022-05-09 17:33:33')
+        content='best medicine to heal paralyze', user_id=8,item_id=4,created_at='2022-05-09')
     paralyzehealreview2 = Review(
-        content='prefer natural oragnic berries', user_id=9,item_id=4,created_at='2022-05-09 17:33:33')
+        content='prefer natural oragnic berries', user_id=9,item_id=4,created_at='2022-05-09')
     burnhealreview1 = Review(
-        content='my pokemon lived to see another day :D', user_id=1,item_id=5,created_at='2022-05-09 17:33:33')
+        content='my pokemon lived to see another day :D', user_id=1,item_id=5,created_at='2022-05-09')
     burnhealreview2 = Review(
-        content='would recommend during the journey to pewter city', user_id=3,item_id=5,created_at='2022-05-09 17:33:33')
+        content='would recommend during the journey to pewter city', user_id=3,item_id=5,created_at='2022-05-09')
 
 
     db.session.add(ballreview1)

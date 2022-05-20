@@ -34,7 +34,7 @@ function ItemEdit({item}) {
               setErrors(res?.errors)
             }else{
               setErrors([])
-              history.push(`/items/${item?.id}`)
+              history.push(`/users/${item?.user_id}`)
             }
         })
     }

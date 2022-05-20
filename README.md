@@ -19,10 +19,6 @@ Pokemon Mart E-Commerce Site
 - [Built With](#built-with)
 - [Features](#features)
 - [Future Feature Ideas](#future-feature-ideas)
-- [Getting started](#getting-started)
-  - [Dev Containers (OPTIONAL for M1 Users)](#dev-containers-optional-for-m1-users)
-- [Deploy to Heroku](#deploy-to-heroku)
-- [Helpful commands](#helpful-commands)
   - [Reach Me](#reach-me)
 
 <br>
@@ -76,7 +72,7 @@ and special items that are often unique to Pokemon trainers out there.
 * Order history
 * Incorporate AWS
 
-## Getting started
+<!-- ## Getting started
 1. Clone this repository (only this branch)
 
    ```bash
@@ -200,7 +196,7 @@ each of the following variables:
 | `flask seed all`               | Just a helpful syntax to run queries against the db to seed data. See the **app/seeds** folder for reference and more details                |
 | `heroku login -i`              | Authenticate your heroku-cli using the command line. Drop the -i to authenticate via the browser                                             |
 | `heroku authorizations:create` | Once authenticated, use this to generate an Oauth token                                                                                      |
-| `heroku run -a <app name>`     | Run a command from within the deployed container on Heroku                                                                                   |
+| `heroku run -a <app name>`     | Run a command from within the deployed container on Heroku                                                                                   | -->
 
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/cchavez99/
