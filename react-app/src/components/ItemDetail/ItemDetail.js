@@ -45,7 +45,8 @@ function ItemDetail() {
         }
     }
     return (
-        <div id='item-detail-page'>
+        <div id="item-page">
+            <div id='item-detail-page'>
             <div id="location">
                 <p>Home / {item?.name}</p>
             </div>
@@ -87,6 +88,7 @@ function ItemDetail() {
                                                     {list?.username}
                                                 </NavLink>
                                             </span>
+                                            <p><span className="item-span">Return Policy</span>: We will gladly accept returns within 30 days of the date of delivery, excluding items that are final sale.</p>
                                         </>
                                     )
                                 }
@@ -125,6 +127,7 @@ function ItemDetail() {
                     </TabPanelUnstyled>
                 </TabsUnstyled>
             </div>
+        </div>
         </div>
     )
 }
