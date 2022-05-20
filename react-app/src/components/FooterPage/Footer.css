@@ -11,6 +11,7 @@ footer{
     clear:both;
     position: fixed;
     opacity: .7;
+    font-weight: 600;
 }
 
 #reference ul, #reference li{

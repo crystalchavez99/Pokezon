@@ -96,8 +96,9 @@ def add_review(id):
     if form.validate_on_submit():
         review = Review(content=form["content"].data,user_id=user_id,
         item_id = item_id,
-        created_at=datetime.datetime.now())
+        created_at=datetime.datetime.now().strftime("%x"))
         db.session.add(review)
         db.session.commit()
+        print(review.to_dict(), 'REVIEW')
         return review.to_dict()
     return {"errors": validation_errors_to_error_messages(form.errors)},401
