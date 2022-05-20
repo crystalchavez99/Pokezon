@@ -2,7 +2,8 @@
     max-width: 1140px;
     margin: 0 500px;
     font-family: "Open Sans", sans-serif;
-    padding-bottom: 30%;
+    padding: 5% 2%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 #location{
