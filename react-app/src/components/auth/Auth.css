@@ -5,6 +5,7 @@
     justify-content: center;
     align-items: center;
     height: 75vh;
+    margin-top: 25px;
 }
 #display-auth-form{
     display: flex;

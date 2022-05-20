@@ -62,6 +62,8 @@ const SignUpForm = () => {
               <div key={ind}>{error}</div>
             ))}
           </div>
+          <p>Please provide the following information <br/>
+          <span>*</span> denotes required fields</p>
           <div>
             <label>User Name <span>*</span></label>
             <input
