@@ -54,14 +54,16 @@ const SignUpForm = () => {
 
   return (
     <div id="auth-form-page">
-      <img src={logo}/>
       <div id="display-auth-form">
         <form onSubmit={onSignUp}>
+        <img src={logo}/>
           <div id="errors">
             {errors.map((error, ind) => (
               <div key={ind}>{error}</div>
             ))}
           </div>
+          <p>Please provide the following information <br/>
+          <span>*</span> denotes required fields</p>
           <div>
             <label>User Name <span>*</span></label>
             <input

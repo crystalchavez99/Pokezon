@@ -38,8 +38,9 @@ const LoginForm = () => {
 
   return (
     <div id="auth-form-page">
-        <img src={logo}/>
+
       <div id="display-auth-form">
+      <img src={logo}/>
         <form onSubmit={onLogin}>
           <div id="errors">
             {errors.map((error, ind) => (
@@ -73,6 +74,12 @@ const LoginForm = () => {
           <p>Don't have an account? <NavLink to={`/sign-up`}>Sign Up</NavLink>
           </p>
         </form>
+      </div>
+      <div>
+        <img src="https://res.cloudinary.com/dreambssd/image/upload/v1653071380/bulbasaur_1_f6u2sm.png" className='pokemon'/>
+        <img src="https://res.cloudinary.com/dreambssd/image/upload/v1653071467/mudkip_1_usbey5.png" className='pokemon'/>
+        <img src="https://res.cloudinary.com/dreambssd/image/upload/v1653071744/bulbasaurs_1_x135xb.png" className='pokemon'/>
+        <img src="https://res.cloudinary.com/dreambssd/image/upload/v1653071783/mudkips_1_gqhxjy.png" className='pokemon'/>
       </div>
     </div>
   );
