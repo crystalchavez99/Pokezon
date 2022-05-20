@@ -2,21 +2,25 @@ footer{
     background-color: rgb(94, 114, 125);
     color: white;
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
+    justify-content: center;
     width: 100%;
     bottom: 0;
     left: 0;
+    right: 0;
     clear:both;
     position: fixed;
-    z-index: 100;
+    opacity: .7;
 }
-#tech-used ul ,#reference ul{
-    display: flex;
+
+#reference ul, #reference li{
     list-style-type: none;
+    display: flex;
+    justify-content: space-evenly;
     align-items: center;
 }
 footer li{
-    margin: 2px;
+    margin: 0 26px;
 }
 #tech-used img, #reference img{
     width: 50px;
