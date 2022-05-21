@@ -4,7 +4,8 @@
     font-family: "Open Sans", sans-serif;
     padding: 5% 2%;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    height: 100vh;
+    background-color: white;
+    min-width: 1000px;
 }
 
 #location{

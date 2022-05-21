@@ -45,7 +45,6 @@ function ItemDetail() {
         }
     }
     return (
-        <div id="item-page">
             <div id='item-detail-page'>
             <div id="location">
                 <p>Home / {item?.name}</p>
@@ -127,7 +126,6 @@ function ItemDetail() {
                     </TabPanelUnstyled>
                 </TabsUnstyled>
             </div>
-        </div>
         </div>
     )
 }
