@@ -23,6 +23,7 @@
 #display-auth-form > img{
     width: 100px;
     height: 100px;
+    border-radius: 50%;
 }
 #display-auth-form > form{
     display: flex;
