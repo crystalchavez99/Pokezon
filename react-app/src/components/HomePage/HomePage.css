@@ -1,6 +1,6 @@
 #Home-Page{
     font-family: "Open Sans", sans-serif;
-    color: rgb(77, 77, 77);
+    color: #393E46;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -8,8 +8,20 @@
     align-items: center;
     width: auto;
     height: auto;
-    margin-bottom: 20px;
     background-color: #78C0E0;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+#promo{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    background-color: #150578;
+    color:white;
+    padding: 5px;
+    margin: 0;
+    height: auto;
 }
 .listing{
     display: flex;
@@ -31,9 +43,10 @@
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
-.item-listed:hover{
+/* .item-listed:hover{
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-}
+    opacity: .5;
+} */
 /* .MuiCardActions-root{
     display: flex;
     justify-content: center;
@@ -73,26 +86,11 @@
     border: 1px solid black;
     text-align: center;
     color: white;
-    background-color: black;
+    background-color: #00ADB5;
 }
 
-#promo{
-    display: flex;
-    box-sizing: border-box;
-    width: 100%;
-    justify-content: center;
-    background-color: #150578;
-    color:white;
-    padding: 5px;
-    height: 30px;
-    align-items: center;
-}
-#promo-time{
-    display: flex;
-    height: 250px;
-    width: 100%;
-    justify-content: center;
-}
+
+
  #banner{
     display: flex;
     box-sizing: border-box;
