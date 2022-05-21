@@ -45,88 +45,91 @@ function ItemDetail() {
         }
     }
     return (
-            <div id='item-detail-page'>
-            <div id="location">
-                <p>Home / {item?.name}</p>
-            </div>
-            <div className='item-display-flex'>
-                <div className='item-image'>
-                    <img src={item?.image_url} alt={item?.name} />
+        <div id='item-detail-page'>
+            <div id='item-detail'>
+                <div id="location">
+                    <p>Home / {item?.name}</p>
                 </div>
-                <div className='item-info'>
-                    <p>{item?.name}</p>
-                    <span className="item-span">₽{item?.price}</span>
-                    {/* <p>Quantity: {item?.quantity}</p> */}
-                    {/* <div id="add-to-cart">
+                <div className='item-display-flex'>
+                    <div className='item-image'>
+                        <img src={item?.image_url} alt={item?.name} />
+                    </div>
+                    <div className='item-info'>
+                        <p>{item?.name}</p>
+                        <span className="item-span">₽{item?.price}</span>
+                        {/* <p>Quantity: {item?.quantity}</p> */}
+                        {/* <div id="add-to-cart">
                         <button onClick={increment}><i className="fa-solid fa-plus"></i></button>
                         <input value={quantity} type="number" step={1} min={1} max={item?.quantity} onChange={e => setQuantity(e.target.value)} />
                         <button onClick={reduce}><i className="fa-solid fa-minus"></i></button>
                     </div>
                     <button type="button" id='cart'>Add To Cart</button> */}
+                    </div>
+                </div>
+
+
+
+                <div className='item-desc-review'>
+                    <TabsUnstyled defaultValue={0}>
+                        <TabsListUnstyled id="tabs-box">
+                            <TabUnstyled className='tab'>Description</TabUnstyled>
+                            <TabUnstyled className='tab'>Reviews</TabUnstyled>
+                        </TabsListUnstyled>
+                        <TabPanelUnstyled value={0}>
+                            < div className="item-description">
+                                <p>{item?.description}</p>
+                                {listedUsers?.map(list => {
+                                    if (list?.id === item?.user_id) {
+                                        return (
+                                            <>
+
+                                                <span className="item-span">Sold By:
+                                                    <NavLink to={`/users/${item?.user_id}`}>
+                                                        {list?.username}
+                                                    </NavLink>
+                                                </span>
+                                                <p><span className="item-span">Return Policy</span>: We will gladly accept returns within 30 days of the date of delivery, excluding items that are final sale.</p>
+                                            </>
+                                        )
+                                    }
+                                })}
+                            </div>
+                        </TabPanelUnstyled>
+                        <TabPanelUnstyled value={1}>
+                            <div className='item-reviews'>
+                                <h5>Customer Reviews</h5>
+                                {currentUser && <ReviewForm item={item} />}
+                                {itemReviews?.map(review => (
+
+                                    <div>
+                                        <div className='review-comment'>
+                                            <div id="info-review">
+                                                <p>{review?.content}</p>
+                                                <p>{new Date(review?.created_at).toDateString()}</p>
+                                            </div>
+                                            {listedUsers?.map(list => {
+                                                if (list?.id === review?.user_id) {
+                                                    return (<span className="item-span">{list?.username}</span>)
+                                                }
+                                            })}
+
+                                            {currentUser?.id === review?.user_id && (<div className='edit-delete'>
+                                                <button onClick={() => setModal(true)}>Edit</button>
+                                                {modal &&
+                                                    (<Modal onClose={() => setModal(false)}>
+                                                        <ReviewEdit setModal={setModal} review={review} />
+                                                    </Modal>)}
+                                                <button onClick={() => dispatch(deleteOneReviewThunk(review))}>Delete</button></div>)}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </TabPanelUnstyled>
+                    </TabsUnstyled>
                 </div>
             </div>
-
-
-
-            <div className='item-desc-review'>
-                <TabsUnstyled defaultValue={0}>
-                    <TabsListUnstyled id="tabs-box">
-                        <TabUnstyled className='tab'>Description</TabUnstyled>
-                        <TabUnstyled className='tab'>Reviews</TabUnstyled>
-                    </TabsListUnstyled>
-                    <TabPanelUnstyled value={0}>
-                        < div className="item-description">
-                            <p>{item?.description}</p>
-                            {listedUsers?.map(list => {
-                                if (list?.id === item?.user_id) {
-                                    return (
-                                        <>
-
-                                            <span className="item-span">Sold By:
-                                                <NavLink to={`/users/${item?.user_id}`}>
-                                                    {list?.username}
-                                                </NavLink>
-                                            </span>
-                                            <p><span className="item-span">Return Policy</span>: We will gladly accept returns within 30 days of the date of delivery, excluding items that are final sale.</p>
-                                        </>
-                                    )
-                                }
-                            })}
-                        </div>
-                    </TabPanelUnstyled>
-                    <TabPanelUnstyled value={1}>
-                        <div className='item-reviews'>
-                            <h5>Customer Reviews</h5>
-                            {currentUser && <ReviewForm item={item} />}
-                            {itemReviews?.map(review => (
-
-                                <div>
-                                    <div className='review-comment'>
-                                        <div id="info-review">
-                                            <p>{review?.content}</p>
-                                            <p>{new Date(review?.created_at).toDateString()}</p>
-                                        </div>
-                                        {listedUsers?.map(list => {
-                                            if (list?.id === review?.user_id) {
-                                                return (<span className="item-span">{list?.username}</span>)
-                                            }
-                                        })}
-
-                                        {currentUser?.id === review?.user_id && (<div className='edit-delete'>
-                                            <button onClick={() => setModal(true)}>Edit</button>
-                                            {modal &&
-                                                (<Modal onClose={() => setModal(false)}>
-                                                    <ReviewEdit setModal={setModal} review={review} />
-                                                </Modal>)}
-                                            <button onClick={() => dispatch(deleteOneReviewThunk(review))}>Delete</button></div>)}
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </TabPanelUnstyled>
-                </TabsUnstyled>
-            </div>
         </div>
+
     )
 }
 
