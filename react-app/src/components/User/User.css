@@ -1,13 +1,14 @@
 #user-page{
     font-family: "Open Sans", sans-serif;
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center; */
     text-align: center;
-    align-self: center;
+    /* align-self: center; */
     font-family: "Open Sans", sans-serif;
     color: rgb(77, 77, 77);
-
+    background-color:#78C0E0;
+    height: 100vh;
 }
 .owner{
     display: flex;
@@ -15,6 +16,7 @@
     text-align: center;
     border: 1px dashed grey;
     border-radius: 1rem;
+    background-color: white;
 }
 .owner li{
     list-style-type: none;
@@ -63,6 +65,7 @@
     border-radius: 1rem;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     margin: 10px 20px;
+    background-color: white;
 }
 
 .edit-delete{
