@@ -1,5 +1,9 @@
 #review-display{
     border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 #edit-review-form{
     display: flex;
@@ -7,7 +11,6 @@
   justify-content: center;
   align-items: center;
   font-family: "Open Sans", sans-serif;
-    padding: 15px;
 }
 #edit-errors,#add-errors{
     color:red;
@@ -25,8 +28,9 @@
     padding: 5px 15px;
     width: 70px;
     font-size: 12px;
-    background-color: lightgrey;
-    color: black;
+    background-color: #00ADB5;
+    color: #EEEEEE;
+    font-weight: 700;
     font-family: "Open Sans", sans-serif;
 }
 #edit-review-form button:hover, #add-review-form button:hover{
@@ -34,6 +38,6 @@
     text-decoration: none;
     border: 1px solid black;
     text-align: center;
-    color: white;
-    background-color: black;
+    color: #00ADB5;
+    background-color: #EEEEEE;
 }

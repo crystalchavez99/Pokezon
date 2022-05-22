@@ -12,6 +12,7 @@ footer{
     position: fixed;
     opacity: .7;
     font-weight: 600;
+    height: 70px;
 }
 
 #reference ul, #reference li{

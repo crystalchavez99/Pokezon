@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #78C0E0;
+    background-color: #393E46;
     height: 100vh;
 }
 
@@ -16,7 +16,7 @@
     align-items: center;
     border-radius: 1rem;
     padding: 10px 20px;
-    background-color: white;
+    background-color: #EEEEEE;
 }
 #errors{
     color:red;
@@ -35,8 +35,8 @@
     padding: 5px 15px;
     width: 70px;
     font-size: 12px;
-    background-color: lightgrey;
-    color: black;
+    background-color: #00ADB5;
+    color: #EEEEEE;
     font-family: "Open Sans", sans-serif;
 }
 #add-item-form button:hover, #add-item-form a:hover{

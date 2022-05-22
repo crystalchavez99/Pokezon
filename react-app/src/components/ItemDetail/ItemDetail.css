@@ -139,8 +139,8 @@
     padding: 5px 15px;
     width: 70px;
     font-size: 12px;
-    background-color: lightgrey;
-    color: black;
+    background-color: #00ADB5;
+    color: #EEEEEE;
     font-family: "Open Sans", sans-serif;
 }
 .edit-delete button:hover,.edit-delete a:hover{
@@ -148,8 +148,8 @@
     text-decoration: none;
     border: 1px solid black;
     text-align: center;
-    color: white;
-    background-color: black;
+    color: #00ADB5;
+    background-color: #EEEEEE;
 
 }
 .item-desc-review{

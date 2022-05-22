@@ -60,6 +60,7 @@ function ItemListing() {
                         id="add-item-name"
                         type="text"
                         value={name}
+                        placeholder='Name'
                         onChange={(e) => setName(e.target.value)}
                     />
                     <ul className='signup-ol'>
@@ -81,6 +82,7 @@ function ItemListing() {
                         id="add-item-description"
                         type="text"
                         value={description}
+                        placeholder='Description'
                         onChange={(e) => setDescription(e.target.value)}
                     />
                     <ul className='signup-ol'>
