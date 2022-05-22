@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import logo from '../../images/logo.png'
+import logo from '../../images/Pokezon(2).png'
 import LogoutButton from '../auth/LogoutButton';
 import { Button, Menu, MenuItem } from '@mui/material';
 import './NavBar.css';

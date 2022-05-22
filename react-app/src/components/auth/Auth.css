@@ -4,7 +4,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 75vh;
+    height: 100vh;
+    background-color: #393E46;
 }
 #display-auth-form{
     display: flex;
@@ -13,10 +14,16 @@
     align-items: center;
     background-color: white;
     border-radius: 1rem;
-    margin-top: 5%;
+    margin-top: 1%;
+    padding: 1%;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
 
+}
+#display-auth-form > img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
 }
 #display-auth-form > form{
     display: flex;

@@ -1,21 +1,33 @@
 #item-detail-page{
+    background-color:#393E46;
+
+    /* height: 100vh; */
+}
+#item-detail{
     max-width: 1140px;
     margin: 0 500px;
     font-family: "Open Sans", sans-serif;
-    padding-bottom: 30%;
+    padding: 5% 2%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color:rgb(238, 238, 238);
+    min-width: 1000px;
+    /* height: 100vh; */
 }
 
 #location{
     font-weight: 700;
 }
 .item-display-flex{
+    background-color: white;
     box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
     float: none;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     margin-bottom: 5%;
+    padding: 2%;
+    background-color: white;
 }
 .item-display-flex img{
     width: 300px;
@@ -23,15 +35,13 @@
 }
 
 .item-image{
-    width: 500px;
-    flex: auto 0 0 ;
-    display: block;
+    border: 1px solid grey;
+    height: 100%;
 }
 
 .item-info{
-    flex: auto 0 0 ;
     padding: 0 10px;
-    font-size: 16px;
+    font-size: 30px;
     font-weight: 400;
     line-height: 20px;
     color: rgb(77, 77, 77);
@@ -42,7 +52,7 @@
     font-weight: 600;
 }
 
-#cart{
+/* #cart{
     background-color: rgb(240, 153, 16);
     color: white;
     border: none;
@@ -72,13 +82,14 @@
     height: 45px;
     text-align: center;
 
-}
+} */
 .item-description,.item-reviews{
     border: 1px solid black;
     margin: 0 50px;
     display: flex;
     justify-content: center;
     flex-direction: column;
+    background-color: white;
 }
 .item-description{
     text-align: center;
@@ -128,8 +139,8 @@
     padding: 5px 15px;
     width: 70px;
     font-size: 12px;
-    background-color: lightgrey;
-    color: black;
+    background-color: #00ADB5;
+    color: #EEEEEE;
     font-family: "Open Sans", sans-serif;
 }
 .edit-delete button:hover,.edit-delete a:hover{
@@ -137,9 +148,12 @@
     text-decoration: none;
     border: 1px solid black;
     text-align: center;
-    color: white;
-    background-color: black;
+    color: #00ADB5;
+    background-color: #EEEEEE;
 
+}
+.item-desc-review{
+    height: 100vh;
 }
 
 .item-description a{

@@ -1,14 +1,18 @@
 /* TODO Add site wide styles */
 * {
     font-family: "Open Sans", sans-serif;
+    box-sizing: border-box;
 }
-body{
+html,body{
     width: auto;
-    height: auto;
+    height: 100vh;
     margin: 0;
+    padding: 0;
     font-family: "Open Sans", sans-serif;
     padding-bottom: 5%;
+
 }
 a,button{
     border-radius: 6px;
+
 }
