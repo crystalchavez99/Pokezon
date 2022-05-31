@@ -1,5 +1,5 @@
 <div align='center'>
-<img src="https://res.cloudinary.com/dreambssd/image/upload/v1652822582/ac83eae79d7a4aa8ba236ce2800a6050_wnnnhs.png" alt="Logo" width="80" hight="80">
+<img src="https://res.cloudinary.com/dreambssd/image/upload/v1654026653/PokezonSolid_zu548p.png" alt="Logo" width="80" hight="80">
 
 <h1 text-align="center">Pokezon</h1>
 
@@ -33,7 +33,7 @@ https://aa-pokezon.herokuapp.com/
 Pokezon is a digital store application that sells supplies necessary for Pokémon training and lifestyle. We aim to help merchants sell standard adventure supplies
 and special items that are often unique to Pokemon trainers out there.
 
-<img src="https://res.cloudinary.com/dreambssd/image/upload/v1652818916/Capture_c3n1fp.png">
+<img src="https://res.cloudinary.com/dreambssd/image/upload/v1653506909/POKE_iphzvu.png">
 
 <br>
 
@@ -49,15 +49,22 @@ and special items that are often unique to Pokemon trainers out there.
 <br>
 
 ## Features
+
 **<h3>Items</h3>**
 * <p>Users can view items and post item listings on Pokezon, also able to see them on a user's profile</p>
 * <p>Users that have posted a item listing can edit and delete them</p>
+<img src="https://res.cloudinary.com/dreambssd/image/upload/v1654026874/Capture_nqbegn.png"/>
+
 **<h3>Reviews</h3>**
 * <p>Users can view reviews and post review listings on Pokezon, also able to see them on the item detail page.</p>
 * <p>Users that have posted a review listing can edit and delete them.</p>
+<img src="https://res.cloudinary.com/dreambssd/image/upload/v1654026929/Capture_wlgjlt.png"/>
+
 **<h3>Profile</h3>**
 * <p>Users can view the profile of another user.</p>
 * <p>Only current logged in users can edit their own profile, specifically username and bio</p>
+<img src="https://res.cloudinary.com/dreambssd/image/upload/v1654026980/Capture_cr1bmf.png"/>
+
 ## Future Feature Ideas
 * Search
 * Order history
