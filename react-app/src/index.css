@@ -3,16 +3,22 @@
     font-family: "Open Sans", sans-serif;
     box-sizing: border-box;
 }
-html,body{
-    width: auto;
+html, body{
+    width: 100%;
     height: 100vh;
+}
+body{
     margin: 0;
     padding: 0;
     font-family: "Open Sans", sans-serif;
-    padding-bottom: 5%;
 
 }
 a,button{
     border-radius: 6px;
 
+}
+#root{
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
 }

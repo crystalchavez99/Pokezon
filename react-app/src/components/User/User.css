@@ -1,4 +1,7 @@
 #user-page{
+    padding: 0%;
+    margin: 0;
+    width: auto;
     font-family: "Open Sans", sans-serif;
     /* display: flex;
     flex-direction: column;
@@ -8,7 +11,7 @@
     font-family: "Open Sans", sans-serif;
     color: rgb(77, 77, 77);
     background-color:#393E46;
-    height: 100vh;
+    flex-grow: 1;
 }
 #user-page h1{
     color: white;
@@ -48,8 +51,11 @@ flex-direction: column;
 #owner-items{
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     text-decoration: none;
+    margin: 0;
+    flex-grow: 1;
 }
 
 #user-page img{
@@ -60,7 +66,6 @@ flex-direction: column;
 .item-sale{
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     justify-content: center;
     text-decoration: none;
     max-width: 350px;
@@ -105,4 +110,8 @@ text-align: center;
     color: white;
     background-color: black;
 
+}
+
+#edit-create{
+    display: flex;
 }

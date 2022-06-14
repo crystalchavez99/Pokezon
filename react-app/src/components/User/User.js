@@ -47,7 +47,7 @@ function User() {
           <li>
             <p>Member since {new Date(user?.created_at).toDateString()}</p>
           </li>
-          <div>
+          <div id="edit-create">
             <li>{sessionUser?.id === user?.id &&
               <NavLink to={`/sell`}>Create Listing</NavLink>}
             </li>
