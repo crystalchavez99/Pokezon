@@ -44,6 +44,9 @@ function User() {
           <li>
             <strong>Bio</strong> {user.bio}
           </li>
+          <li>
+            <p>Member since {new Date(user?.created_at).toISOString().slice(0, 10)}</p>
+          </li>
           <div>
             <li>{sessionUser?.id === user?.id &&
               <NavLink to={`/sell`}>Create Listing</NavLink>}
@@ -54,11 +57,14 @@ function User() {
           </div>
         </ul>
       </div>
+      <h1>Items For Sale</h1>
       <div id="owner-items">
+
         {ownedItems?.map(item => (
           <div className='item-sale'>
             <NavLink to={`/items/${item?.id}`}>
               <img src={item?.image_url} alt={item?.name} />
+              <p>{item?.name}</p>
             </NavLink>
             <div className='edit-delete'>
               {sessionUser?.id === user?.id &&
