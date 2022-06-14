@@ -45,7 +45,7 @@ function User() {
             <strong>Bio</strong> {user.bio}
           </li>
           <li>
-            <p>Member since {new Date(user?.created_at).toISOString().slice(0, 10)}</p>
+            <p>Member since {new Date(user?.created_at).toDateString()}</p>
           </li>
           <div>
             <li>{sessionUser?.id === user?.id &&

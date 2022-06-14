@@ -17,8 +17,6 @@
     display: flex;
     justify-content: center;
     text-align: center;
-    border: 1px dashed grey;
-    border-radius: 1rem;
     background-color: #EEEEEE;
 }
 .owner li{
