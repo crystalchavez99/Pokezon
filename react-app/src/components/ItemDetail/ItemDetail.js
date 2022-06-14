@@ -105,7 +105,7 @@ function ItemDetail() {
                                         <div className='review-comment'>
                                             <div id="info-review">
                                                 <p>{review?.content}</p>
-                                                <p>{new Date(review?.created_at).toDateString()}</p>
+                                                <p>{new Date(review?.created_at).toISOString().slice(0, 10)}</p>
                                             </div>
                                             {listedUsers?.map(list => {
                                                 if (list?.id === review?.user_id) {

@@ -10,12 +10,13 @@
     background-color:#393E46;
     height: 100vh;
 }
+#user-page h1{
+    color: white;
+}
 .owner{
     display: flex;
     justify-content: center;
     text-align: center;
-    border: 1px dashed grey;
-    border-radius: 1rem;
     background-color: #EEEEEE;
 }
 .owner li{
@@ -40,7 +41,10 @@
     background-color: #EEEEEE;
     color: #00ADB5;
 }
-
+#owner-items > p{
+display: flex;
+flex-direction: column;
+}
 #owner-items{
     display: flex;
     justify-content: center;
@@ -66,6 +70,11 @@
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     margin: 10px 20px;
     background-color: white;
+    padding: 1rem;
+    font-weight: 700;
+color: rgb(77, 77, 77);
+font-size: 16px;
+text-align: center;
 }
 
 .edit-delete{
