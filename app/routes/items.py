@@ -19,13 +19,13 @@ def items():
     return {'items': [item.to_dict() for item in items]}
 
 # get one item
-@item_routes.route('/<int:id>')
+@item_routes.route('/<int:id>',methods=["GET"])
 def single_item(id):
     item = Item.query.get(id)
     return item.to_dict()
 
 # post an item
-@item_routes.route('/add_item', methods=["GET","POST"])
+@item_routes.route('/add_item', methods=["POST"])
 def add_item():
     user_id = current_user.id
     form = NewItem()

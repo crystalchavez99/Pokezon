@@ -12,8 +12,13 @@ def reviews():
     reviews = Review.query.all()
     return {'reviews' : [review.to_dict() for review in reviews]}
 
-@review_routes.route('/<int:id>',methods=["GET","PUT"])
+@review_routes.route('/<int:id>',methods=["GET"])
 def single_review(id):
+    review = Review.query.get(id)
+    return review.to_dict()
+
+@review_routes.route('/<int:id>',methods=["PUT"])
+def put_single_review(id):
     review = Review.query.get(id)
     form = NewReview()
     form['csrf_token'].data = request.cookies['csrf_token']
