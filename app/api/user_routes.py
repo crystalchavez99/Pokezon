@@ -1,7 +1,7 @@
 from flask import Blueprint,request
 from app.models import User
 from app.models.db import db
-from app.forms.signup_form import EditBio, EditUsername, SignUpForm
+from app.forms.signup_form import EditBio, EditUsername
 from app.api.auth_routes import validation_errors_to_error_messages
 
 user_routes = Blueprint('users', __name__)

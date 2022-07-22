@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, IntegerField,SubmitField,TextAreaField
-from wtforms.validators import DataRequired,Length,NumberRange,ValidationError
-from app.models import Item
+from wtforms.validators import DataRequired,Length,NumberRange
+
 
 
 # Form to create a new instance of item
