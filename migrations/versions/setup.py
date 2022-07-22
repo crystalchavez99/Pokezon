@@ -5,8 +5,6 @@ Revises:
 Create Date: 2020-11-20 15:06:02.230689
 
 """
-from ast import Delete
-from tkinter import CASCADE
 from alembic import op
 import sqlalchemy as sa
 

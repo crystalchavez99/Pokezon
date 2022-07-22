@@ -1,4 +1,3 @@
-from venv import create
 from .db import db
 
 class Review(db.Model):

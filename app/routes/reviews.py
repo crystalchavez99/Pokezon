@@ -1,6 +1,4 @@
-import datetime
 from flask import Blueprint, request
-from flask_login import current_user
 from app.models import Review,db
 from app.api.auth_routes import validation_errors_to_error_messages
 from app.forms.new_review_form import NewReview
