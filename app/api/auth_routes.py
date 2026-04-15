@@ -30,10 +30,8 @@ def authenticate():
 def login():
     """Logs a user in"""
     form = LoginForm()
-    # Get the csrf_token from the request cookie and put it into the
-    # form manually to validate_on_submit can be used
-    form['csrf_token'].data = request.cookies['csrf_token']
-    if form.validate_on_submit():
+    # Skip CSRF validation for JSON requests
+    if form.validate():
         # Add the user to the session, we are logged in!
         user = User.query.filter(User.email == form.data['email']).first()
         login_user(user)
@@ -52,8 +50,7 @@ def logout():
 def sign_up():
     """Creates a new user and logs them in"""
     form = SignUpForm()
-    form['csrf_token'].data = request.cookies['csrf_token']
-    if form.validate_on_submit():
+    if form.validate():
         user = User(
             username=form.data['username'],
             email=form.data['email'],

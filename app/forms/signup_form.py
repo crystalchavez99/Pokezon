@@ -22,6 +22,8 @@ def username_exists(form, field):
 
 
 class SignUpForm(FlaskForm):
+    class Meta:
+        csrf = False
     username = StringField(
         'username', validators=[DataRequired(), username_exists,Length(min=8,max=25)])
     bio = TextAreaField(

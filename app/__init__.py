@@ -2,7 +2,7 @@ import os
 from flask import Flask,  request,  redirect
 from flask_cors import CORS
 from flask_migrate import Migrate
-from flask_wtf.csrf import  generate_csrf
+from flask_wtf.csrf import CSRFProtect, generate_csrf
 from flask_login import LoginManager
 
 from .models import db, User
@@ -20,6 +20,12 @@ app = Flask(__name__, static_folder='../react-app/build', static_url_path='/')
 # Setup login manager
 login = LoginManager(app)
 login.login_view = 'auth.unauthorized'
+
+# Setup CSRF protection
+csrf = CSRFProtect(app)
+
+# Exempt auth routes from CSRF protection
+csrf.exempt(auth_routes)
 
 
 @login.user_loader

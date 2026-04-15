@@ -97,9 +97,15 @@ export const deleteOneItemThunk = (item) => async dispatch =>{
     })
 
     if(response.ok){
-        const deletedItem = await response.json();
-        dispatch(deleteItem(deletedItem))
-        return deletedItem
+        try {
+            const text = await response.text();
+            const deletedItem = text ? JSON.parse(text) : item;
+            dispatch(deleteItem(item));
+            return deletedItem;
+        } catch (error) {
+            dispatch(deleteItem(item));
+            return item;
+        }
     }
     return response
 }

@@ -34,4 +34,4 @@ boto3 = "==1.26.1"
 psycopg2-binary = "==2.8.6"
 
 [requires]
-python_version = "3.9"
+python_version = "3.11"

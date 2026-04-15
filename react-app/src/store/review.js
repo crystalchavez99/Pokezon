@@ -86,9 +86,15 @@ export const deleteOneReviewThunk = (review) => async dispatch =>{
     })
 
     if(response.ok){
-        const deletedReview = await response.json();
-        dispatch(deleteReview(deletedReview))
-        return deletedReview
+        try {
+            const text = await response.text();
+            const deletedReview = text ? JSON.parse(text) : review;
+            dispatch(deleteReview(review));
+            return deletedReview;
+        } catch (error) {
+            dispatch(deleteReview(review));
+            return review;
+        }
     }
     return response
 }

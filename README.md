@@ -44,7 +44,12 @@ and special items that are often unique to Pokemon trainers out there.
 
 ## Built With
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original-wordmark.svg" width=50px height=50px/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original-wordmark.svg" width=50px height=50px/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width=50px height=50px/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg" width=50px height=50px/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" width=50px height=50px/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original-wordmark.svg" width=50px height=50px/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original-wordmark.svg" width=50px height=50px/>
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original-wordmark.svg" width=50px height=50px/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlalchemy/sqlalchemy-original-wordmark.svg" width=50px height=50px/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/heroku/heroku-plain-wordmark.svg" width=50px height=50px/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original-wordmark.svg" width=50px height=50px/>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original-wordmark.svg" width=50px height=50px/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlalchemy/sqlalchemy-original-wordmark.svg" width=50px height=50px/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original-wordmark.svg" width=50px height=50px/>
+
+**Runtime Versions:**
+- Python 3.11
+- Node.js 20
+- PostgreSQL
 
 <br>
 
@@ -80,18 +85,16 @@ and special items that are often unique to Pokemon trainers out there.
 2. Install dependencies
 
       ```bash
-      pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt
+      pip install -r requirements.txt
+      # For development, also install dev dependencies
+      pip install -r dev-requirements.txt
       ```
 
 3. Create a **.env** file based on the example with proper settings for your
    development environment
 4. Setup your PostgreSQL user, password and database and make sure it matches your **.env** file
 
-5. Get into your pipenv, migrate your database, seed your database, and run your flask app
-
-   ```bash
-   pipenv shell
-   ```
+5. Migrate your database, seed your database, and run your flask app
 
    ```bash
    flask db upgrade
@@ -111,8 +114,7 @@ and special items that are often unique to Pokemon trainers out there.
 
 
 *IMPORTANT!*
-   psycopg2-binary MUST remain a dev dependency because you can't install it on alpine-linux.
-   There is a layer in the Dockerfile that will install psycopg2 (not binary) for us.
+   The project now uses Python 3.11 and Node.js 20. The Dockerfile includes a multi-stage build that compiles the React app and serves it via Flask.
 ***
 
 ### Dev Containers (OPTIONAL for M1 Users)
@@ -122,7 +124,7 @@ The following instructions detail an *optional* development setup for M1 Mac use
 2. Make sure you have [Docker](https://www.docker.com/products/docker-desktop/) installed on your computer.
 3. Clone the repository (only this branch)
    ```bash
-   git clone https://github.com/appacademy-starters/python-project-starter.git
+   git clone https://github.com/crystalchavez99/Pokezon.git
    ```
 4. Open the repo in VS Code.
 5. Click "Open in Container" when VS Code prompts to open container in the bottom right hand corner.
@@ -132,11 +134,7 @@ The following instructions detail an *optional* development setup for M1 Mac use
 
 7. Once everything is up, be sure to make a `.env` file based on `.env.example` in both the root directory and the *react-app* directory before running your app. You do not need a `DATABASE_URL` in the `.env` file if you are using this Docker setup for development - the URL is already set in the image (see `.devcontainer/Dockerfile` for the URL).
 
-8. Get into your pipenv, migrate your database, seed your database, and run your flask app
-
-   ```bash
-   pipenv shell
-   ```
+8. Migrate your database, seed your database, and run your flask app
 
    ```bash
    flask db upgrade
@@ -157,22 +155,20 @@ The following instructions detail an *optional* development setup for M1 Mac use
 ## Deploy to Heroku
 This repo comes configured with Github Actions. When you push to your main branch, Github will automatically pull your code, package and push it to Heroku, and then release the new image and run db migrations.
 
-1. Write your Dockerfile. In order for the Github action to work effectively, it must have a configured Dockerfile. Follow the comments found in this [Dockerfile](./Dockerfile) to write your own!
+1. Create a new project on Heroku.
 
-2. Create a new project on Heroku.
+2. Under Resources click "Find more add-ons" and add the add on called "Heroku Postgres".
 
-3. Under Resources click "Find more add-ons" and add the add on called "Heroku Postgres".
-
-4. Configure production environment variables. In your Heroku app settings -> config variables you should have two environment variables set:
+3. Configure production environment variables. In your Heroku app settings -> config variables you should have two environment variables set:
 
    | Key            | Value                                            |
    | -------------- | ------------------------------------------------ |
    | `DATABASE_URL` | Autogenerated when adding postgres to Heroku app |
    | `SECRET_KEY`   | Random string full of entropy                    |
 
-5. Generate a Heroku OAuth token for your Github Action. To do so, log in to Heroku via your command line with `heroku login`. Once you are logged in, run `heroku authorizations:create`. Copy the GUID value for the Token key.
+4. Generate a Heroku OAuth token for your Github Action. To do so, log in to Heroku via your command line with `heroku login`. Once you are logged in, run `heroku authorizations:create`. Copy the GUID value for the Token key.
 
-6. In your Github Actions Secrets you should have two environment variables set. You can set these variables via your Github repository settings -> secrets -> actions. Click "New respository secret" to create
+5. In your Github Actions Secrets you should have two environment variables set. You can set these variables via your Github repository settings -> secrets -> actions. Click "New respository secret" to create
 each of the following variables:
 
    | Key               | Value                            |
@@ -180,15 +176,17 @@ each of the following variables:
    | `HEROKU_API_KEY`  | Heroku Oauth Token (from step 6) |
    | `HEROKU_APP_NAME` | Heroku app name                  |
 
-7. Push to your `main` branch! This will trigger the Github Action to build your Docker image and deploy your application to the Heroku container registry. Please note that the Github Action will automatically upgrade your production database with `flask db upgrade`. However, it will *not* automatically seed your database. You must manually seed your production database if/when you so choose (see step 8).
+6. Push to your `main` branch! This will trigger the Github Action to build your Docker image and deploy your application to the Heroku container registry. Please note that the Github Action will automatically upgrade your production database with `flask db upgrade`. However, it will *not* automatically seed your database. You must manually seed your production database if/when you so choose (see step 8).
 
-8. *Attention!* Please run this command *only if you wish to seed your production database*: `heroku run -a HEROKU_APP_NAME flask seed all`
+7. *Attention!* Please run this command *only if you wish to seed your production database*: `heroku run -a HEROKU_APP_NAME flask seed all`
 
 ## Helpful commands
 | Command                        | Purpose                                                                                                                                      |
 | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| `pipenv shell`                 | Open your terminal in the virtual environment and be able to run flask commands without a prefix                                             |
-| `pipenv run`                   | Run a command from the context of the virtual environment without actually entering into it. You can use this as a prefix for flask commands |
+| `python -m venv venv`          | Create a virtual environment                                                                                                                 |
+| `source venv/bin/activate`     | Activate the virtual environment (Linux/Mac)                                                                                                 |
+| `venv\Scripts\activate`        | Activate the virtual environment (Windows)                                                                                                   |
+| `pip install -r requirements.txt` | Install project dependencies                                                                                                               |
 | `flask db upgrade`             | Check in with the database and run any needed migrations                                                                                     |
 | `flask db downgrade`           | Check in with the database and revert any needed migrations                                                                                  |
 | `flask seed all`               | Just a helpful syntax to run queries against the db to seed data. See the **app/seeds** folder for reference and more details                |

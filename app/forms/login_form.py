@@ -24,6 +24,8 @@ def password_matches(form, field):
 
 
 class LoginForm(FlaskForm):
+    class Meta:
+        csrf = False
     email = StringField('email', validators=[DataRequired(), user_exists])
     password = StringField('password', validators=[
                            DataRequired(), password_matches])

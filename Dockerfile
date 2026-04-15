@@ -1,28 +1,18 @@
-# Start with the python:3.9 image
-FROM python:3.9
-# Set the following enviroment variables
-#
-# REACT_APP_BASE_URL -> Your deployment URL
-ENV REACT_APP_BASE_URL = https://aa-pokezon.herokuapp.com/
-# FLASK_APP -> entry point to your flask app
-ENV FLASK_APP=app
-# FLASK_ENV -> Tell flask to use the production server
-ENV FLASK_ENV=production
-# SQLALCHEMY_ECHO -> Just set it to true
-ENV SQLALCHEMY_ECHO=True
-# Set the directory for upcoming commands to /var/www
-WORKDIR /var/www
-# Copy all the files from your repo to the working directory
-COPY . .
-# Copy the built react app (it's built for us) from the
-# /react-app/build/ directory into your flasks app/static directory
-COPY /react-app/build/* app/static/
-# Run the next two python install commands with PIP
-# install -r requirements.txt
-# install psycopg2
-RUN pip install -r requirements.txt
+FROM node:20 AS react-build
+WORKDIR /var/www/react-app
+COPY react-app/package.json react-app/package-lock.json ./
+RUN npm install
+COPY react-app/ .
+RUN CI=false NODE_OPTIONS=--openssl-legacy-provider npm run build
 
-RUN pip install psycopg2
-# Start the flask environment by setting our
-# closing command to gunicorn app:app
-CMD gunicorn app:app
+FROM python:3.11-slim
+WORKDIR /var/www
+ENV REACT_APP_BASE_URL=https://aa-pokezon.herokuapp.com/
+ENV FLASK_APP=app
+ENV FLASK_ENV=production
+ENV SQLALCHEMY_ECHO=True
+COPY --from=react-build /var/www/react-app/build ./app/static
+COPY . .
+RUN apt-get update && apt-get install -y gcc libpq-dev && rm -rf /var/lib/apt/lists/*
+RUN pip install --no-cache-dir -r requirements.txt
+CMD ["gunicorn", "app:app"]
