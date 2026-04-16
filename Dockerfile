@@ -15,4 +15,6 @@ COPY --from=react-build /var/www/react-app/build ./app/static
 COPY . .
 RUN apt-get update && apt-get install -y gcc libpq-dev && rm -rf /var/lib/apt/lists/*
 RUN pip install --no-cache-dir -r requirements.txt
-CMD ["bash", "-lc", "gunicorn app:app --bind 0.0.0.0:$PORT"]
+COPY start.sh .
+RUN chmod +x start.sh
+CMD ["./start.sh"]
