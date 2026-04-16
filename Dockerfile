@@ -13,7 +13,7 @@ ENV FLASK_ENV=production
 ENV SQLALCHEMY_ECHO=True
 COPY --from=react-build /var/www/react-app/build ./app/static
 COPY . .
-RUN apt-get update && apt-get install -y gcc libpq-dev && rm -rf /var/lib/apt/lists/*
+    RUN apt-get update && apt-get install -y gcc g++ libpq-dev && rm -rf /var/lib/apt/lists/*
 RUN pip install --no-cache-dir -r requirements.txt
 COPY start.sh .
 RUN chmod +x start.sh
